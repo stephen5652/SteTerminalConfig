@@ -1,0 +1,20 @@
+
+# idea 
+cmake-build*
+build
+.cache
+.DS_Store
+*.idea/*
+
+# vscode
+.vscode/c_cpp_properties.json
+/.vscode/
+.history/
+
+# log files
+*.log
+
+# neovim 
+plugged
+
+
