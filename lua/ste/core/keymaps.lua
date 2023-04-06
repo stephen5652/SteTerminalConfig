@@ -13,6 +13,10 @@ keymap.set({ "i", "v", "c" }, "jk", "<ESC>")
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
+-- bufferline 左右Tab切换
+keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<CR>")
+keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<CR>")
+
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
@@ -37,7 +41,3 @@ keymap.set({ "n", "i", "v" }, "<c-s>", "<cmd>w<CR>")
 -- terminal
 keymap.set("t", "jk", "<c-\\><c-n>")
 keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
--- keymap.set("t", "<leader>l", "<Cmd> wincmd l<CR>", { noremap = true, silent = true })
--- keymap.set("t", "<leader>h", "<Cmd> wincmd h<CR>", { noremap = true, silent = true })
--- keymap.set("t", "<leader>j", "<Cmd> wincmd j<CR>", { noremap = true, silent = true })
--- keymap.set("t", "<leader>k", "<Cmd> wincmd k<CR>", { noremap = true, silent = true })
