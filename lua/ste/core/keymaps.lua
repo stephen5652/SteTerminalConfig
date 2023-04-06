@@ -32,3 +32,11 @@ keymap.set("t", "<S-Up>", "<cmd>:resize +2<CR>", { silent = true })
 keymap.set("t", "<S-Down>", "<cmd>:resize -2<CR>", { silent = true })
 
 keymap.set({ "n", "i", "v" }, "<c-s>", "<cmd>w<CR>")
+
+-- terminal
+keymap.set("t", "jk", "<c-\\><c-n>")
+keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+-- keymap.set("t", "<leader>l", "<Cmd> wincmd l<CR>", { noremap = true, silent = true })
+-- keymap.set("t", "<leader>h", "<Cmd> wincmd h<CR>", { noremap = true, silent = true })
+-- keymap.set("t", "<leader>j", "<Cmd> wincmd j<CR>", { noremap = true, silent = true })
+-- keymap.set("t", "<leader>k", "<Cmd> wincmd k<CR>", { noremap = true, silent = true })

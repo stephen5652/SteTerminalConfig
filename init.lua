@@ -18,3 +18,4 @@ require("ste.core.keymaps")
 -- dap
 require("ste.plugins.dap.dapconfig")
 require("ste.which-key")
+require("ste.plugins.toggleterm")

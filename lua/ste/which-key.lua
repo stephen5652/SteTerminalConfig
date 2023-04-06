@@ -115,6 +115,28 @@ function _G.live_grep_the_file()
     grep_open_files = true,
   })
 end
+
+-- terminal begin
+local Terminal = require("toggleterm.terminal").Terminal
+
+-- python terminal
+local pyterm = Terminal:new({
+  cmd = "python3",
+  direction = "horizontal",
+})
+
+function _G.python_toggle() -- python terminal
+  pyterm:toggle()
+end
+
+-- common terminal
+local cuterm = Terminal:new()
+function _G.st_custome_toogle()
+  cuterm:toggle()
+end
+
+-- terminal end
+
 local mappings = {
   ["<leader>"] = {
     d = {
@@ -160,19 +182,30 @@ local mappings = {
       -- }, -- you can also pass functions!
     },
     l = {
-      name = "Lsp management",
-      s = { "<cmd>LspRestart<CR>", "Restart lsp if necessary" },
-      i = { "<cmd>LspInfo<cr>", "Lsp service info" },
+      name = "Develop languages info [lsp treesitter mason]",
+      l = {
+        name = "Lsp management",
+        i = { "<cmd>LspInfo<cr>", "Lsp service info" },
+        s = { "<cmd>LspRestart<CR>", "Restart lsp if necessary" },
+      },
+      m = {
+        name = "Mason management",
+        t = { "<cmd>Mason<cr>", "Toggle Mason" },
+      },
+      t = {
+        name = "Treesitter management",
+        l = { "<cmd>TSInstallInfo<cr>", "Treesitter list supported languages" },
+        m = { "<cmd>TSModuleInfo<cr>", "Treesitter show installed info" },
+      },
     },
     t = {
-      name = "Tab Management",
-      o = { "<cmd>tabnew<cr>", "Create new tab" },
-      c = { "<cmd>tabclose<cr>", "Close current tab" },
-      n = { "<cmd>tabn<cr>", "Go to next tab" },
-      p = { "<cmd>tabp<cr>", "Go to previous tab" },
+      name = "Terminal",
+      p = { "<Cmd>lua _G.python_toggle()<CR>", "Open one python terminal" },
+      c = { "<Cmd>lua _G.st_custome_toogle()<CR>", "Open one python terminal" },
     },
     w = {
       name = "window management",
+      a = { "<cmd>lua require'telescope.builtin'.colorscheme()<cr>", "Appearance colorscheme list" },
       v = { "<c-w>v", "Vertically split window" },
       b = { "<c-w>s", "Horizontally split window" },
       e = { "<c-w>=", "Make split windows equal width & height" },
@@ -182,9 +215,15 @@ local mappings = {
       k = { "<C-w><c-k>", "Foucus the top split window" },
       j = { "<C-w><c-j>", "Foucus the bottom split window" },
       o = { "<C-w><c-o>", "Close other split windows" },
-      a = { "<cmd>lua require'telescope.builtin'.colorscheme()<cr>", "Appearance colorscheme list" },
       m = { "<cmd>MaximizerToggle<cr>", "Make split window maximization" },
-      t = { "<cmd>FineCmdline<CR>", "Enter cmd mode" },
+      q = { "<cmd>FineCmdline<CR>", "Enter cmd mode" },
+      t = {
+        name = "Tab Management",
+        o = { "<cmd>tabnew<cr>", "Create new tab" },
+        c = { "<cmd>tabclose<cr>", "Close current tab" },
+        n = { "<cmd>tabn<cr>", "Go to next tab" },
+        p = { "<cmd>tabp<cr>", "Go to previous tab" },
+      },
     },
   },
   {
