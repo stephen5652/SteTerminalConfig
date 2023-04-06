@@ -79,7 +79,7 @@ mac 端配置 codelldb 的时候，需要去官网下载 codelldb 包。
   - 下载 codelldb
 
     ```shell
-    wget https://github.com/clangd/clangd/releases/clangd-mac-15.0.6.zip -p ~/Downloads
+    wget https://github.com/vadimcn/codelldb/releases/download/v1.9.0/codelldb-x86_64-darwin.vsix -P ~/Downloads
     ```
 
   - 移动到目标路径
