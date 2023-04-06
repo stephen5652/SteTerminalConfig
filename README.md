@@ -45,7 +45,7 @@ mac 端配置 codelldb 的时候，需要去官网下载 codelldb 包。
 - 安装 wget npm yarn
 
   ```shell
-  brew installi wget nodejs yarn
+  brew install wget nodejs yarn
   npm config set registry http://registry.npmmirror.com
   yarn config set registry http://registry.npmmirror.com
   ```
