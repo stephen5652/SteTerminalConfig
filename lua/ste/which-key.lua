@@ -138,6 +138,7 @@ local mappings = {
       name = "File explorer",
       e = { ":NvimTreeToggle<cr>", "Show file explorer" },
       f = { ":NvimTreeFindFile<cr>", "Foucus opened file in explorer" },
+      s = { "<cmd>w<cr>", "Svae current opened file, same as <c-s>" },
       q = { "<cmd>q<cr>", "Quit current opened file" },
     },
     f = {
