@@ -1,7 +1,11 @@
+-- import mason plugin safely
+local mason_package_path = vim.env.MASON .. "/packages"
+local venv_path = mason_package_path .. "/debugpy/venv"
+
 local dap = require("dap")
 dap.adapters.python = {
   type = "executable",
-  command = "path/to/virtualenvs/debugpy/bin/python",
+  command = venv_path .. "/bin/python",
   args = { "-m", "debugpy.adapter" },
 }
 
@@ -25,7 +29,7 @@ dap.configurations.python = {
       elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
         return cwd .. "/.venv/bin/python"
       else
-        return "/usr/bin/python"
+        return venv_path .. "/bin/python"
       end
     end,
   },

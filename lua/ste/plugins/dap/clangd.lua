@@ -1,5 +1,6 @@
 -- suggest document: https://juejin.cn/post/7100136723518062629
 local dap = require("dap")
+dap.set_log_level("DEBUG")
 local cmd = os.getenv("HOME") .. "/.local/share/nvim/data/debug/tools/extension/adapter/codelldb"
 dap.adapters.codelldb = function(on_adapter)
   -- This asks the system for a free port

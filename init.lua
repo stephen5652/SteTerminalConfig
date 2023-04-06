@@ -20,3 +20,12 @@ require("ste.plugins.dap.dapconfig")
 require("ste.which-key")
 require("ste.plugins.toggleterm")
 require("ste.plugins.bufferline")
+
+vim.cmd([[ 
+  augroup swift_auto_formatter 
+    autocmd!
+
+    autocmd BufWritePost  "!swiftformat %"
+    " autocddmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+  augroup end
+]])

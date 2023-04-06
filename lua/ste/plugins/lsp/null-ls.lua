@@ -37,7 +37,6 @@ null_ls.setup({
           vim.lsp.buf.format({
 
             filter = function(client)
-              print("should formatter code")
               --  only use null-ls for formatting instead of lsp server
               return client.name == "null-ls"
             end,
