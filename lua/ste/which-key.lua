@@ -135,8 +135,6 @@ function _G.st_custome_toogle()
   cuterm:toggle()
 end
 
--- terminal end
-
 local mappings = {
   ["<leader>"] = {
     d = {

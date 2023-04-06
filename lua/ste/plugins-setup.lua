@@ -57,7 +57,10 @@ return packer.startup(function(use)
 
   -- fuzzy finding w/ telescope
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+  use({
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+  }) -- fuzzy finder
 
   -- autocompletion
   use("hrsh7th/nvim-cmp") -- completion plugin
@@ -132,12 +135,10 @@ return packer.startup(function(use)
     },
   })
 
+  -- terminal
   use({
     "akinsho/toggleterm.nvim",
     tag = "*",
-    config = function()
-      require("toggleterm").setup()
-    end,
   })
 
   if packer_bootstrap then

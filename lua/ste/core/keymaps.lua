@@ -24,6 +24,7 @@ keymap.set("i", "<C-l>", "<Right>", { silent = true })
 keymap.set("i", "<C-b>", "<PageUp>", { silent = true })
 keymap.set("i", "<C-f>", "PageDown>", { silent = true })
 
+-- tab manager
 keymap.set("n", "<S-Up>", ":resize -2<CR>", { silent = true })
 keymap.set("n", "<S-Down>", ":resize +2<CR>", { silent = true })
 keymap.set("n", "<S-Left>", ":vertical resize -2<CR>", { silent = true })
