@@ -20,6 +20,7 @@ require("ste.plugins.dap.dapconfig")
 require("ste.which-key")
 require("ste.plugins.toggleterm")
 require("ste.plugins.bufferline")
+require("ste.plugins.dap.nvim-jdtls")
 
 vim.cmd([[ 
   augroup swift_auto_formatter 

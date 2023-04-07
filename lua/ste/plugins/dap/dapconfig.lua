@@ -7,6 +7,7 @@ require("mason-nvim-dap").setup({
     "jq",
     "python",
     "lldb-vscode",
+    "javadbg",
   },
   automatic_setup = true,
   automatic_installation = true,
