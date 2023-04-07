@@ -135,6 +135,29 @@ function _G.st_custome_toogle()
   cuterm:toggle()
 end
 
+-- float terminal
+local float_term = Terminal:new({
+  direction = "float",
+  float_opts = {
+    border = "double",
+  },
+  -- function to run on opening the terminal
+  on_open = function(term)
+    vim.cmd("startinsert!")
+    vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+  end,
+  -- function to run on closing the terminal
+  on_close = function(term)
+    vim.cmd("startinsert!")
+  end,
+})
+
+function _G.st_custome_float_term()
+  float_term:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+
 local mappings = {
   ["<leader>"] = {
     b = {
@@ -206,6 +229,7 @@ local mappings = {
       name = "Terminal",
       p = { "<Cmd>lua _G.python_toggle()<CR>", "Open one python terminal" },
       c = { "<Cmd>lua _G.st_custome_toogle()<CR>", "Open one python terminal" },
+      f = { "<cmd>lua _G.st_custome_float_term()<CR>", "Open one float terminal" },
     },
     w = {
       name = "window management",
