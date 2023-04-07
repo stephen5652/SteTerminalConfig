@@ -26,6 +26,7 @@ treesitter.setup({
   autotag = { enable = true },
   -- ensure these language parsers are installed
   ensure_installed = {
+    "bash",
     "json",
     "javascript",
     "typescript",
@@ -44,8 +45,10 @@ treesitter.setup({
     "gitignore",
     "c",
     "cpp",
+    "cmake",
     "swift",
     "go",
+    "dart",
   },
   -- auto install above language parsers
   auto_install = true,
