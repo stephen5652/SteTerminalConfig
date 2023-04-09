@@ -158,6 +158,16 @@ return packer.startup(function(use)
     ft = { "markdown" },
   })
 
+  use({
+    "ellisonleao/glow.nvim",
+    config = function()
+      require("glow").setup({
+        style = "dark",
+        width = 120,
+      })
+    end,
+  })
+
   if packer_bootstrap then
     require("packer").sync()
   end

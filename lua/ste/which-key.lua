@@ -253,13 +253,6 @@ local mappings = {
       o = { "<C-w><c-o>", "Close other split windows" },
       m = { "<cmd>MaximizerToggle<cr>", "Make split window maximization" },
       q = { "<cmd>FineCmdline<CR>", "Enter cmd mode" },
-      t = {
-        name = "Tab Management",
-        o = { "<cmd>tabnew<cr>", "Create new tab" },
-        c = { "<cmd>tabclose<cr>", "Close current tab" },
-        n = { "<cmd>tabn<cr>", "Go to next tab" },
-        p = { "<cmd>tabp<cr>", "Go to previous tab" },
-      },
     },
   },
   {
