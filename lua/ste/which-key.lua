@@ -208,6 +208,7 @@ local mappings = {
       name = "Git action",
       b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Show current line blame" },
       d = { "<cmd>LazyGitFilterCurrentFile<cr>", "Show current file git history" },
+      g = { "<cmd>LazyGitCurrentFile<cr>", "Toggle lazygit view" },
       h = {
         name = "Hunk actions",
         n = { "<cmd>Gitsigns next_hunk<CR>", "Next hunk" },
