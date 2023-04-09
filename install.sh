@@ -10,6 +10,13 @@ install_tool() {
 	echo -e "\nhomebrew install tools finish"
 }
 
+install_plugin_implementations() {
+	echo -e "Start install nvim plugin implentations\n"
+	brew install lazygit
+
+	echo -e "Finish install nvim plugins implementations\n"
+}
+
 install_dap_debug() {
 	echo -e "\nbeging install dap debug\n"
 
@@ -25,6 +32,7 @@ install_dap_debug() {
 
 main() {
 	install_tool
+	install_plugin_implementations
 	install_dap_debug
 }
 

@@ -8,7 +8,7 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 
 -- use jk to enter normal mode
-keymap.set({ "i", "v", "c" }, "jk", "<ESC>")
+keymap.set({ "i", "v", "c" }, ",k", "<ESC>")
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
@@ -39,8 +39,7 @@ keymap.set("t", "<S-Down>", "<cmd>:resize -2<CR>", { silent = true })
 keymap.set({ "n", "i", "v" }, "<c-s>", "<cmd>w<CR>")
 
 -- terminal
-keymap.set("t", "jk", "<c-\\><c-n>")
-keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+keymap.set("t", ",k", "<c-\\><c-n>")
 
 -- 快速在buffer间跳转
 vim.api.nvim_set_keymap("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>", { noremap = true, silent = true })
