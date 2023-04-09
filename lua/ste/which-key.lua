@@ -9,6 +9,7 @@ local setup = {
   -- refer to the configuration section below
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
+
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
@@ -17,6 +18,7 @@ local setup = {
       suggestions = 20, -- how many suggestions should be shown in the list?
     },
     presets = {
+
       operators = true, -- adds help for operators like d, y, ...
       motions = true, -- adds help for motions
       text_objects = true, -- help for text objects triggered after entering an operator
@@ -146,17 +148,11 @@ local float_term = Terminal:new({
     vim.cmd("startinsert!")
     vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
   end,
-  -- function to run on closing the terminal
-  on_close = function(term)
-    vim.cmd("startinsert!")
-  end,
 })
 
 function _G.st_custome_float_term()
   float_term:toggle()
 end
-
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 
 local mappings = {
   ["<leader>"] = {
@@ -207,6 +203,17 @@ local mappings = {
       --   end,
       --   "Foobar",
       -- }, -- you can also pass functions!
+    },
+    g = {
+      name = "Git action",
+      b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Show current line blame" },
+      d = { "<cmd>LazyGitFilterCurrentFile<cr>", "Show current file git history" },
+      h = {
+        name = "Hunk actions",
+        n = { "<cmd>Gitsigns next_hunk<CR>", "Next hunk" },
+        p = { "<cmd>Gitsigns prev_hunk<cr>", "Pre hunk" },
+        v = { "<cmd>Gitsigns preview_hunk<CR>", "Show hunk preview" },
+      },
     },
     l = {
       name = "Develop languages info [lsp treesitter mason]",
