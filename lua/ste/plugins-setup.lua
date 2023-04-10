@@ -102,7 +102,7 @@ return packer.startup(function(use)
   -- formatting & linting
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
 
-  -- treesitter configuration
+  -- treesitter configuration, used for code hight lighting
   use({
     "nvim-treesitter/nvim-treesitter",
     run = function()
@@ -111,8 +111,13 @@ return packer.startup(function(use)
     end,
   })
 
+  use("simrat39/symbols-outline.nvim")
+
   -- auto closing
   use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
+
+  -- Use treesitter to autoclose and autorename html tag
+  -- It work with html,tsx,vue,svelte,php,rescript.
   use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
   -- git integration
@@ -157,6 +162,9 @@ return packer.startup(function(use)
     end,
     ft = { "markdown" },
   })
+
+  -- indent show
+  use("lukas-reineke/indent-blankline.nvim")
 
   use({
     "ellisonleao/glow.nvim",

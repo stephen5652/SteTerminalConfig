@@ -162,6 +162,10 @@ local mappings = {
       p = { "<cmd>BufferLineCyclePrev<CR>", "Move cursor to pre tab" },
       n = { "<cmd>BufferLineCycleNext<CR>", "Move cursor to next tab" },
     },
+    c = {
+      name = "Code actions",
+      s = { "<cmd>SymbolsOutline<cr>", "Show code synbols" },
+    },
     d = {
       name = "Debug functions",
       w = { "<cmd>lua require('dapui').toggle()<cr>", "Toogle debug window" },

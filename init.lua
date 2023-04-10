@@ -20,6 +20,8 @@ require("ste.plugins.dap.dapconfig")
 require("ste.which-key")
 require("ste.plugins.toggleterm")
 require("ste.plugins.bufferline")
+require("ste.plugins.symbols-outline")
+require("ste.plugins.indent-blankline")
 
 vim.cmd([[ 
   augroup swift_auto_formatter 
