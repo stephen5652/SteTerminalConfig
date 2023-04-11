@@ -176,6 +176,16 @@ return packer.startup(function(use)
     end,
   })
 
+  -- input key-board
+  use({
+    "ybian/smartim",
+    event = { "InsertEnter" },
+    config = function()
+      -- default IME mode
+      vim.g.smartim_default = "com.apple.keylayout.ABC"
+    end,
+  })
+
   if packer_bootstrap then
     require("packer").sync()
   end
