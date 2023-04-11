@@ -8,7 +8,7 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 
 -- use jk to enter normal mode
-keymap.set({ "i", "v", "c" }, ",k", "<ESC>")
+keymap.set({ "i", "v", "c" }, "<leader>jk", "<ESC>")
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
