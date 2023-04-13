@@ -11,6 +11,10 @@ mason_null_ls.setup({
     "stylua", -- lua formatter
     "eslint_d", -- ts/js linter
     "shfmt", -- shell formatter
+    "rubyfmt",
+    "autopep8",
+    "astyle",
+    "reek",
   },
   -- auto-install configured formatters & linters (with null-ls)
   automatic_installation = true,
@@ -35,6 +39,8 @@ null_ls.setup({
   sources = {
     --  to disable file types use
     --  "formatting.prettier.with({disabled_filetypes = {}})" (see null-ls docs)
+    formatting.astyle, -- C, C++, C++/CLI, Objective‑C, C# formatter
+    formatting.autopep8, -- formats Python code to conform to the PEP 8 style guide
     formatting.prettier, -- js/ts formatter
     formatting.stylua, -- lua formatter
     diagnostics.eslint_d.with({
@@ -46,6 +52,8 @@ null_ls.setup({
     }),
     diagnostics.swiftlint,
     formatting.shfmt, -- bash formatter
+    formatting.rubyfmt, -- Format your Ruby code!
+    diagnostics.reek, -- Code smell detector for Ruby
   },
   -- configure format on save
   on_attach = function(current_client, bufnr)
