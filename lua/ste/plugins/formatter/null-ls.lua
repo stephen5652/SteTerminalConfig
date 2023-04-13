@@ -13,7 +13,7 @@ mason_null_ls.setup({
     "shfmt", -- shell formatter
     "rubyfmt",
     "autopep8",
-    "astyle",
+    "clang_format",
     "standardrb",
   },
   -- auto-install configured formatters & linters (with null-ls)
@@ -40,7 +40,9 @@ null_ls.setup({
   sources = {
     --  to disable file types use
     --  "formatting.prettier.with({disabled_filetypes = {}})" (see null-ls docs)
-    formatting.astyle, -- C, C++, C++/CLI, Objective‑C, C# formatter
+    formatting.clang_format.with({
+      extra_filetypes = { "objc" }, -- enable  Objective-C
+    }), -- clang-format is formatter for C/C++/Java/JavaScript/JSON/Objective-C/Protobuf/C# code
     formatting.autopep8, -- formats Python code to conform to the PEP 8 style guide
     formatting.prettier, -- js/ts formatter
     formatting.stylua, -- lua formatter
@@ -51,7 +53,8 @@ null_ls.setup({
         return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
       end,
     }),
-    diagnostics.swiftlint,
+    -- diagnostics.swiftlint,
+    formatting.swiftlint,
     formatting.shfmt, -- bash formatter
     diagnostics.standardrb, -- linter your Ruby code!
     formatting.standardrb, -- formmatter your Ruby code!
