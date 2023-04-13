@@ -14,7 +14,7 @@ mason_null_ls.setup({
     "rubyfmt",
     "autopep8",
     "astyle",
-    "reek",
+    "standardrb",
   },
   -- auto-install configured formatters & linters (with null-ls)
   automatic_installation = true,
@@ -35,6 +35,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- configure null_ls
 null_ls.setup({
+  -- debug = true, -- use for debug null_ls, nvim command: NullLsInfo
   -- setup formatters & linters
   sources = {
     --  to disable file types use
@@ -52,8 +53,8 @@ null_ls.setup({
     }),
     diagnostics.swiftlint,
     formatting.shfmt, -- bash formatter
-    formatting.rubyfmt, -- Format your Ruby code!
-    diagnostics.reek, -- Code smell detector for Ruby
+    diagnostics.standardrb, -- linter your Ruby code!
+    formatting.standardrb, -- formmatter your Ruby code!
   },
   -- configure format on save
   on_attach = function(current_client, bufnr)
