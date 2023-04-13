@@ -16,6 +16,8 @@ install_plugin_implementations() {
 	# plugins for telescope, nvim command: checkhealth telescope
 	brew install ripgrep
 	brew install fd
+	brew install swiftlint        # enable  null-ls swiftlint
+	brew install astyle --verbose # enable null-ls astyle
 
 	echo -e "Finish install nvim plugins implementations\n"
 }
