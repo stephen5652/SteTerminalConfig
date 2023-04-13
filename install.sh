@@ -13,9 +13,10 @@ install_tool() {
 install_plugin_implementations() {
 	echo -e "Start install nvim plugin implentations\n"
 	brew install lazygit
-	# plugins for telescope, nvim command: checkhealth telescope
-	brew install ripgrep
-	brew install fd
+
+	brew install ripgrep # plugins for telescope, nvim command: checkhealth telescope
+	brew install fd      # plugins for telescope, nvim command: checkhealth telescope
+
 	brew install swiftlint        # enable  null-ls swiftlint
 	brew install astyle --verbose # enable null-ls astyle
 
