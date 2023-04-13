@@ -13,6 +13,9 @@ install_tool() {
 install_plugin_implementations() {
 	echo -e "Start install nvim plugin implentations\n"
 	brew install lazygit
+	# plugins for telescope
+	brew install ripgrep
+	brew install fd
 
 	echo -e "Finish install nvim plugins implementations\n"
 }
