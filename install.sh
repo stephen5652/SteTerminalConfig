@@ -21,6 +21,8 @@ install_plugin_implementations() {
 	brew install astyle --verbose # enable null-ls astyle
 
 	gem install neovim # enable ruby language
+
+	npm install -g vls # enable vue language
 	echo -e "Finish install nvim plugins implementations\n"
 }
 
