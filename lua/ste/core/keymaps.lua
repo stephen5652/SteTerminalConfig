@@ -39,7 +39,7 @@ keymap.set("t", "<S-Down>", "<cmd>:resize -2<CR>", { silent = true })
 keymap.set({ "n", "i", "v" }, "<c-s>", "<cmd>w<CR>")
 
 -- terminal
-keymap.set("t", ",k", "<c-\\><c-n>")
+keymap.set("t", "<ESC>", "<c-\\><c-n>")
 
 -- 快速在buffer间跳转
 vim.api.nvim_set_keymap("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>", { noremap = true, silent = true })

@@ -105,3 +105,46 @@ mac 端配置 codelldb 的时候，需要去官网下载 codelldb 包。
 ## 帮助
 
 本配置使用了 which-key 插件来辅助使用，初次使用的时候，可以使用 leader 键盘【即：空格键】来唤起 which-key 弹窗，用以查看各个功能怎么用。
+
+## 快捷
+
+为了便捷部署开发环境，专门写了一个 macos 系统的 install 脚本。所以可以忽略上面的步骤，使用 install 脚本安装环境，步骤如下：
+
+- mac 电脑安装 homebrew
+
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+- 下载仓库：
+
+  在终端任意路径下执行指令。
+
+  ```shell
+  git clone https://github.com/stephen5652/steNeovimConfig.git  ~/.config/nvim
+  ```
+
+- 执行安装脚本：
+
+  在终端任意路径下执行指令：
+
+  ```shell
+  cd ~/.config/nvim
+  chmod +x install.sh
+  ./install.sh
+  ```
+
+等待脚本执行完毕，环境就准备好了。
+当然，这还只是基础准备，还不能立刻用，还需要 vim 自己安装插件。 步骤如下：
+
+    - 在终端任意目录下执行nvim, 打开nvim;
+    - 一路按回车，知道packer开始下载插件；
+    - packer执行完毕后，退出 nvim [关闭方法： 在normal模式下，按下 冒号键“shift+;”, 输入 q].
+    - 再次打开nvim,  会出发 treesitter 下载 lsp, 一路按回车，知道treesitter下载完毕；
+    - 退出 nvim, 再次打开， 如果treesitter下载完毕，就不会有提示，否则会再次出发 treesitter;
+    - 至此， nvim 配置完成。
+
+如果以上步骤执行过程中，出现问题，不要慌张，用以下方法修复问题：
+
+- packer 没有执行完成，或者执行失败： 在 normal 模式下，按下冒号进入命令模式，输入 PakcerSync ，回车后会重新出发 packer 插件下载；
+- treesitter 下载插件失败： 退出 nvim,重新进入，会继续下载上次未下载完的 lsp.

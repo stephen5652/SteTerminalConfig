@@ -36,7 +36,7 @@ install_dap_debug() {
 	wget https://github.com/vadimcn/codelldb/releases/download/v1.9.0/codelldb-x86_64-darwin.vsix -P ~/Downloads
 	unzip -d ~/.local/share/nvim/data/debug/tools/ ~/Downloads/codelldb-x86_64-darwin.vsix
 
-	echo -e "\nhomebrew install dap debug finish\n"
+	echo -e "\ninstall codelldb finish\n"
 }
 
 main() {
