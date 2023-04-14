@@ -15,7 +15,8 @@ vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 nvimtree.setup({
   -- change folder arrow icons
   renderer = {
-    root_folder_label = false,
+    -- root_folder_label = false,
+    root_folder_label = ":~:s?$?/..?",
     icons = {
       glyphs = {
         folder = {
@@ -29,6 +30,11 @@ nvimtree.setup({
   -- explorer to work well with
   -- window splits
   actions = {
+    change_dir = {
+      enable = true,
+      global = false,
+      restrict_above_cwd = true,
+    },
     open_file = {
       window_picker = {
         enable = false,
