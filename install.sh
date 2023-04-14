@@ -20,6 +20,7 @@ install_plugin_implementations() {
 	brew install swiftlint        # enable  null-ls swiftlint
 	brew install astyle --verbose # enable null-ls astyle
 
+	gem install neovim # enable ruby language
 	echo -e "Finish install nvim plugins implementations\n"
 }
 
