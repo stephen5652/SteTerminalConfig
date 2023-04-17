@@ -242,6 +242,10 @@ local mappings = {
         m = { "<cmd>TSModuleInfo<cr>", "Treesitter show installed info" },
       },
     },
+    s = {
+      name = "service",
+      l = { "<cmd>LiveServer<cr>", "Open / Close live server" },
+    },
     t = {
       name = "Terminal",
       p = { "<Cmd>lua _G.python_toggle()<CR>", "Open one python terminal" },

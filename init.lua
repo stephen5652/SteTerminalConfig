@@ -23,6 +23,7 @@ require("ste.plugins.bufferline")
 require("ste.plugins.symbols-outline")
 require("ste.plugins.stevearc-aerial")
 require("ste.plugins.indent-blankline")
+require("ste.plugins.live-server")
 
 vim.cmd([[ 
   augroup swift_auto_formatter 

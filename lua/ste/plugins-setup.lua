@@ -165,6 +165,14 @@ return packer.startup(function(use)
     ft = { "markdown" },
   })
 
+  use({
+    "aurum77/live-server.nvim",
+    run = function()
+      require("live_server.util").install()
+    end,
+    cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
+  })
+
   -- indent show
   use("lukas-reineke/indent-blankline.nvim")
 
