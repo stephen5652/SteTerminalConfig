@@ -21,6 +21,7 @@ require("ste.which-key")
 require("ste.plugins.toggleterm")
 require("ste.plugins.bufferline")
 require("ste.plugins.symbols-outline")
+require("ste.plugins.stevearc-aerial")
 require("ste.plugins.indent-blankline")
 
 vim.cmd([[ 

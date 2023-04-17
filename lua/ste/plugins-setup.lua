@@ -111,7 +111,9 @@ return packer.startup(function(use)
     end,
   })
 
+  -- symbols
   use("simrat39/symbols-outline.nvim")
+  use("stevearc/aerial.nvim")
 
   -- auto closing
   use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...

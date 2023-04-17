@@ -164,7 +164,12 @@ local mappings = {
     },
     c = {
       name = "Code actions",
-      s = { "<cmd>SymbolsOutline<cr>", "Show code synbols" },
+      a = {
+        name = "Aerial Symbols window",
+        o = { "<cmd>AerialOpen right<cr>", "Open" },
+        c = { "<cmd>AerialClose<cr>", "Close" },
+      },
+      s = { "<cmd>SymbolsOutline<cr>", "Show code symbols" },
     },
     d = {
       name = "Debug functions",

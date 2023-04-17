@@ -67,6 +67,7 @@ require("mason-lspconfig").setup({
     "wgsl_analyzer",
     "lemminx",
     "yamlls",
+    "standardrb",
   },
   -- auto-install configured servers (with lspconfig)
   automatic_installation = true, -- not the same as ensure_installed
@@ -170,6 +171,11 @@ lspconfig.pyright.setup({
 
 -- solargraph
 lspconfig.pyright.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+lspconfig.standardrb.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
