@@ -196,6 +196,15 @@ return packer.startup(function(use)
     end,
   })
 
+  -- start screen
+  use({
+    "startup-nvim/startup.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    config = function()
+      require("startup").setup(require("ste.plugins.start-up"))
+    end,
+  })
+
   if packer_bootstrap then
     require("packer").sync()
   end
