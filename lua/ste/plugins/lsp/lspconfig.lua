@@ -209,3 +209,5 @@ lspconfig.yamlls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
+
+lspconfig.dartls.setup({})
