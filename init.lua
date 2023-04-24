@@ -1,6 +1,7 @@
 require("ste.plugins-setup")
 require("ste.core.options")
 require("ste.core.colorscheme")
+require("colorizer").setup()
 require("ste.plugins.comment")
 require("ste.plugins.nvim-tree")
 require("ste.plugins.lualine")

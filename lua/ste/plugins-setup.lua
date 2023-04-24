@@ -35,6 +35,8 @@ return packer.startup(function(use)
 
   use("folke/tokyonight.nvim") -- color scheme
 
+  use("NvChad/nvim-colorizer.lua")
+
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
   use("szw/vim-maximizer") -- maximizes and restores current window
