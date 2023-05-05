@@ -207,6 +207,9 @@ return packer.startup(function(use)
     end,
   })
 
+  -- show search index
+  use({ "kevinhwang91/nvim-hlslens" })
+
   if packer_bootstrap then
     require("packer").sync()
   end
