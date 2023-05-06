@@ -55,7 +55,7 @@ mac 端配置 codelldb 的时候，需要去官网下载 codelldb 包。
   在终端任意目录下都可以。
 
   ```shell
-  git clone https://github.com/stephen5652/steNeovimConfig.git  ~/.config/nvim
+  git clone https://github.com/stephen5652/SteTerminalConfig.git ~/SteTerminalConfig
   ```
 
 - 安装 neovim

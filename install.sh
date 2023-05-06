@@ -1,7 +1,35 @@
 #!/bin/bash
 #
+
+safe_link() {
+	source=$1
+	des=$2
+
+	if [[ -d ${des} || -f ${des} ]]; then
+		if [[ -L ${des} ]]; then # is link
+			echo -e "Warning: link is existed, we remove it:${des}"
+			rm ${des}
+		else
+
+			time=$(date "+%Y%m%d-%H%M%S")
+			echo -e "Warning: file existed ${des} , rename it to ${des}_bak_${time}"
+			mv ${des} ${des}_${time}
+		fi
+	fi
+
+	echo -e "ln -s ${source} ${des}"
+	ln -s ${source} ${des}
+}
+
+link_nvim_config() {
+	echo -e "start link nvim config"
+	nvim_name=~/.config/nvim
+	real_nvim_config=$(pwd)/nvim
+	safe_link ${real_nvim_config} ${nvim_name}
+}
+
 install_tool() {
-	echo -e "homebrew install tools\n"
+	echo -e "\nstarging homebrew install tools\n"
 
 	brew install wget nodejs yarn
 	npm config set registry http://registry.npmmirror.com
@@ -44,15 +72,19 @@ install_tmux() {
 
 	brew install tmux
 
-	echo -e "\nbeging cp tmux config"
-	ln -s ~/.config/nvim/tmux.conf ~/.tmux.conf
+	echo -e "\nbeging link tmux config"
+	source=$(pwd)/tmux.conf
+	des=~/.tmux.conf
+	safe_link ${source} ${des}
 }
 
 main() {
+	install_tmux
+
+	link_nvim_config
 	install_tool
 	install_plugin_implementations
 	install_dap_debug
-	install_tmux
 }
 
 main
