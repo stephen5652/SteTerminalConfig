@@ -45,7 +45,7 @@ install_tmux() {
 	brew install tmux
 
 	echo -e "\nbeging cp tmux config"
-	cp -f ~/.config/nvim/.tmux.conf ~/.tmux.conf
+	cp -f ~/.config/nvim/tmux.conf ~/.tmux.conf
 }
 
 main() {
