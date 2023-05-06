@@ -39,10 +39,20 @@ install_dap_debug() {
 	echo -e "\ninstall codelldb finish\n"
 }
 
+install_tmux() {
+	echo -e "\nbeging install tmux"
+
+	brew install tmux
+
+	echo -e "\nbeging cp tmux config"
+	cp -f ~/.config/nvim/.tmux.conf ~/.tmux.conf
+}
+
 main() {
 	install_tool
 	install_plugin_implementations
 	install_dap_debug
+	install_tmux
 }
 
 main
