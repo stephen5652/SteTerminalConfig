@@ -255,8 +255,8 @@ local mappings = {
     w = {
       name = "window management",
       a = { "<cmd>lua require'telescope.builtin'.colorscheme()<cr>", "Appearance colorscheme list" },
-      v = { "<c-w>v", "Vertically split window" },
-      b = { "<c-w>s", "Horizontally split window" },
+      b = { "<c-w>v", "Vertically split window" },
+      v = { "<c-w>s", "Horizontally split window" },
       d = { "<c-c><cmd>Startup display<cr>", "Show Dashboard" },
       e = { "<c-w>=", "Make split windows equal width & height" },
       c = { "<cmd>close<cr>", "Close current split window" },
