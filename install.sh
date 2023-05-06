@@ -5,6 +5,12 @@ safe_link() {
 	source=$1
 	des=$2
 
+	des_dir=${des%/*}
+	if [[ ! -d ${des_dir} ]]; then
+		echo -e "should make path:${des_dir}"
+		mkdir -p ${des_dir}
+	fi
+
 	if [[ -d ${des} || -f ${des} ]]; then
 		if [[ -L ${des} ]]; then # is link
 			echo -e "Warning: link is existed, we remove it:${des}"
@@ -22,7 +28,7 @@ safe_link() {
 }
 
 link_nvim_config() {
-	echo -e "start link nvim config"
+	echo -e "\nStart link nvim config"
 	nvim_name=~/.config/nvim
 	real_nvim_config=$(pwd)/nvim
 	safe_link ${real_nvim_config} ${nvim_name}
@@ -73,13 +79,38 @@ install_tmux() {
 	brew install tmux
 
 	echo -e "\nbeging link tmux config"
-	source=$(pwd)/tmux.conf
+	source=$(pwd)/tmux/tmux.conf
 	des=~/.tmux.conf
 	safe_link ${source} ${des}
 }
 
+install_yabai() {
+	echo -e "\nBeging install yabai"
+	brew install yabai --head
+
+	source=$(pwd)/yabai/yabairc
+	dest=~/.config/yabai/yabairc
+	safe_link ${source} ${dest}
+}
+
+install_skhd() {
+	echo -e "\nStart install shkd"
+	brew install skhd
+
+	source=$(pwd)/skhd/skhdrc
+	dest=~/.config/skhd/skhdrc
+	safe_link ${source} ${dest}
+
+	skhd --stop-service
+	skhd --start-service
+}
+
 main() {
 	install_tmux
+
+	install_yabai
+
+	install_skhd
 
 	link_nvim_config
 	install_tool
