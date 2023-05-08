@@ -110,8 +110,13 @@ install_skhd() {
 }
 
 install_lazygit() {
-	echo -e "\nStart install lazygit"
+	echo -e "\nStart install lazygit & tig"
 	brew install lazygit
+	brew install tig
+
+	source=$(pwd)/tig/tigrc
+	dest=~/.tigrc
+	safe_link ${source} ${dest}
 }
 
 main() {
