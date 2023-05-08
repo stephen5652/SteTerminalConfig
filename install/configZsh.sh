@@ -1,11 +1,17 @@
 #!/bin/bash
 #
-home_dir=${HOME}
 
 CURRENT_DIR=$(
 	cd $(dirname $0)
 	pwd
 )
+
+ZSH_DIR=$(
+	cd $CURRENT_DIR/../zsh
+	pwd
+)
+
+source $CURRENT_DIR/para.sh
 
 safe_link() {
 	source=$1
@@ -34,14 +40,14 @@ safe_link() {
 }
 
 config_zsh() {
-	echo -e "\nStart config zsh:${CURRENT_DIR}"
+	echo -e "\nStart config zsh:${ZSH_DIR}"
 	if [[ -d ${ZSH_CUSTOM:-${home_dir}/.oh-my-zsh/custom}/themes/powerlevel10k ]]; then
 		echo -e "\nWarning: pk10 has installed, we remove it first"
 		rm -rf -- ${ZSH_CUSTOM:-${home_dir}/.oh-my-zsh/custom}/themes/powerlevel10k
 	fi
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-${home_dir}/.oh-my-zsh/custom}/themes/powerlevel10k
 
-	source=${CURRENT_DIR}/zshrc
+	source=$ZSH_DIR/zshrc
 	echo -e "\nsource:${source}"
 	dest=${home_dir}/.zshrc
 	safe_link ${source} ${dest}
@@ -49,7 +55,7 @@ config_zsh() {
 
 config_p10k() {
 	echo -e "\nStart config p10k"
-	source=${CURRENT_DIR}/p10k.zsh
+	source=$ZSH_DIR/p10k.zsh
 	dest=${home_dir}/.p10k.zsh
 	safe_link ${source} ${dest}
 }
