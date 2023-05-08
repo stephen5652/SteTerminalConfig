@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+home_dir=${HOME}
 
 safe_link() {
 	source=$1
@@ -29,7 +30,7 @@ safe_link() {
 
 link_nvim_config() {
 	echo -e "\nStart link nvim config"
-	nvim_name=~/.config/nvim
+	nvim_name=${home_dir}/.config/nvim
 	real_nvim_config=$(pwd)/nvim
 	safe_link ${real_nvim_config} ${nvim_name}
 }
@@ -65,10 +66,10 @@ install_dap_debug() {
 
 	# codelldb
 	echo "install codelldb"
-	rm -rf ~/.local/share/nvim/data/debug/tools
-	mkdir -pv ~/.local/share/nvim/data/debug/tools
-	wget https://github.com/vadimcn/codelldb/releases/download/v1.9.0/codelldb-x86_64-darwin.vsix -P ~/Downloads
-	unzip -d ~/.local/share/nvim/data/debug/tools/ ~/Downloads/codelldb-x86_64-darwin.vsix
+	rm -rf ${home_dir}/.local/share/nvim/data/debug/tools
+	mkdir -pv ${home_dir}/.local/share/nvim/data/debug/tools
+	wget https://github.com/vadimcn/codelldb/releases/download/v1.9.0/codelldb-x86_64-darwin.vsix -P ${home_dir}/Downloads
+	unzip -d ${home_dir}/.local/share/nvim/data/debug/tools/ ${home_dir}/Downloads/codelldb-x86_64-darwin.vsix
 
 	echo -e "\ninstall codelldb finish\n"
 }
@@ -80,7 +81,7 @@ install_tmux() {
 
 	echo -e "\nbeging link tmux config"
 	source=$(pwd)/tmux/tmux.conf
-	des=~/.tmux.conf
+	des=${home_dir}/.tmux.conf
 	safe_link ${source} ${des}
 }
 
@@ -88,7 +89,7 @@ install_yabai() {
 	echo -e "\nBeging install yabai"
 
 	source=$(pwd)/yabai/yabairc
-	dest=~/.config/yabai/yabairc
+	dest=${home_dir}/.config/yabai/yabairc
 	safe_link ${source} ${dest}
 
 	brew install koekeishiya/formulae/yabai --HEAD
@@ -101,7 +102,7 @@ install_skhd() {
 	echo -e "\nStart install shkd"
 
 	source=$(pwd)/skhd/skhdrc
-	dest=~/.config/skhd/skhdrc
+	dest=${home_dir}/.config/skhd/skhdrc
 	safe_link ${source} ${dest}
 
 	brew install koekeishiya/formulae/skhd
@@ -115,7 +116,7 @@ install_lazygit() {
 	brew install tig
 
 	source=$(pwd)/tig/tigrc
-	dest=~/.tigrc
+	dest=${home_dir}/.tigrc
 	safe_link ${source} ${dest}
 }
 
