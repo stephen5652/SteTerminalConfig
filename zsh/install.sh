@@ -8,7 +8,6 @@ install_zsh() {
 	echo -e "\nAfter install finish, you should run config.sh"
 
 	#install pk10
-	brew install romkatv/powerlevel10k/powerlevel10k
 
 	brew install zsh
 
