@@ -86,21 +86,25 @@ install_tmux() {
 
 install_yabai() {
 	echo -e "\nBeging install yabai"
-	brew install yabai --head
 
 	source=$(pwd)/yabai/yabairc
 	dest=~/.config/yabai/yabairc
 	safe_link ${source} ${dest}
+
+	brew install koekeishiya/formulae/yabai --HEAD
+	codesign -fs 'yabai-cert' $(which yabai)
+	yabai --start-service
+
 }
 
 install_skhd() {
 	echo -e "\nStart install shkd"
-	brew install skhd
 
 	source=$(pwd)/skhd/skhdrc
 	dest=~/.config/skhd/skhdrc
 	safe_link ${source} ${dest}
 
+	brew install koekeishiya/formulae/skhd
 	skhd --stop-service
 	skhd --start-service
 }
