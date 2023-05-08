@@ -109,12 +109,19 @@ install_skhd() {
 	skhd --start-service
 }
 
+install_lazygit() {
+	echo -e "\nStart install lazygit"
+	brew install lazygit
+}
+
 main() {
 	install_tmux
 
 	install_yabai
 
 	install_skhd
+
+	install_lazygit
 
 	link_nvim_config
 	install_tool
