@@ -1,6 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
-home_dir=${HOME}
+
+CURRENT_DIR=$(
+	cd $(dirname $0)
+	pwd
+)
+
+source $CURRENT_DIR/para.sh
 
 install_zsh() {
 	echo -e "\nStart install zsh"
@@ -17,8 +23,8 @@ install_zsh() {
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
-main() {
+main_zsh() {
 	install_zsh
 }
 
-main
+main_zsh

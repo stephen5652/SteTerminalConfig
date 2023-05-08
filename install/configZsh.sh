@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 
 CURRENT_DIR=$(
@@ -47,6 +47,11 @@ config_zsh() {
 	fi
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-${home_dir}/.oh-my-zsh/custom}/themes/powerlevel10k
 
+	if [[ -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]]; then
+		echo -e "\nWarning: plugins existed, remove it first: ${ZSH_CUSTOM:-${home_dir}/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+		rm -rf $ZSH_CUSTOM/plugins/zsh-autosuggestions
+	fi
+	git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-${home_dir}/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	source=$ZSH_DIR/zshrc
 	echo -e "\nsource:${source}"
 	dest=${home_dir}/.zshrc
@@ -60,7 +65,7 @@ config_p10k() {
 	safe_link ${source} ${dest}
 }
 
-main() {
+main_config() {
 	config_zsh
 	config_p10k
 
@@ -68,4 +73,4 @@ main() {
 	source ${home_dir}/.zshrc
 }
 
-main
+main_config
