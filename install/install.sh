@@ -8,3 +8,4 @@ CURRENT_DIR=$(
 source $CURRENT_DIR/installTerminal.sh
 source $CURRENT_DIR/installJava.sh
 source $CURRENT_DIR/installZsh.sh
+source $CURRENT_DIR/home_brew_tools.sh
