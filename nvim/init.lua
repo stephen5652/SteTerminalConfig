@@ -27,6 +27,9 @@ require("ste.plugins.indent-blankline")
 require("ste.plugins.live-server")
 require("ste.plugins.nvim-hlslens")
 
+-- java
+require("ste.plugins.lsp.jdtls")
+
 vim.cmd([[ 
   augroup swift_auto_formatter 
     autocmd!

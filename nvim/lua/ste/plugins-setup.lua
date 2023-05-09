@@ -210,6 +210,9 @@ return packer.startup(function(use)
   -- show search index
   use({ "kevinhwang91/nvim-hlslens" })
 
+  -- java
+  use({ "mfussenegger/nvim-jdtls" })
+
   if packer_bootstrap then
     require("packer").sync()
   end
