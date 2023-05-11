@@ -4,12 +4,13 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 function _G.ste_jdtls_setup()
   local home = os.getenv("HOME")
-  local java_home = home .. "/jdk_20/Contents/Home"
+  local java_home = home .. "/jdk_17/Contents/Home"
   local jdtls_home = os.getenv("HOMEBREW_PREFIX") .. "/Cellar/jdtls/1.23.0"
   local root_markers = { "gradlew", "pom.xml" }
   local root_dir = require("jdtls.setup").find_root(root_markers)
   local workspace_folder = home .. "/.workspace" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
   local jdtls = require("jdtls")
+  local java_debug = home .. "/.local/share/nvim/jdtls/java-debug_17"
   local config = {
 
     on_attach = function(client, bufnr)
@@ -21,8 +22,9 @@ function _G.ste_jdtls_setup()
         vim.keymap.set(...)
       end
 
-      -- jdtls.setup_dap({ hotcodereplace = "auto" })
+      jdtls.setup_dap({ hotcodereplace = "auto" })
       jdtls.setup.add_commands()
+      jdtls.setup_dap_main_class_configs()
 
       local opts = { noremap = true, silent = false, buffer = bufnr }
 
@@ -125,9 +127,11 @@ function _G.ste_jdtls_setup()
     -- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
     --
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
-    -- init_options = {
-    --   bundles = {},
-    -- },
+    init_options = {
+      bundles = {
+        java_debug .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.45.0.jar",
+      },
+    },
   }
   -- This starts a new client & server,
   -- or attaches to an existing client & server depending on the `root_dir`.
