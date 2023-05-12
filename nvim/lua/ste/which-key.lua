@@ -176,7 +176,7 @@ local mappings = {
       w = { "<cmd>lua require('dapui').toggle()<cr>", "Toogle debug window" },
       b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", "(<Leader>db)断点" },
       d = {
-        "<cmd>lua require('dap').disconnect({ terminateDebuggee = true })<cr><cmd>lua require'dap'.close()<cr><cmd>lua require'dapui'.update_render()<cr>",
+        "<cmd>lua require('dap').disconnect({ terminateDebuggee = true })<cr><cmd>lua require'dap'.close()<cr>",
         "结束",
       },
       e = { "<cmd>lua require'dapui'.eval()<CR>", "(<Leader>de)查看变量信息" },
