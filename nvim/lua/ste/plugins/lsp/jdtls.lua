@@ -6,7 +6,7 @@ function _G.ste_jdtls_setup()
   local home = os.getenv("HOME")
   local java_home = home .. "/jdk_17/Contents/Home"
   local jdtls_home = os.getenv("HOMEBREW_PREFIX") .. "/Cellar/jdtls/1.23.0"
-  local root_markers = { "gradlew", "pom.xml" }
+  local root_markers = { "mvnw", "gradlew", "pom.xml" }
   local root_dir = require("jdtls.setup").find_root(root_markers)
   local workspace_folder = home .. "/.workspace" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
   local jdtls = require("jdtls")
@@ -87,7 +87,7 @@ function _G.ste_jdtls_setup()
 
       -- 💀
       "-jar",
-      jdtls_home .. "/libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
+      vim.fn.glob(jdtls_home .. "/libexec/plugins/org.eclipse.equinox.launcher_*.jar"),
       -- '-jar', '/path/to/jdtls_install_location/plugins/org.eclipse.equinox.launcher_VERSION_NUMBER.jar',
       -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
       -- Must point to the                                                     Change this to
