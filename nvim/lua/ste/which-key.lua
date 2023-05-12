@@ -176,11 +176,14 @@ local mappings = {
       w = { "<cmd>lua require('dapui').toggle()<cr>", "Toogle debug window" },
       b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", "(<Leader>db)断点" },
       d = {
-        "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR>",
+        "<cmd>lua require('dap').disconnect({ terminateDebuggee = true })<cr><cmd>lua require'dap'.close()<cr><cmd>lua require'dapui'.update_render()<cr>",
         "结束",
       },
       e = { "<cmd>lua require'dapui'.eval()<CR>", "(<Leader>de)查看变量信息" },
-      g = { "<cmd>lua require'dap'.continue()<CR>", "(<Leader>dg)开始/下一个断点" },
+      g = {
+        "<cmd>lua require'dap'.continue()<CR>",
+        "(<Leader>dg)下一个断点",
+      },
       i = { "<cmd>lua require'dap'.step_into()<CR>", "(<Leader>di)进入" },
       n = { "<cmd>lua require'dap'.step_over()<CR>", "(<Leader>dn)下一行" },
       o = { "<cmd>lua require'dap'.step_out()<CR>", "(<Leader>do)退出" },
