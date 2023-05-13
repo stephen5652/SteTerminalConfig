@@ -1,0 +1,5 @@
+alias vi=nvim
+
+JAVA_HOME=/Users/stephen/jdk_17/Contents/Home
+CLASSPAHT=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH:

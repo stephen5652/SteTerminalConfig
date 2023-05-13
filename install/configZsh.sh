@@ -59,6 +59,12 @@ config_zsh() {
 	fi
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+	if [[ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z ]]; then
+		echo -e "\nWarning: plugins existed, remove it first: ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z"
+		rm -rf ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
+	fi
+	git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
+
 	source=$ZSH_DIR/zshrc
 	echo -e "\nsource:${source}"
 	dest=${home_dir}/.zshrc
