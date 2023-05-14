@@ -59,4 +59,41 @@ vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
 vim.fn.sign_define("DapLogPoint", dap_breakpoint.logpoint)
 vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
 
-require("dapui").setup()
+-- 定义 dapui 窗口的位置和大小
+vim.g.dapui_winnr_scopes = "vertical"
+vim.g.dapui_winnr_variables = "vertical"
+vim.g.dapui_winnr_breakpoints = "vertical botright"
+vim.g.dapui_winnr_stack = "vertical botright"
+vim.g.dapui_winnr_watches = "vertical botright"
+
+-- 隐藏 dapui 插件的边框
+vim.g.dapui_border_style = "none"
+
+-- 禁用 dapui 的自动布局
+vim.g.dapui_auto_reposition = false
+
+require("dapui").setup({
+  layouts = {
+    {
+      elements = {
+        {
+          id = "scopes",
+          size = 0.25,
+        },
+        { id = "stacks", size = 0.25 },
+        { id = "watches", size = 0.25 },
+        { id = "breakpoints", size = 0.25 },
+      },
+      size = 40,
+      position = "right",
+    },
+    {
+      elements = {
+        "repl",
+        "console",
+      },
+      size = 5,
+      position = "bottom",
+    },
+  },
+})

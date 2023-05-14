@@ -164,7 +164,7 @@ local mappings = {
     },
     c = {
       name = "Code actions",
-      a = {
+      S = {
         name = "Aerial Symbols window",
         o = { "<cmd>AerialOpen right<cr>", "Open" },
         c = { "<cmd>AerialClose<cr>", "Close" },
@@ -176,11 +176,14 @@ local mappings = {
       w = { "<cmd>lua require('dapui').toggle()<cr>", "Toogle debug window" },
       b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", "(<Leader>db)断点" },
       d = {
-        "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR>",
+        "<cmd>lua require('dap').disconnect({ terminateDebuggee = true })<cr><cmd>lua require'dap'.close()<cr>",
         "结束",
       },
       e = { "<cmd>lua require'dapui'.eval()<CR>", "(<Leader>de)查看变量信息" },
-      g = { "<cmd>lua require'dap'.continue()<CR>", "(<Leader>dg)开始/下一个断点" },
+      g = {
+        "<cmd>lua require'dap'.continue()<CR>",
+        "(<Leader>dg)下一个断点",
+      },
       i = { "<cmd>lua require'dap'.step_into()<CR>", "(<Leader>di)进入" },
       n = { "<cmd>lua require'dap'.step_over()<CR>", "(<Leader>dn)下一行" },
       o = { "<cmd>lua require'dap'.step_out()<CR>", "(<Leader>do)退出" },
@@ -266,6 +269,7 @@ local mappings = {
       j = { "<C-w><c-j>", "Foucus the bottom split window" },
       o = { "<C-w><c-o>", "Close other split windows" },
       m = { "<cmd>MaximizerToggle<cr>", "Make split window maximization" },
+      n = { "<cmd>tabnew %<cr>", "Make current cursor tab to new" },
       q = { "<cmd>FineCmdline<CR>", "Enter cmd mode" },
     },
   },

@@ -18,6 +18,8 @@ require("ste.core.keymaps")
 
 -- dap
 require("ste.plugins.dap.dapconfig")
+
+require("ste.plugins.nvim-notify")
 require("ste.which-key")
 require("ste.plugins.toggleterm")
 require("ste.plugins.bufferline")
@@ -26,6 +28,9 @@ require("ste.plugins.stevearc-aerial")
 require("ste.plugins.indent-blankline")
 require("ste.plugins.live-server")
 require("ste.plugins.nvim-hlslens")
+
+-- java
+require("ste.plugins.lsp.jdtls")
 
 vim.cmd([[ 
   augroup swift_auto_formatter 

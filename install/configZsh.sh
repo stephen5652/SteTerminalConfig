@@ -13,32 +13,6 @@ ZSH_DIR=$(
 
 source $CURRENT_DIR/para.sh
 
-safe_link() {
-	source=$1
-	des=$2
-
-	des_dir=${des%/*}
-	if [[ ! -d ${des_dir} ]]; then
-		echo -e "should make path:${des_dir}"
-		mkdir -p ${des_dir}
-	fi
-
-	if [[ -d ${des} || -f ${des} ]]; then
-		if [[ -L ${des} ]]; then # is link
-			echo -e "Warning: link is existed, we remove it:${des}"
-			rm ${des}
-		else
-
-			time=$(date "+%Y%m%d-%H%M%S")
-			echo -e "Warning: file existed ${des} , rename it to ${des}_bak_${time}"
-			mv ${des} ${des}_${time}
-		fi
-	fi
-
-	echo -e "ln -s ${source} ${des}"
-	ln -s ${source} ${des}
-}
-
 config_zsh() {
 	echo -e "\nStart config zsh:${ZSH_DIR}"
 	if [[ -d ${ZSH_CUSTOM:-${home_dir}/.oh-my-zsh/custom}/themes/powerlevel10k ]]; then
@@ -52,6 +26,19 @@ config_zsh() {
 		rm -rf $ZSH_CUSTOM/plugins/zsh-autosuggestions
 	fi
 	git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-${home_dir}/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+	if [[ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]]; then
+		echo -e "\nWarning: plugins existed, remove it first: ${ZSH_CUSTOM:-${home_dir}/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+		rm -rf $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+	fi
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+	if [[ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z ]]; then
+		echo -e "\nWarning: plugins existed, remove it first: ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z"
+		rm -rf ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
+	fi
+	git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
+
 	source=$ZSH_DIR/zshrc
 	echo -e "\nsource:${source}"
 	dest=${home_dir}/.zshrc
@@ -65,7 +52,23 @@ config_p10k() {
 	safe_link ${source} ${dest}
 }
 
+ln_bash_env() {
+	bash_env_ln=${home_dir}/ste_bash_env
+	bash_env_path=${CURRENT_DIR}/../zsh/bash_env
+	safe_link ${bash_env_path} ${bash_env_ln}
+
+	env_str="source \${HOME}/ste_bash_env"
+	if [[ -z $(cat ${bash_profile_path} | grep "${env_str}") ]]; then
+		echo -e "should add source str: ${env_str}"
+
+		echo -e "\\n${env_str}" >>${bash_profile_path}
+	else
+		echo -e "\n had sourced java_env: ${env_str}"
+	fi
+}
+
 main_config() {
+	ln_bash_env
 	config_zsh
 	config_p10k
 

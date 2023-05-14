@@ -1,0 +1,18 @@
+# java_env
+export JAVA_HOME=${HOME}/jdk_17/Contents/Home
+CLASSPAHT=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH:
+
+
+# spring boot debug 运行 需要参数 调试端口
+stspringboot_debug(){
+port=$1
+if [[ ! -z $port ]]; then
+cmd='mvn spring-boot:run -DskipTests  -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=${port}"'
+
+echo -e "\nrun command:\n${cmd}"
+eval ${cmd}
+else
+echo -e "need debug port， example:\nstspringboot_debug 5005"
+fi
+}
