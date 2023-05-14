@@ -8,9 +8,36 @@ CURRENT_DIR=$(
 source ${CURRENT_DIR}/para.sh
 
 url_20=https://download.oracle.com/java/20/latest/jdk-20_macos-aarch64_bin.tar.gz
+
+case $(uname -m) in
+x86_64)
+	url_20=https://download.oracle.com/java/20/latest/jdk-20_macos-x64_bin.tar.gz
+	;;
+aarch64)
+	url_20=https://download.oracle.com/java/20/latest/jdk-20_macos-aarch64_bin.tar.gz
+	;;
+*)
+	echo -e "\nCPU type unknown, work failed"
+	exit 1
+	;;
+esac
+
 java_name_20=jdk_20
 
-url_17=https://download.oracle.com/java/17/latest/jdk-17_macos-aarch64_bin.tar.gz
+url_17=https://download.oracle.com/java/17/latest/jdk-17_macos-x64_bin.tar.gz
+case $(uname -m) in
+x86_64)
+	url_17=https://download.oracle.com/java/17/latest/jdk-17_macos-x64_bin.tar.gz
+	;;
+aarch64)
+	url_17=https://download.oracle.com/java/17/latest/jdk-17_macos-aarch64_bin.tar.gz
+	;;
+*)
+	echo -e "\nCPU type unknown, work failed"
+	exit 1
+	;;
+esac
+
 java_name_17=jdk_17
 
 install_java() {
