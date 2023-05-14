@@ -16,13 +16,16 @@ local on_attach_function = function(client, bufnr)
   --   server_side_fuzzy_completion = true,
   -- })
 
+  if require("dap").adapters.java then
+    return
+  end
+
   local function buf_set_keymap(...)
     vim.keymap.set(...)
   end
 
   jdtls.setup_dap({ hotcodereplace = "auto" })
   jdtls.setup.add_commands()
-  jdtls.setup_dap_main_class_configs()
 
   local opts = { noremap = true, silent = false, buffer = bufnr }
 
@@ -60,6 +63,10 @@ local on_attach_function = function(client, bufnr)
   buf_set_keymap("v", "<leader>cdm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
 
   buf_set_keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+  vim.notify("All java services start finish")
+
+  jdtls.setup_dap_main_class_configs()
 end
 
 local config = {

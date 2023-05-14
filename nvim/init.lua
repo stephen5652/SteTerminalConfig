@@ -18,6 +18,8 @@ require("ste.core.keymaps")
 
 -- dap
 require("ste.plugins.dap.dapconfig")
+
+require("ste.plugins.nvim-notify")
 require("ste.which-key")
 require("ste.plugins.toggleterm")
 require("ste.plugins.bufferline")

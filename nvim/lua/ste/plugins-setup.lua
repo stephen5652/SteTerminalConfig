@@ -213,6 +213,9 @@ return packer.startup(function(use)
   -- java
   use({ "mfussenegger/nvim-jdtls" })
 
+  -- notify
+  use("rcarriga/nvim-notify")
+
   if packer_bootstrap then
     require("packer").sync()
   end
