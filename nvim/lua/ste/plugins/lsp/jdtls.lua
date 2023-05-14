@@ -60,6 +60,30 @@ local on_attach_function = function(client, bufnr)
 
   buf_set_keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
+  local java_key_map = {
+
+    ["<leader>"] = {
+      j = {
+        name = "Java debug action",
+        c = { "<cmd>echo 'Java dwbug action'<cr>", "Java hello" },
+      },
+    },
+
+    {
+      prefix = "<leader>",
+    },
+  }
+
+  local opts = {
+    mode = "n", -- NORMAL mode
+    -- prefix = "W",
+    buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
+  }
+  require("which-key").register(java_key_map, opts)
+
   -- this function takes alot of time, should run lastly
   jdtls.setup_dap_main_class_configs()
 end
