@@ -2,6 +2,11 @@
 
 home_dir=$HOME
 
+install_home=$(
+	cd $(dirname $0)
+	pwd
+)
+
 safe_link() {
 	source=$1
 	des=$2

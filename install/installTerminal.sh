@@ -11,7 +11,7 @@ source $CURRENT_DIR/para.sh
 link_nvim_config() {
 	echo -e "\nStart link nvim config"
 	nvim_name=${home_dir}/.config/nvim
-	real_nvim_config=$(pwd)/nvim
+	real_nvim_config=$install_home/../nvim
 	safe_link ${real_nvim_config} ${nvim_name}
 }
 
@@ -63,7 +63,7 @@ install_tmux() {
 	brew install tmux
 
 	echo -e "\nbeging link tmux config"
-	source=$(pwd)/tmux/tmux.conf
+	source=$install_home/../tmux/tmux.conf
 	des=${home_dir}/.tmux.conf
 	safe_link ${source} ${des}
 }
@@ -71,7 +71,7 @@ install_tmux() {
 install_yabai() {
 	echo -e "\nBeging install yabai"
 
-	source=$(pwd)/yabai/yabairc
+	source=$install_home/../yabai/yabairc
 	dest=${home_dir}/.config/yabai/yabairc
 	safe_link ${source} ${dest}
 
@@ -84,7 +84,7 @@ install_yabai() {
 install_skhd() {
 	echo -e "\nStart install shkd"
 
-	source=$(pwd)/skhd/skhdrc
+	source=$install_home/../skhd/skhdrc
 	dest=${home_dir}/.config/skhd/skhdrc
 	safe_link ${source} ${dest}
 
@@ -98,12 +98,13 @@ install_lazygit() {
 	brew install lazygit
 	brew install tig
 
-	source=$(pwd)/tig/tigrc
+	source=$install_home/../tig/tigrc
 	dest=${home_dir}/.tigrc
 	safe_link ${source} ${dest}
 }
 
 main_term() {
+	safe_link $install_home/../zsh/bash_profile $home_dir/.bash_profile
 	install_tmux
 
 	install_yabai
