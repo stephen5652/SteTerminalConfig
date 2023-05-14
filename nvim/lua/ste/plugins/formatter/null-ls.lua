@@ -42,6 +42,8 @@ null_ls.setup({
     --  "formatting.prettier.with({disabled_filetypes = {}})" (see null-ls docs)
     formatting.clang_format.with({
       extra_filetypes = { "objc" }, -- enable  Objective-C
+
+      disabled_filetypes = { "java" },
     }), -- clang-format is formatter for C/C++/Java/JavaScript/JSON/Objective-C/Protobuf/C# code
     formatting.autopep8, -- formats Python code to conform to the PEP 8 style guide
     formatting.prettier, -- js/ts formatter
@@ -58,6 +60,7 @@ null_ls.setup({
     formatting.shfmt, -- bash formatter
     diagnostics.standardrb, -- linter your Ruby code!
     formatting.standardrb, -- formmatter your Ruby code!
+    formatting.google_java_format,
   },
   -- configure format on save
   on_attach = function(current_client, bufnr)
@@ -66,9 +69,12 @@ null_ls.setup({
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
         buffer = bufnr,
+
         callback = function()
+          vim.notify("null-ls pre write")
           vim.lsp.buf.format({
             filter = function(client)
+              vim.notify("null-ls start formatter:" .. client.name)
               --  only use null-ls for formatting instead of lsp server
               return client.name == "null-ls"
             end,

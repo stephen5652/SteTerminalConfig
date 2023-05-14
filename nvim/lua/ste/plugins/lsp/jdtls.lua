@@ -16,10 +16,6 @@ local on_attach_function = function(client, bufnr)
   --   server_side_fuzzy_completion = true,
   -- })
 
-  if require("dap").adapters.java then
-    return
-  end
-
   local function buf_set_keymap(...)
     vim.keymap.set(...)
   end
@@ -64,8 +60,7 @@ local on_attach_function = function(client, bufnr)
 
   buf_set_keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
-  vim.notify("All java services start finish")
-
+  -- this function takes alot of time, should run lastly
   jdtls.setup_dap_main_class_configs()
 end
 
