@@ -15,6 +15,7 @@ mason_null_ls.setup({
     "autopep8",
     "clang_format",
     "standardrb",
+    "google_java_format",
   },
   -- auto-install configured formatters & linters (with null-ls)
   automatic_installation = true,
