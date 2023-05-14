@@ -269,6 +269,7 @@ local mappings = {
       j = { "<C-w><c-j>", "Foucus the bottom split window" },
       o = { "<C-w><c-o>", "Close other split windows" },
       m = { "<cmd>MaximizerToggle<cr>", "Make split window maximization" },
+      n = { "<cmd>tabnew %<cr>", "Make current cursor tab to new" },
       q = { "<cmd>FineCmdline<CR>", "Enter cmd mode" },
     },
   },
