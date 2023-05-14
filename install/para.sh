@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 home_dir=$HOME
+bash_profile_path=${HOME}/.bash_profile
 
 install_home=$(
 	cd $(dirname $0)

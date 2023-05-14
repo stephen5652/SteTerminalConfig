@@ -8,21 +8,24 @@ CURRENT_DIR=$(
 source ${CURRENT_DIR}/para.sh
 
 url_20=https://download.oracle.com/java/20/latest/jdk-20_macos-aarch64_bin.tar.gz
-dest_20=$home_dir/jdk_20
-file_local_20=${home_dir}/Downloads/jdk_20.tar.gz
+java_name_20=jdk_20
 
 url_17=https://download.oracle.com/java/17/latest/jdk-17_macos-aarch64_bin.tar.gz
-dest_17=$home_dir/jdk_17
-file_local_17=${home_dir}/Downloads/jdk_17.tar.gz
+java_name_17=jdk_17
 
 install_java() {
 	echo -e "\nStart install java"
 
 	# file_local=${home_dir}/Downloads/jdk_20.tar.gz
-	file_local=$1
-	dest=$2
-	url_jdk=$3
+	java_name=$1
+	url_jdk=$2
+	java_local_dir=$home_dir/Downloads/jdk_downloads
+	if [[ ! -d $java_local_dir ]]; then
+		mkdir -p ${java_local_dir}
+	fi
 
+	file_local=${java_local_dir}/${java_name}.tar.gz
+	dest=$home_dir/$java_name
 	echo -e "local:$file_local"
 	echo -e "dest:$dest"
 	echo -e "url:$url_jdk"
@@ -32,7 +35,7 @@ install_java() {
 		wget $url_jdk -O $file_local
 	fi
 
-	tmp=${home_dir}/DownLoads/jdk_20_tmp/
+	tmp=${java_local_dir}/${java_name}_temp/
 	if [[ -d $tmp ]]; then
 		rm -rf $tmp
 	fi
@@ -54,20 +57,31 @@ install_java() {
 		fi
 
 		cp -r $jdk_dir $dest
-
-		java_env="
-  \\n
-JAVA_HOME=$dest/Contents/Home
-\\n
-CLASSPAHT=.:\$JAVA_HOME/lib/dt.jar:\$JAVA_HOME/lib/tools.jar
-\\n
-export PATH=\$JAVA_HOME/bin:\$PATH:
-  "
-		echo -e $java_env >>$home_dir/.bash_profile
-
-		source ${home_dir}/.bash_profile
 	else
 		echo -e "\nFailed, since Jdk dir not found:$jdk_dir"
+	fi
+
+	if [[ -d ${tmp} ]]; then
+		rm -rf ${tmp}
+	fi
+}
+
+env_name=ste_java_env
+source_java_env() {
+	java_env_path=${CURRENT_DIR}/../java/java_env
+	env_ln=${home_dir}/${env_name}
+	safe_link ${java_env_path} ${env_ln}
+
+	env_str="source \${HOME}/${env_name}"
+
+	echo -e "\njava env str:${env_str}"
+	echo -e "\nbash_path: ${bash_profile_path}"
+	if [[ -z $(cat ${bash_profile_path} | grep "${env_str}") ]]; then
+		echo -e "should add source str: ${env_str}"
+
+		echo -e "\\n${env_str}" >>${bash_profile_path}
+	else
+		echo -e "\n had sourced java_env: ${env_str}"
 	fi
 }
 
@@ -88,12 +102,13 @@ install_java_debug() {
 
 main_java() {
 	echo -e "home:${home_dir}"
-	install_java $file_local_17 $dest_17 $url_17
+	install_java $java_name_17 $url_17
+	source_java_env
 
 	source $home_dir/.bash_profile
 	install_java_debug
 
-	echo -e "\nWarning: since java-debug only support jdk17, this project has change your JAVA_HOME to jdk17, view your bash profile:$home_dir/.bash_profile"
+	echo -e "\nWarning: since java-debug only support jdk17, this project has change your JAVA_HOME to jdk17, view your java_env file:\${HOME}/${env_name}"
 }
 
 main_java
