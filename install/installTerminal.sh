@@ -103,8 +103,21 @@ install_lazygit() {
 	safe_link ${source} ${dest}
 }
 
+install_brew() {
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+	rm ${HOME}/.zprofile
+	(
+		echo
+		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
+	) >>/Users/imac24inch/.zprofile
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+}
+
 main_term() {
 	safe_link $install_home/../zsh/bash_profile $home_dir/.bash_profile
+	install_brew
+
 	install_tmux
 
 	install_yabai
