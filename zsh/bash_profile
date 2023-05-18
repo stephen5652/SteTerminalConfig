@@ -1,2 +1,3 @@
-
 source ${HOME}/ste_bash_env
+
+. "/opt/homebrew/opt/asdf/libexec/asdf.sh"
