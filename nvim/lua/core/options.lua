@@ -44,3 +44,5 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.iskeyword:append("-") -- consider string-string as whole word
 
 require("keyBinding.key_mapping").common_key_setup()
+
+vim.notify = require("notify")

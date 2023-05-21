@@ -218,9 +218,8 @@ require("lazy").setup({
 
 	{
 		"rcarriga/nvim-notify",
-		lazy = true,
 		config = function()
-			require("plugins.vim-motify")
+			require("plugins.vim-notify")
 		end,
 	},
 
@@ -320,4 +319,36 @@ require("lazy").setup({
 	{
 		"mfussenegger/nvim-jdtls",
 	},
+
+	-- DAP
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+	},
+	{
+		"mfussenegger/nvim-dap",
+		config = function()
+			require("plugins.dap.dap-ui-config")
+			require("plugins.dap.dap-config")
+		end,
+		dependencies = {
+			"theHamsta/nvim-dap-virtual-text",
+			"rcarriga/nvim-dap-ui",
+			"mxsdev/nvim-dap-vscode-js",
+			"jay-babu/mason-nvim-dap.nvim",
+		},
+	},
+
+	{
+		"LiadOz/nvim-dap-repl-highlights",
+		config = true,
+		dependencies = {
+			"mfussenegger/nvim-dap",
+		},
+		build = {
+			":TSInstall dap_repl",
+			":TSUpdate dap_repl",
+		},
+	},
+
+	checker = { enabled = true },
 })
