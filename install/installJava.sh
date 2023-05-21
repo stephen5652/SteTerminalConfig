@@ -13,7 +13,7 @@ case $(uname -m) in
 x86_64)
 	url_20=https://download.oracle.com/java/20/latest/jdk-20_macos-x64_bin.tar.gz
 	;;
-aarch64)
+aarch64 | arm64)
 	url_20=https://download.oracle.com/java/20/latest/jdk-20_macos-aarch64_bin.tar.gz
 	;;
 *)
@@ -29,7 +29,7 @@ case $(uname -m) in
 x86_64)
 	url_17=https://download.oracle.com/java/17/latest/jdk-17_macos-x64_bin.tar.gz
 	;;
-aarch64)
+aarch64 | arm64)
 	url_17=https://download.oracle.com/java/17/latest/jdk-17_macos-aarch64_bin.tar.gz
 	;;
 *)

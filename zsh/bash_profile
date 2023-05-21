@@ -5,3 +5,5 @@ export https_proxy=http://127.0.0.1:7890;export http_proxy=http://127.0.0.1:7890
 source ${HOME}/ste_bash_env
 
 
+
+source ${HOME}/ste_java_env
