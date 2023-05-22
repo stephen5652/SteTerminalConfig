@@ -114,8 +114,19 @@ source_java_env() {
 
 # since java_debug only support jdk_17, so this shell only install jdk17
 local_java_debug=$home_dir/.local/share/nvim/jdtls/java-debug_17
+local_lombok=$home_dir/.local/share/nvim/jdtls/lombok.jar
 install_java_debug() {
+	echo -e "\n Start install jdtls"
 	brew install jdtls
+
+	echo -e "\n Start install lombok"
+	if [[ -f ${local_lombok} ]]; then
+		echo -e "\nFile existed, remove it first: ${local_lombok}"
+		rm ${local_lombok}
+	fi
+	wget https://projectlombok.org/downloads/lombok.jar -O ${local_lombok}
+
+	echo -e "\n Start install java-debug_17"
 	if [[ -d $local_java_debug ]]; then
 		echo -e "\nJava debug has loaded, remove it firstly:$local_java_debug"
 		rm -rf $local_java_debug

@@ -10,6 +10,7 @@ local root_dir = require("jdtls.setup").find_root(root_markers)
 local workspace_folder = home .. "/.workspace" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 local jdtls = require("jdtls")
 local java_debug = home .. "/.local/share/nvim/jdtls/java-debug_17"
+local java_lombok = home .. "/.local/share/nvim/jdtls/lombok.jar"
 
 local on_attach_function = function(client, bufnr)
   -- require("me.lsp.conf").on_attach(client, bufnr, {
@@ -112,6 +113,9 @@ local config = {
     "java.base/java.util=ALL-UNNAMED",
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
+
+    -- lombok
+    "-javaagent:" .. java_lombok,
 
     -- 💀
     "-jar",
