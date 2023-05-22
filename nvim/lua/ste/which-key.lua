@@ -18,7 +18,6 @@ local setup = {
       suggestions = 20, -- how many suggestions should be shown in the list?
     },
     presets = {
-
       operators = true, -- adds help for operators like d, y, ...
       motions = true, -- adds help for motions
       text_objects = true, -- help for text objects triggered after entering an operator
@@ -170,6 +169,7 @@ local mappings = {
         c = { "<cmd>AerialClose<cr>", "Close" },
       },
       s = { "<cmd>SymbolsOutline<cr>", "Show code symbols" },
+      f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Formatter current file" },
     },
     d = {
       name = "Debug functions",

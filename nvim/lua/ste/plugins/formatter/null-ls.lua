@@ -72,7 +72,6 @@ null_ls.setup({
         buffer = bufnr,
 
         callback = function()
-          vim.notify("null-ls pre write")
           vim.lsp.buf.format({
             filter = function(client)
               vim.notify("null-ls start formatter:" .. client.name)

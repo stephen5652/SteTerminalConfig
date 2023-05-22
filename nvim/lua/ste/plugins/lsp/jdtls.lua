@@ -59,14 +59,21 @@ local on_attach_function = function(client, bufnr)
   buf_set_keymap("v", "<leader>cde", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
   buf_set_keymap("v", "<leader>cdm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
 
-  buf_set_keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  -- buf_set_keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
   local java_key_map = {
 
     ["<leader>"] = {
       j = {
         name = "Java debug action",
-        c = { "<cmd>echo 'Java dwbug action'<cr>", "Java hello" },
+        c = {
+          name = "Code action",
+          i = { "<Cmd>lua require'jdtls'.organize_imports()<CR>", "Organize imports", opts },
+          t = { "<Cmd>lua require'jdtls'.test_class()<CR>", "Test current class", opts },
+          n = { "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", "Test nearest method", opts },
+          e = { "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract variable", opts },
+          m = { "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract method", opts },
+        },
       },
     },
 
