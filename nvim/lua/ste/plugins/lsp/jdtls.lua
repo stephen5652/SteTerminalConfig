@@ -5,9 +5,9 @@
 local home = os.getenv("HOME")
 local java_home = home .. "/jdk_17/Contents/Home"
 local jdtls_home = os.getenv("HOMEBREW_PREFIX") .. "/Cellar/jdtls/1.23.0"
-local root_markers = { "mvnw", "gradlew", "pom.xml" }
+local root_markers = { "mvnw", "gradlew", "pom.xml", ".git" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
-local workspace_folder = home .. "/.workspace" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+local workspace_folder = home .. "/.workspace_jdtls_cache/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 local jdtls = require("jdtls")
 local java_debug = home .. "/.local/share/nvim/jdtls/java-debug_17"
 local java_lombok = home .. "/.local/share/nvim/jdtls/lombok.jar"
@@ -93,7 +93,9 @@ local on_attach_function = function(client, bufnr)
   require("which-key").register(java_key_map, opts)
 
   -- this function takes alot of time, should run lastly
+  vim.notify("Start find main class")
   jdtls.setup_dap_main_class_configs()
+  vim.notify("Find main class finish")
 end
 
 local config = {
