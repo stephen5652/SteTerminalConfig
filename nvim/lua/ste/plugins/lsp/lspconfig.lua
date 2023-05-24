@@ -20,6 +20,7 @@ local keymap = vim.keymap -- for conciseness
 
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
+  vim.notify("lspconfig on_attach client: " .. client.name)
   -- keybind options
   local opts = { noremap = true, silent = false, buffer = bufnr }
 
@@ -44,6 +45,10 @@ local on_attach = function(client, bufnr)
     keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
     keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
   end
+
+  -- if client.name == "jdtls" then
+  --   require("ste.plugins.lsp.ste_jdtls_config").ste_jdtls_setup()
+  -- end
 end
 
 -- mason_lspconfig
@@ -156,8 +161,8 @@ lspconfig.jsonls.setup({
 })
 
 -- lspconfig.jdtls.setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
+--   -- capabilities = capabilities,
+--   -- on_attach = on_attach,
 -- })
 
 lspconfig.marksman.setup({
@@ -212,3 +217,8 @@ lspconfig.yamlls.setup({
 })
 
 lspconfig.dartls.setup({})
+
+local M = {}
+M.on_attach = on_attach
+
+return M

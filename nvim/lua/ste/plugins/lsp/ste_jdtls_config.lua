@@ -1,28 +1,57 @@
---  suggetiong documents: https://blog.csdn.net/lxyoucan/article/details/123453802
---  https://github.com/mfussenegger/nvim-jdtls
---
--- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
+local jdtls_ok, jdtls = pcall(require, "jdtls")
+if not jdtls_ok then
+  vim.notify("JDTLS not found, install with `:LspInstall jdtls`")
+  return
+end
+
+local VIM_PLUGINS_PACKAGE_PATH = vim.fn.stdpath("data")
+-- Installation location of jdtls by nvim-lsp-installer
 local home = os.getenv("HOME")
 local java_home = home .. "/jdk_17/Contents/Home"
-local jdtls_home = os.getenv("HOMEBREW_PREFIX") .. "/Cellar/jdtls/1.23.0"
-local root_markers = { "mvnw", "gradlew", "pom.xml", ".git" }
+local JDTLS_LOCATION = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+local JAVA_DEBUG_TOOLS_DIR = vim.fn.stdpath("data") .. "/jdtls"
+
+local java_jdtls_file = vim.fn.glob(JDTLS_LOCATION .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+local java_debug_file = vim.fn.glob(
+  JAVA_DEBUG_TOOLS_DIR .. "/java-debug_17/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+)
+local java_lombok_file = JAVA_DEBUG_TOOLS_DIR .. "/lombok.jar"
+
+-- Data directory - change it to your liking
+local HOME = os.getenv("HOME")
+local WORKSPACE_PATH = HOME .. "/workspace/java/"
+
+-- Only for Linux and Mac
+local SYSTEM = "linux"
+if vim.fn.has("mac") == 1 then
+  SYSTEM = "mac"
+end
+
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+local workspace_dir = WORKSPACE_PATH .. project_name
+
+local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
-local workspace_folder = home .. "/.workspace_jdtls_cache/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
-local jdtls = require("jdtls")
-local java_debug = home .. "/.local/share/nvim/jdtls/java-debug_17"
-local java_lombok = home .. "/.local/share/nvim/jdtls/lombok.jar"
+if root_dir == "" then
+  return
+end
+
+local extendedClientCapabilities = jdtls.extendedClientCapabilities
+extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+
+-- Debugging
+local bundles = {
+  java_debug_file,
+}
+
+-- vim.list_extend(bundles, vim.split(vim.fn.glob(DEBUGGER_LOCATION .. "/vscode-java-test/server/*.jar"), "\n"))
 
 local on_attach_function = function(client, bufnr)
-  -- require("me.lsp.conf").on_attach(client, bufnr, {
-  --   server_side_fuzzy_completion = true,
-  -- })
+  -- require("ste.plugins.lsp.lspconfig").on_attach(client, bufnr)
 
   local function buf_set_keymap(...)
     vim.keymap.set(...)
   end
-
-  jdtls.setup_dap({ hotcodereplace = "auto" })
-  jdtls.setup.add_commands()
 
   local opts = { noremap = true, silent = false, buffer = bufnr }
 
@@ -93,30 +122,47 @@ local on_attach_function = function(client, bufnr)
   require("which-key").register(java_key_map, opts)
 
   -- this function takes alot of time, should run lastly
+  if require("dap").adapters.java then
+    return
+  end
+
+  require("jdtls").setup_dap({ hotcodereplace = "auto" })
   vim.notify("Start find main class")
-  jdtls.setup_dap_main_class_configs()
+  require("jdtls.dap").setup_dap_main_class_configs()
+  vim.lsp.codelens.refresh()
   vim.notify("Find main class finish")
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    "documentation",
+    "detail",
+    "additionalTextEdits",
+  },
+}
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) -- for nvim-cmp
+
+local function on_attach_jdtls_func(client, bufnr)
+  print("jdtls on_attach_jdtls_func running")
+  vim.notify("jdtls on_attach_jdtls_func running:" .. client.name)
+  require("config.lsp").on_attach(client, bufnr)
+end
+
 local config = {
-
-  on_attach = on_attach_function,
-
-  -- The command that starts the language server
-  -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = {
-
-    -- 💀
     java_home .. "/bin/java",
-    -- 'java', -- or '/path/to/java17_or_newer/bin/java'
-    -- depends on if `java` is in your $PATH env variable and if it points to the right version.
-
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
     "-Dlog.protocol=true",
     "-Dlog.level=ALL",
-    "-Xmx1g",
+    "-Xms1g",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
     "java.base/java.util=ALL-UNNAMED",
@@ -124,43 +170,85 @@ local config = {
     "java.base/java.lang=ALL-UNNAMED",
 
     -- lombok
-    "-javaagent:" .. java_lombok,
+    "-javaagent:" .. java_lombok_file,
 
-    -- 💀
     "-jar",
-    vim.fn.glob(jdtls_home .. "/libexec/plugins/org.eclipse.equinox.launcher_*.jar"),
-    -- '-jar', '/path/to/jdtls_install_location/plugins/org.eclipse.equinox.launcher_VERSION_NUMBER.jar',
-    -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
-    -- Must point to the                                                     Change this to
-    -- eclipse.jdt.ls installation
-
-    -- 💀
+    java_jdtls_file,
     "-configuration",
-    jdtls_home .. "/libexec/config_mac",
-    -- '-configuration', '/path/to/jdtls_install_location/config_SYSTEM',
-    -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
-    -- Must point to the                      Change to one of `linux`, `win` or `mac`
-    -- eclipse.jdt.ls installation
-
-    -- 💀
+    JDTLS_LOCATION .. "/config_" .. SYSTEM,
     "-data",
-    workspace_folder,
-    -- See `data directory configuration` section in the README
-    -- '-data', '/path/to/unique/per/project/workspace/folder'
+    workspace_dir,
   },
 
-  -- 💀
-  -- This is the default if not provided, you can remove it. Or adjust as needed.
-  -- One dedicated LSP server & client will be started per unique root_dir
+  on_attach = on_attach_function,
+  capabilities = capabilities,
   root_dir = root_dir,
 
   -- Here you can configure eclipse.jdt.ls specific settings
   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
   -- for a list of options
   settings = {
-    java = {},
+    java = {
+      eclipse = {
+        downloadSources = true,
+      },
+      configuration = {
+        updateBuildConfiguration = "interactive",
+      },
+      maven = {
+        downloadSources = true,
+      },
+      implementationsCodeLens = {
+        enabled = true,
+      },
+      referencesCodeLens = {
+        enabled = true,
+      },
+      references = {
+        includeDecompiledSources = true,
+      },
+      -- format = {
+      --   enabled = true,
+      --   settings = {
+      --     url = vim.fn.stdpath "config" .. "/lang-servers/intellij-java-google-style.xml",
+      --     profile = "GoogleStyle",
+      --   },
+      -- },
+    },
+    signatureHelp = { enabled = true },
+    completion = {
+      favoriteStaticMembers = {
+        "org.hamcrest.MatcherAssert.assertThat",
+        "org.hamcrest.Matchers.*",
+        "org.hamcrest.CoreMatchers.*",
+        "org.junit.jupiter.api.Assertions.*",
+        "java.util.Objects.requireNonNull",
+        "java.util.Objects.requireNonNullElse",
+        "org.mockito.Mockito.*",
+      },
+    },
+    contentProvider = { preferred = "fernflower" },
+    extendedClientCapabilities = extendedClientCapabilities,
+    sources = {
+      organizeImports = {
+        starThreshold = 9999,
+        staticStarThreshold = 9999,
+      },
+    },
+    codeGeneration = {
+      toString = {
+        template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+      },
+      hashCodeEquals = {
+        useJava7Objects = true,
+      },
+      useBlocks = true,
+    },
   },
 
+  flags = {
+    allow_incremental_sync = true,
+  },
   -- Language server `initializationOptions`
   -- You need to extend the `bundles` with paths to jar files
   -- if you want to use additional eclipse.jdt.ls plugins.
@@ -169,9 +257,7 @@ local config = {
   --
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
-    bundles = {
-      java_debug .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.45.0.jar",
-    },
+    bundles = bundles,
   },
 }
 -- This starts a new client & server,
@@ -180,6 +266,7 @@ local config = {
 
 function _G.ste_jdtls_setup()
   require("jdtls").start_or_attach(config)
+  require("jdtls.setup").add_commands()
 end
 
 vim.cmd([[

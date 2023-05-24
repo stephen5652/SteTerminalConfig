@@ -16,4 +16,3 @@ require("mason-nvim-dap").setup({
 require("ste.plugins.dap.dap-ui")
 require("ste.plugins.dap.dap_python")
 require("ste.plugins.dap.clangd")
-require("ste.plugins.dap.dap_java")

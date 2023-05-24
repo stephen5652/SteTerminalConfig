@@ -74,7 +74,7 @@ null_ls.setup({
         callback = function()
           vim.lsp.buf.format({
             filter = function(client)
-              vim.notify("null-ls start formatter:" .. client.name)
+              -- vim.notify("null-ls start formatter:" .. client.name)
               --  only use null-ls for formatting instead of lsp server
               return client.name == "null-ls"
             end,
