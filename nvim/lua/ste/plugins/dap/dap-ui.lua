@@ -92,7 +92,7 @@ require("dapui").setup({
         "repl",
         "console",
       },
-      size = 5,
+      size = 20,
       position = "bottom",
     },
   },

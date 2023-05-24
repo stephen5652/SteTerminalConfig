@@ -46,6 +46,13 @@ local bundles = {
 
 -- vim.list_extend(bundles, vim.split(vim.fn.glob(DEBUGGER_LOCATION .. "/vscode-java-test/server/*.jar"), "\n"))
 
+function _G.st_refresh_project_class_confit()
+  vim.notify("Start find main class")
+  require("jdtls.dap").setup_dap_main_class_configs()
+  vim.lsp.codelens.refresh()
+  vim.notify("Find main class finish")
+end
+
 local on_attach_function = function(client, bufnr)
   -- require("ste.plugins.lsp.lspconfig").on_attach(client, bufnr)
 
@@ -102,6 +109,7 @@ local on_attach_function = function(client, bufnr)
           n = { "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", "Test nearest method", opts },
           e = { "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract variable", opts },
           m = { "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract method", opts },
+          f = { "<cmd>lua _G.st_refresh_project_class_confit()<cr>", "Find main class" },
         },
       },
     },
@@ -127,10 +135,7 @@ local on_attach_function = function(client, bufnr)
   end
 
   require("jdtls").setup_dap({ hotcodereplace = "auto" })
-  vim.notify("Start find main class")
-  require("jdtls.dap").setup_dap_main_class_configs()
-  vim.lsp.codelens.refresh()
-  vim.notify("Find main class finish")
+  _G.st_refresh_project_class_confit()
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
