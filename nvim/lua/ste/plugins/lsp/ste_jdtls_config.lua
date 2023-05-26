@@ -55,12 +55,11 @@ end
 
 local on_attach_function = function(client, bufnr)
   -- require("ste.plugins.lsp.lspconfig").on_attach(client, bufnr)
-
   local function buf_set_keymap(...)
     vim.keymap.set(...)
   end
 
-  local opts = { noremap = true, silent = false, buffer = bufnr }
+  local opts = { noremap = true, silent = true, buffer = bufnr }
 
   buf_set_keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
   buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
@@ -223,13 +222,13 @@ local config = {
     signatureHelp = { enabled = true },
     completion = {
       favoriteStaticMembers = {
-        "org.hamcrest.MatcherAssert.assertThat",
-        "org.hamcrest.Matchers.*",
-        "org.hamcrest.CoreMatchers.*",
-        "org.junit.jupiter.api.Assertions.*",
-        "java.util.Objects.requireNonNull",
-        "java.util.Objects.requireNonNullElse",
-        "org.mockito.Mockito.*",
+        -- "org.hamcrest.MatcherAssert.assertThat",
+        -- "org.hamcrest.Matchers.*",
+        -- "org.hamcrest.CoreMatchers.*",
+        -- "org.junit.jupiter.api.Assertions.*",
+        -- "java.util.Objects.requireNonNull",
+        -- "java.util.Objects.requireNonNullElse",
+        -- "org.mockito.Mockito.*",
       },
     },
     contentProvider = { preferred = "fernflower" },

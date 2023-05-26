@@ -16,6 +16,8 @@ mason_null_ls.setup({
     "clang_format",
     "standardrb",
     "google_java_format",
+    "xmlformat",
+    "yamlfmt",
   },
   -- auto-install configured formatters & linters (with null-ls)
   automatic_installation = true,
@@ -49,6 +51,8 @@ null_ls.setup({
     formatting.autopep8, -- formats Python code to conform to the PEP 8 style guide
     formatting.prettier, -- js/ts formatter
     formatting.stylua, -- lua formatter
+    formatting.xmlformat,
+    formatting.yamlfmt,
     diagnostics.eslint_d.with({
       -- js/ts linter
       -- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
@@ -74,7 +78,7 @@ null_ls.setup({
         callback = function()
           vim.lsp.buf.format({
             filter = function(client)
-              -- vim.notify("null-ls start formatter:" .. client.name)
+              vim.notify("null-ls start formatter:" .. client.name)
               --  only use null-ls for formatting instead of lsp server
               return client.name == "null-ls"
             end,
