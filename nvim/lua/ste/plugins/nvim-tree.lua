@@ -13,6 +13,8 @@ vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
 -- configure nvim-tree
 nvimtree.setup({
+  sort_by = "case_sensitive",
+  hijack_cursor = true,
   -- change folder arrow icons
   renderer = {
     -- root_folder_label = false,
@@ -22,6 +24,15 @@ nvimtree.setup({
         folder = {
           arrow_closed = "", -- arrow when folder is closed
           arrow_open = "", -- arrow when folder is open
+        },
+        git = {
+          unstaged = "✗",
+          staged = "✓",
+          unmerged = "⌥",
+          renamed = "➜",
+          untracked = "★",
+          deleted = "⊖",
+          ignored = "◌",
         },
       },
     },
@@ -42,6 +53,8 @@ nvimtree.setup({
     },
   },
   view = {
+    adaptive_size = true,
+    width = 30,
     side = "right",
   },
   -- 	git = {
