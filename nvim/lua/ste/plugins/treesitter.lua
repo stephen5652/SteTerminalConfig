@@ -49,6 +49,7 @@ treesitter.setup({
     "swift",
     "go",
     "dart",
+    "vue",
   },
   -- auto install above language parsers
   auto_install = true,

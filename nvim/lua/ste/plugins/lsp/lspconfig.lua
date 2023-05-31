@@ -69,7 +69,7 @@ require("mason-lspconfig").setup({
     "pyright",
     "solargraph",
     "sqlls",
-    "vuels",
+    "volar",
     "wgsl_analyzer",
     "lemminx",
     "yamlls",
@@ -120,6 +120,21 @@ lspconfig["cssls"].setup({
 lspconfig["tailwindcss"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  settings = {
+    tailwindCSS = {
+      classAttributes = { "class", "className", "classList", "ngClass" },
+      lint = {
+        cssConflict = "warning",
+        invalidApply = "error",
+        invalidConfigPath = "error",
+        invalidScreen = "error",
+        invalidTailwindDirective = "error",
+        invalidVariant = "error",
+        recommendedVariantOrder = "warning",
+      },
+      validate = true,
+    },
+  },
 })
 
 -- configure emmet language server
@@ -192,10 +207,16 @@ lspconfig.sqlls.setup({
   on_attach = on_attach,
 })
 
--- vuels
-lspconfig.vuels.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+--volar
+lspconfig.volar.setup({
+  init_options = {
+    typescript = {
+      tsdk = "/path/to/.npm/lib/node_modules/typescript/lib",
+      -- Alternative location if installed as root:
+      -- tsdk = '/usr/local/lib/node_modules/typescript/lib'
+    },
+  },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
 })
 
 -- wgsl_analyzer

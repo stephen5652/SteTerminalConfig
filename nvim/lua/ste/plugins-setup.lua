@@ -65,6 +65,15 @@ return packer.startup(function(use)
   }) -- fuzzy finder
 
   -- autocompletion
+  use({
+    "danymat/neogen",
+    config = function()
+      require("ste.plugins.neogen").setup({})
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    -- tag = "*"
+  })
   use("hrsh7th/nvim-cmp") -- completion plugin
   use("hrsh7th/cmp-buffer") -- source for text in buffer
   use("hrsh7th/cmp-path") -- source for file system paths
