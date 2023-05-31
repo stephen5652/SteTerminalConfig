@@ -225,6 +225,34 @@ return packer.startup(function(use)
   -- notify
   use("rcarriga/nvim-notify")
 
+  -- mini nvim
+
+  use("echasnovski/mini.nvim")
+  use({
+    "echasnovski/mini.hipatterns",
+    config = function()
+      require("mini.hipatterns").setup()
+    end,
+  })
+
+  use({
+    "lvim-tech/lvim-fm",
+    requires = { "lvim-tech/lvim-shell" },
+    config = function()
+      require("lvim-fm").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  })
+
+  -- hope
+  use({
+    "phaazon/hop.nvim",
+    branch = "v2", -- optional but strongly recommended
+  })
+
   if packer_bootstrap then
     require("packer").sync()
   end

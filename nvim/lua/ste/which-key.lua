@@ -239,6 +239,13 @@ local mappings = {
       --   "Foobar",
       -- }, -- you can also pass functions!
     },
+    h = {
+      name = "Hop functions",
+      l = { "<cmd>HopLine<cr>", "search charactor in line", noremap = false },
+      w = { "<cmd>HopWord<cr>", "search words", noremap = false },
+      c = { "<cmd>HopChar2<cr>", "search HopChar2", noremap = false },
+      a = { "<cmd>HopAnywhere<cr>", "search charactor HopAnywhere", noremap = false },
+    },
     g = {
       name = "Git action",
       b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Show current line blame" },

@@ -30,6 +30,7 @@ require("ste.plugins.live-server")
 require("ste.plugins.nvim-hlslens")
 
 require("ste.plugins.lsp.ste_jdtls_config")
+require("ste.plugins.nvim-hop")
 
 vim.cmd([[ 
   augroup swift_auto_formatter 
