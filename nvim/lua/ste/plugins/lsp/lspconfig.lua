@@ -64,7 +64,7 @@ require("mason-lspconfig").setup({
     "cssls",
     "emmet_ls",
     "jsonls",
-    -- "jdtls",
+    "jdtls",
     "marksman",
     "pyright",
     "solargraph",
