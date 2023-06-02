@@ -160,6 +160,7 @@ local mappings = {
       c = { ":bdelete %<CR>", "Delete current buffer" },
       p = { "<cmd>BufferLineCyclePrev<CR>", "Move cursor to pre tab" },
       n = { "<cmd>BufferLineCycleNext<CR>", "Move cursor to next tab" },
+      o = { "<cmd>%bd|e#<cr>", "Close other buffer" },
     },
     c = {
       name = "Code actions",
