@@ -25,7 +25,7 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = false, buffer = bufnr }
 
   -- set keybinds
-  keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
+  keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, referenceslspco
   keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
   keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
   keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
@@ -73,7 +73,7 @@ require("mason-lspconfig").setup({
     "wgsl_analyzer",
     "lemminx",
     "yamlls",
-    "standardrb",
+    -- "standardrb",
   },
   -- auto-install configured servers (with lspconfig)
   automatic_installation = true, -- not the same as ensure_installed
@@ -191,15 +191,20 @@ lspconfig.pyright.setup({
 })
 
 -- solargraph
+lspconfig.solargraph.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
 lspconfig.pyright.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
 
-lspconfig.standardrb.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+-- lspconfig.standardrb.setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- })
 
 -- sqlls
 lspconfig.sqlls.setup({

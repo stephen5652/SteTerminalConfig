@@ -11,10 +11,10 @@ mason_null_ls.setup({
     "stylua", -- lua formatter
     "eslint_d", -- ts/js linter
     "shfmt", -- shell formatter
-    "rubyfmt",
+    "rubocop",
     "autopep8",
     "clang_format",
-    "standardrb",
+    -- "standardrb",
     "google_java_format",
     "xmlformat",
     "yamlfmt",
@@ -63,8 +63,9 @@ null_ls.setup({
     -- diagnostics.swiftlint,
     formatting.swiftlint,
     formatting.shfmt, -- bash formatter
-    diagnostics.standardrb, -- linter your Ruby code!
-    formatting.standardrb, -- formmatter your Ruby code!
+    -- diagnostics.standardrb, -- linter your Ruby code!
+    -- formatting.standardrb, -- formmatter your Ruby code!
+    formatting.rubocop,
     formatting.google_java_format,
   },
   -- configure format on save
