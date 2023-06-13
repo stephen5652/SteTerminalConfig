@@ -257,9 +257,7 @@ return packer.startup(function(use)
   use({
     "jackMort/ChatGPT.nvim",
     config = function()
-      require("chatgpt").setup({
-        api_key_cmd = "cat /Users/imac24inch/chatgpt_key.txt",
-      })
+      require("ste.plugins.nvm-chatgpt").setup()
     end,
     requires = {
       "MunifTanjim/nui.nvim",

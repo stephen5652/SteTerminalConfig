@@ -278,6 +278,12 @@ local mappings = {
         m = { "<cmd>TSModuleInfo<cr>", "Treesitter show installed info" },
       },
     },
+    p = {
+      name = "ChatGPT",
+      a = { "<cmd>ChatGPTActAs<cr>", "ChatGPTActAs" },
+      e = { "<cmd>ChatGPT<cr>", "ChatGPT " },
+      i = { "<cmd>ChatGPTEditWithInstructions<cr>", "ChatGPTEditWithInstructions" },
+    },
     s = {
       name = "service",
       l = { "<cmd>LiveServer<cr>", "Open / Close live server" },
@@ -293,7 +299,7 @@ local mappings = {
       a = { "<cmd>lua require'telescope.builtin'.colorscheme()<cr>", "Appearance colorscheme list" },
       b = { "<c-w>v", "Vertically split window" },
       v = { "<c-w>s", "Horizontally split window" },
-      d = { "<c-c><cmd>Startup display<cr>", "Show Dashboard" },
+      d = { "<c-c>cmd>Startup display<cr>", "Show Dashboard" },
       e = { "<c-w>=", "Make split windows equal width & height" },
       c = { "<cmd>close<cr>", "Close current split window" },
       h = { "<C-w><c-h>", "Foucus the left split window" },
