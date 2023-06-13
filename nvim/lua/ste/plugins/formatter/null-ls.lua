@@ -16,7 +16,8 @@ mason_null_ls.setup({
     "clang_format",
     -- "standardrb",
     "google_java_format",
-    "xmlformat",
+    -- "xmlformat",
+    -- "xmllint",
     "yamlfmt",
   },
   -- auto-install configured formatters & linters (with null-ls)
@@ -51,8 +52,15 @@ null_ls.setup({
     formatting.autopep8, -- formats Python code to conform to the PEP 8 style guide
     formatting.prettier, -- js/ts formatter
     formatting.stylua, -- lua formatter
-    formatting.xmlformat,
+    -- formatting.xmlformat,
+    -- formatting.tidy.with({
+    --   args = { "-xml", "-indent" },
+    -- }),
+    formatting.tidy.with({
+      args = { "-xml", "-indent", "-omit", "-wrap", "200" },
+    }),
     formatting.yamlfmt,
+    diagnostics.tidy,
     diagnostics.eslint_d.with({
       -- js/ts linter
       -- only enable eslint if root has .eslintrc.js (not in youtube nvim video)

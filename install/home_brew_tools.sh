@@ -3,6 +3,8 @@
 install_brew_tools() {
 	brew install z
 	brew install ncdu
+	# xml formatter
+	brew install tidy-html5
 }
 
 install_exec() {
