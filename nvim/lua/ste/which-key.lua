@@ -171,6 +171,7 @@ local mappings = {
       },
       s = { "<cmd>SymbolsOutline<cr>", "Show code symbols" },
       f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Formatter current file" },
+      a = { "<cmd>Lspsaga code_action<CR>", "See available code actions" },
     },
     d = {
       name = "Debug functions",
