@@ -253,6 +253,21 @@ return packer.startup(function(use)
     branch = "v2", -- optional but strongly recommended
   })
 
+  -- chat gpt
+  use({
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup({
+        api_key_cmd = "cat /Users/imac24inch/chatgpt_key.txt",
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  })
+
   if packer_bootstrap then
     require("packer").sync()
   end
