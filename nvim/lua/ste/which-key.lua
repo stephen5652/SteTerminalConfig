@@ -263,7 +263,7 @@ local mappings = {
     },
     l = {
       name = "Develop languages info [lsp treesitter mason]",
-      l = {
+      s = {
         name = "Lsp management",
         i = { "<cmd>LspInfo<cr>", "Lsp service info" },
         s = { "<cmd>LspRestart<CR>", "Restart lsp if necessary" },

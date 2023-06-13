@@ -29,10 +29,10 @@ keymap.set("i", "<C-b>", "<PageUp>", { silent = true })
 keymap.set("i", "<C-f>", "PageDown>", { silent = true })
 
 -- window management
-keymap.set("n", "<C-k>", "<c-w>k") -- focus the top window
-keymap.set("n", "<C-j>", "<c-w>j") -- focus the bottom window
-keymap.set("n", "<C-h>", "<c-w>h") -- focus the left window
-keymap.set("n", "<C-l>", "<c-w>l") -- focus the right window
+keymap.set("n", "<leader>kk", "<c-w>k") -- focus the top window
+keymap.set("n", "<leader>jj", "<c-w>j") -- focus the bottom window
+keymap.set("n", "<leader>hh", "<c-w>h") -- focus the left window
+keymap.set("n", "<leader>ll", "<c-w>l") -- focus the right window
 
 -- tab manager
 keymap.set("n", "<S-Up>", ":resize -2<CR>", { silent = true })
