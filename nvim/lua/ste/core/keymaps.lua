@@ -12,6 +12,7 @@ keymap.set({ "i", "v", "c" }, "<leader>jk", "<ESC>")
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
+keymap.set("n", "<leader>aa", "ggVG")
 
 -- bufferline 左右Tab切换
 keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<CR>")
