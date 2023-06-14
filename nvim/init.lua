@@ -32,6 +32,9 @@ require("ste.plugins.nvim-hlslens")
 require("ste.plugins.lsp.ste_jdtls_config")
 require("ste.plugins.nvim-hop")
 
+-- chat gpt
+require("ste.plugins.nvm-chatgpt").setup()
+
 vim.cmd([[ 
   augroup swift_auto_formatter 
     autocmd!

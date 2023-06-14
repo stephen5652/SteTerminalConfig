@@ -256,9 +256,6 @@ return packer.startup(function(use)
   -- chat gpt
   use({
     "jackMort/ChatGPT.nvim",
-    config = function()
-      require("ste.plugins.nvm-chatgpt").setup()
-    end,
     requires = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",

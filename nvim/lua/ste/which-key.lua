@@ -278,7 +278,7 @@ local mappings = {
         m = { "<cmd>TSModuleInfo<cr>", "Treesitter show installed info" },
       },
     },
-    p = {
+    o = {
       name = "ChatGPT",
       a = { "<cmd>ChatGPTActAs<cr>", "ChatGPTActAs" },
       e = { "<cmd>ChatGPT<cr>", "ChatGPT " },

@@ -20,13 +20,13 @@ keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<CR>")
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
-keymap.set("i", "<C-h>", "<Left>", { silent = true })
-keymap.set("i", "<C-j>", "<Down>", { silent = true })
-keymap.set("i", "<C-k>", "<Up>", { silent = true })
-keymap.set("i", "<C-l>", "<Right>", { silent = true })
-
-keymap.set("i", "<C-b>", "<PageUp>", { silent = true })
-keymap.set("i", "<C-f>", "PageDown>", { silent = true })
+-- keymap.set("i", "<C-h>", "<Left>", { silent = true })
+-- keymap.set("i", "<C-j>", "<Down>", { silent = true })
+-- keymap.set("i", "<C-k>", "<Up>", { silent = true })
+-- keymap.set("i", "<C-l>", "<Right>", { silent = true })
+--
+-- keymap.set("i", "<C-b>", "<PageUp>", { silent = true })
+-- keymap.set("i", "<C-f>", "PageDown>", { silent = true })
 
 -- window management
 keymap.set("n", "<leader>kk", "<c-w>k") -- focus the top window
@@ -42,7 +42,7 @@ keymap.set("n", "<S-Right>", ":vertical resize +2<CR>", { silent = true })
 keymap.set("t", "<S-Up>", "<cmd>:resize +2<CR>", { silent = true })
 keymap.set("t", "<S-Down>", "<cmd>:resize -2<CR>", { silent = true })
 
-keymap.set({ "n", "i", "v" }, "<c-s>", "<cmd>w<CR>")
+keymap.set("n", "<leader>ss", "<cmd>w<CR>")
 
 -- terminal
 keymap.set("t", "<ESC>", "<c-\\><c-n>")
