@@ -16,13 +16,13 @@ module.exports.parse = async (
     }
   });
 
-  const autoSelectGroup = parseResult["proxy-groups"].find(
-    (group) => group.name === "♻️ 自动选择"
-  );
-
-  if (autoSelectGroup) {
-    gptNodes.push(autoSelectGroup);
-  }
+  // const autoSelectGroup = parseResult["proxy-groups"].find(
+  //   (group) => group.name === "♻️ 自动选择"
+  // );
+  //
+  // if (autoSelectGroup) {
+  //   gptNodes.push(autoSelectGroup);
+  // }
 
   const gptNodeGroup = {
     name: "ST-GPT-NODES",
@@ -48,7 +48,7 @@ module.exports.parse = async (
     parseResult.rules &&
     Array.isArray(parseResult.rules)
   ) {
-    parseResult.rules.push("DOMAIN-KEYWORD,openai,ST-GPT-NODES");
+    parseResult.rules.unshift("DOMAIN-KEYWORD,openai,ST-GPT-NODES");
   }
 
   // DOMAIN-KEYWORD,openai,ST-GPT-NODES
