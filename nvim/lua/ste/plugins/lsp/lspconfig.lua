@@ -53,7 +53,7 @@ end
 require("mason-lspconfig").setup({
   -- list of servers for mason to install
   ensure_installed = {
-    "tsserver",
+    -- "tsserver",
     "html",
     "cssls",
     "tailwindcss",
@@ -67,7 +67,7 @@ require("mason-lspconfig").setup({
     "pyright",
     "solargraph",
     "sqlls",
-    "volar",
+    "vuels",
     "wgsl_analyzer",
     "lemminx",
     "yamlls",
@@ -88,11 +88,11 @@ for type, icon in pairs(signs) do
 end
 
 -- configure tsserver
-lspconfig.tsserver.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-})
+-- lspconfig.tsserver.setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+-- })
 
 -- configure html server
 lspconfig["html"].setup({
@@ -219,7 +219,7 @@ lspconfig.sqlls.setup({
 })
 
 --volar
-lspconfig.volar.setup({
+lspconfig.vuels.setup({
   init_options = {
     typescript = {
       tsdk = "/path/to/.npm/lib/node_modules/typescript/lib",

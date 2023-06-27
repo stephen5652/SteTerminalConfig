@@ -124,6 +124,7 @@ install_java_debug() {
 		echo -e "\nFile existed, remove it first: ${local_lombok}"
 		rm ${local_lombok}
 	fi
+	echo -e "Start load lombok"
 	wget https://projectlombok.org/downloads/lombok.jar -O ${local_lombok}
 
 	echo -e "\n Start install java-debug_17"
