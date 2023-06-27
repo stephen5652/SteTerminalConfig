@@ -114,6 +114,9 @@ end
 function _G.live_grep_the_file()
   require("telescope.builtin").live_grep({
     grep_open_files = true,
+    prompt_title = "Fuzzy Live Grep",
+    use_regex = true, -- 启用正则表达式模式
+    search = "\\w+\\s+\\w+", -- 使用正则表达式模式进行匹配
   })
 end
 
