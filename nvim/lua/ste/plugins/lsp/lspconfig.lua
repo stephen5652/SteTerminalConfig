@@ -53,7 +53,7 @@ end
 require("mason-lspconfig").setup({
   -- list of servers for mason to install
   ensure_installed = {
-    -- "tsserver",
+    "tsserver",
     "html",
     "cssls",
     "tailwindcss",
@@ -68,6 +68,7 @@ require("mason-lspconfig").setup({
     "solargraph",
     "sqlls",
     "vuels",
+    "custom_elements_ls",
     "wgsl_analyzer",
     "lemminx",
     "yamlls",
@@ -88,11 +89,11 @@ for type, icon in pairs(signs) do
 end
 
 -- configure tsserver
--- lspconfig.tsserver.setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
---   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
--- })
+lspconfig.tsserver.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+})
 
 -- configure html server
 lspconfig["html"].setup({
@@ -101,12 +102,12 @@ lspconfig["html"].setup({
 })
 
 -- configure typescript server with plugin
-typescript.setup({
-  server = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  },
-})
+-- typescript.setup({
+--   server = {
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--   },
+-- })
 
 -- configure css server
 lspconfig["cssls"].setup({
@@ -220,14 +221,63 @@ lspconfig.sqlls.setup({
 
 --volar
 lspconfig.vuels.setup({
+  cmd = {
+    "vls",
+  },
   init_options = {
-    typescript = {
-      tsdk = "/path/to/.npm/lib/node_modules/typescript/lib",
-      -- Alternative location if installed as root:
-      -- tsdk = '/usr/local/lib/node_modules/typescript/lib'
+    config = {
+      css = {},
+      emmet = {},
+      html = {
+        suggest = {},
+      },
+      javascript = {
+        format = {},
+      },
+      stylusSupremacy = {},
+      typescript = {
+        format = {},
+      },
+      vetur = {
+        completion = {
+          autoImport = false,
+          tagCasing = "kebab",
+          useScaffoldSnippets = true,
+        },
+        format = {
+          defaultFormatter = {
+            js = "none",
+            ts = "none",
+          },
+          defaultFormatterOptions = {},
+          scriptInitialIndent = false,
+          styleInitialIndent = false,
+        },
+        useWorkspaceDependencies = true,
+        validation = {
+          script = true,
+          style = true,
+          template = true,
+        },
+      },
     },
   },
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+  root_dir = lspconfig.util.root_pattern("package.json", "vue.config.js"),
+})
+
+require("lspconfig").custom_elements_ls.setup({
+
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+    "html",
+    "vue",
+  },
 })
 
 -- wgsl_analyzer

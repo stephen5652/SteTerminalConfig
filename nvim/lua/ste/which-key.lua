@@ -294,7 +294,7 @@ local mappings = {
     t = {
       name = "Terminal",
       p = { "<Cmd>lua _G.python_toggle()<CR>", "Open one python terminal" },
-      c = { "<Cmd>lua _G.st_custome_toogle()<CR>", "Open one python terminal" },
+      t = { "<Cmd>lua _G.st_custome_toogle()<CR>", "Open one pane terminal" },
       f = { "<cmd>lua _G.st_custome_float_term()<CR>", "Open one float terminal" },
     },
     w = {
