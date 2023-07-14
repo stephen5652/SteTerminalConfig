@@ -2,7 +2,14 @@ source ${HOME}/ste_bash_env
 
 source ${HOME}/ste_java_env
 
-. $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+. /usr/local/Cellar/asdf/0.11.3/libexec/asdf.sh
+
+#flutter HOME
+
+export FLUTTER_HOME=${HOME}/flutter
+export FLUTTER=${FUTTER_HOME}/bin
+
+export PATH=$FLUTTER_HOME/bin:$PATH:
 
 export https_proxy=http://127.0.0.1:7890
 export http_proxy=http://127.0.0.1:7890
