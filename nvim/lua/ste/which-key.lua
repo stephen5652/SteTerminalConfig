@@ -231,7 +231,7 @@ local mappings = {
       name = "Find",
       f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false }, -- additional options for creating the keymap
-      s = { "<cmd>lua _G.live_grep_the_file()<cr>", "Find string in current file" },
+      s = { "<cmd>lua _G.live_grep_the_file()<cr>", "Find string in all opened buffers" },
       S = { "<cmd>Telescope live_grep<cr>", "Find string in workspace" },
       -- C = { "<cmd>Telescope grep_string<cr>", "Find cursor charactor in workspace" },
       -- c = { "<cmd>lua _G.grep_string_the_file()<cr>", "Find cursor charactor in cur file" },
