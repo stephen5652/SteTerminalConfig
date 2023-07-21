@@ -53,8 +53,8 @@ shift + alt - 7 : yabai -m window --space 7;
 shift + alt - 8 : yabai -m window --space 8;
 
 # -------------- display Moving -------------------
-shift + alt - s : yabai -m window --display west; 
-shift + alt - g : yabai -m window --display east; 
+shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
+shift + alt - g : yabai -m window --display east; yabai -m display --focus east; 
 
 
 # -------------- Starting/Stopping/Restarting Yabai ------------------------------------------------------------------------------------------------------------------------------
