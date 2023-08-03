@@ -100,15 +100,15 @@ nnoremap <leader>du :action StepOut<CR>
 nnoremap <leader>dU :action ActivateDebugToolWindow<CR>
 
 
-map <leader>a <Action>(Annotate)
+map <leader>a :action Annotate<CR>
 
 """ about git ----
-map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+map <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
 
-map <S-Space> <Action>(GotoNextError)
+map <S-Space> :action GotoNextError<CR>
 
 "about code action"
-map <leader>cs <Action>(FileStructurePopup)
+map <leader>cs :action FileStructurePopup<CR>
 " 格式化代码
 nnoremap <leader>cf :action ReformatCode<CR>
 map gbb :action Back<CR>
@@ -118,7 +118,7 @@ map gff :action Forward<CR>
 map gcc :action CommentByLineComment<CR>
 
 
-map <leader>z <Action>(ToggleDistractionFreeMode)
+map <leader>z :action ToggleDistractionFreeMode<CR>
 
 
 " ===
@@ -140,7 +140,7 @@ map <leader>z <Action>(ToggleDistractionFreeMode)
 """"End""""
 " toggle NERDTree
 nnoremap <leader>ee :NERDTreeToggle<CR>
-nnoremap <leader>ef <Action>(SelectInProjectView)
+nnoremap <leader>ef :action SelectInProjectView<CR>
 
 " vim窗口操作
 nnoremap <leader>jj <C-W>j
