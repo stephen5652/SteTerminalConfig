@@ -61,6 +61,11 @@ map <Leader>hl <Plug>(easymotion-bd-jk)
 map  <Leader>hw <Plug>(easymotion-bd-w)
 " find file in project"
 nnoremap <leader>ff mm`m:action GotoFile<CR>
+nnoremap <leader>fs mm`m:action Find<CR>
+nnoremap <leader>fS mm`m:action FindInPath<CR>
+nnoremap <leader>fr mm`m:action Replace<CR>
+nnoremap <leader>fR mm`m:action ReplaceInPath<CR>
+
 "save file"
 nnoremap <Leader>ss :w<CR>
 
@@ -89,6 +94,8 @@ nnoremap gl :action ShowErrorDescription<CR>
 nnoremap <leader>ds :action Debug<CR>
 nnoremap <leader>dx :action Stop<CR>
 nnoremap <leader>dt :action ToggleLineBreakpoint<CR>
+" 取消所有的断点
+nnoremap <leader>dT :action Debugger.RemoveAllBreakpointsInFile<CR>
 nnoremap <Leader>dl :action ViewBreakpoints<CR>
 nnoremap <Leader>dc :action ChooseDebugConfiguration<CR>
 " Resume (跳到下个断点运行)
@@ -151,6 +158,8 @@ nnoremap <leader>wc <C-W>c
 nnoremap <leader>wv :vsplit<CR>
 nnoremap <leader>wb :split<CR>
 nnoremap <leader>wo <C-w><c-o>
+" 隐藏窗口(windows hide)
+nnoremap <leader>wh :action HideActiveWindow<CR>
 
 " tab 移动
 nnoremap <S-h> gT
