@@ -47,18 +47,113 @@ set relativenumber
 set nu
 
 """ Idea specific settings ------------------
-set ideajoin
+set ideajoinwindow
 set idearefactormode=keep
+
+"which key"
+set which-key
+
+" disable the timeout option
+set notimeout
+
+" increase the timeoutlen (default: 1000), don't add space around the equal sign =
+" set timeoutlen=500
+" close the popup and don't process formerly typed keys
+let g:WhichKey_ProcessUnknownMappings = "false"
+"--------------------------------------------- window management ---------------------------------------------"
+" vim窗口操作
+let g:WhichKeyDesc_w = "<leader>w window actions"
+
+let g:WhichKeyDesc_windows_wv = "<leader>wv vertical split"
+let g:WhichKeyDesc_windows_wb = "<leader>wb balance split"
+let g:WhichKeyDesc_windows_wo = "<leader>wo Close other window"
+let g:WhichKeyDesc_windows_wc = "<leader>wc Close current window"
+let g:WhichKeyDesc_windows_wh = "<leader>wh Close activity menu window"
+
+nnoremap <leader>wv :vsplit<CR>
+nnoremap <leader>wb :split<CR>
+nnoremap <leader>wo <C-w><c-o>
+nnoremap <leader>wc <C-W>c
+nnoremap <leader>wh :action HideActiveWindow<CR>
+
+
+"--------------------------------------------- tasks management ---------------------------------------------"
+"tasks
+let g:WhichKeyDesc_t = "<leader>t tasks actions"
+let g:WhichKeyDesc_tb = "<leader>tb back ground tasks"
+nnoremap <leader>tb :action BackgroundTasks<CR>
+
+
+"屏蔽which-key显示下面的快捷键"
+let g:WhichKeyDesc_jj = "<leader>jj"
+let g:WhichKeyDesc_kk = "<leader>kk"
+let g:WhichKeyDesc_hh = "<leader>hh"
+let g:WhichKeyDesc_ll = "<leader>ll"
+
+"选择焦点窗口"
+nnoremap <leader>jj <C-W>j
+nnoremap <leader>kk <C-W>k
+nnoremap <leader>hh <C-W>h
+nnoremap <leader>ll <C-W>l
+" tab 选择
+nnoremap <S-h> gT
+nnoremap <S-l> gt
+
+"--------------------------------------------- debug actions ---------------------------------------------"
+let g:WhichKeyDesc_d = "<leader>d debug actions"
+
+let g:WhichKeyDesc_debugs_ds = "<leader>ds Debug run"
+let g:WhichKeyDesc_debugs_dx = "<leader>dx Debug Stop"
+let g:WhichKeyDesc_debugs_dc = "<leader>dc ChooseDebugConfiguration"
+let g:WhichKeyDesc_debugs_de = "<leader>de StepOver"
+
+
+"--------------------------------------------- breakpoints actions ---------------------------------------------"
+let g:WhichKeyDesc_b = "<leader>b breakpoints & buffer actions"
+
+
+"--------------------------------------------- code actions ---------------------------------------------"
+let g:WhichKeyDesc_c = "<leader>c code actions"
+
+nnoremap <leader>ds :action Debug<CR>
+nnoremap <leader>dx :action Stop<CR>
+nnoremap <Leader>dC :action ChooseDebugConfiguration<CR>
+
+" debug神器
+" StepOver (F8) 单步调试
+nnoremap <leader>de :action StepOver<CR>
+" Resume  debug forward (跳到下个断点运行)
+nnoremap <leader>df :action Resume<CR>
+" StepInto (F7)
+nnoremap <leader>di :action ForceStepInto<CR>
+" ForceStepInto(CMD + SHIFT + F7)
+nnoremap <leader>dI :action ForceStepInto
+" StepOut (SHIFT+F8)
+nnoremap <leader>du :action StepOut<CR>
+" debug强制运行到光标处
+nnoremap <leader>dc :action ForceRunToCursor<CR>
+
+
+
+"--------------------------------------------- code actions ---------------------------------------------"
+
+
 
 """ Mappings --------------------------------
 " 取消高亮
 nnoremap <leader>nh :nohlsearch<Cr>
-""" <Leader>hc{char} to move to {char} ------
+
+"easymotion actions"
+""" move to char ------
 map  <Leader>hc <Plug>(easymotion-bd-f)
 """ Move to line -------
 map <Leader>hl <Plug>(easymotion-bd-jk)
 " Move to word
 map  <Leader>hw <Plug>(easymotion-bd-w)
+
+"surround"
+
+
 " find file in project"
 nnoremap <leader>ff mm`m:action GotoFile<CR>
 nnoremap <leader>fs mm`m:action Find<CR>
@@ -68,6 +163,9 @@ nnoremap <leader>fR mm`m:action ReplaceInPath<CR>
 
 "save file"
 nnoremap <Leader>ss :w<CR>
+"formatter and save file"
+nnoremap <Leader>sf :action ReformatCode<CR> :w<CR>
+nnoremap <Leader>sd :action ReloadFromDisk<CR> :w<CR>
 
 " 最近查看文件间相互跳转
 nnoremap <leader>fr mm`m:action RecentFiles<CR>
@@ -88,44 +186,50 @@ nnoremap ga :action GotoAction<CR>
 " idea智能提示
 nnoremap gh :action ShowIntentionActions<CR>
 " 显示错误描述
-nnoremap gl :action ShowErrorDescription<CR>
+nnoremap ge :action ShowErrorDescription<CR>
+nnoremap gr :action GotoRelated<CR>
 
-" about debug
-nnoremap <leader>ds :action Debug<CR>
-nnoremap <leader>dx :action Stop<CR>
-nnoremap <leader>dt :action ToggleLineBreakpoint<CR>
-" 取消所有的断点
-nnoremap <leader>dT :action Debugger.RemoveAllBreakpointsInFile<CR>
-nnoremap <Leader>dl :action ViewBreakpoints<CR>
-nnoremap <Leader>dc :action ChooseDebugConfiguration<CR>
-" Resume (跳到下个断点运行)
-nnoremap <leader>dn :action Resume<CR>
+
+"break point 断点"
+"打断点
+nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
+"查看所有断点
+nnoremap <Leader>bv :action ViewBreakpoints<CR>
+" 取消所有的断点 break point cancel
+nnoremap <leader>bC :action Debugger.RemoveAllBreakpointsInFile<CR>
+
 " debug强制运行到光标处
 nnoremap <leader>dC :action ForceRunToCursor<CR>
 " StepOut (SHIFT+F8)
 nnoremap <leader>du :action StepOut<CR>
 nnoremap <leader>dU :action ActivateDebugToolWindow<CR>
 
-
-map <leader>a :action Annotate<CR>
-
 """ about git ----
 map <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+map <leader>ga :action Annotate<CR>
 
 map <S-Space> :action GotoNextError<CR>
 
 "about code action"
-map <leader>cs :action FileStructurePopup<CR>
+nnoremap <leader>cs :action FileStructurePopup<CR>
+nnoremap <leader>co :action GotoSymbol<CR>
 " 格式化代码
 nnoremap <leader>cf :action ReformatCode<CR>
+
+"book mark function"
+nnoremap <leader>bm :action ToggleBookmark<CR>
+
 map gbb :action Back<CR>
 map gff :action Forward<CR>
 
 "注释代码"
 map gcc :action CommentByLineComment<CR>
 
+map <leader>zz :action ToggleDistractionFreeMode<CR>
+map <leader>aa :action TogglePresentationMode<CR>
 
-map <leader>z :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>tt :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>tn :action Terminal.OpenInTerminal<CR>
 
 
 " ===
@@ -149,26 +253,13 @@ map <leader>z :action ToggleDistractionFreeMode<CR>
 nnoremap <leader>ee :NERDTreeToggle<CR>
 nnoremap <leader>ef :action SelectInProjectView<CR>
 
-" vim窗口操作
-nnoremap <leader>jj <C-W>j
-nnoremap <leader>kk <C-W>k
-nnoremap <leader>hh <C-W>h
-nnoremap <leader>ll <C-W>l
-nnoremap <leader>wc <C-W>c
-nnoremap <leader>wv :vsplit<CR>
-nnoremap <leader>wb :split<CR>
-nnoremap <leader>wo <C-w><c-o>
-" 隐藏窗口(windows hide)
-nnoremap <leader>wh :action HideActiveWindow<CR>
 
-" tab 移动
-nnoremap <S-h> gT
-nnoremap <S-l> gt
 
-"关闭到只剩当前tab栏
+"buffer only"
 nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
 "关闭当前tab"
 nnoremap <leader>bc :q<cr>
 
 " 新建文件 (嘻嘻,啥都可以直接用快捷键建立,一个字爽)
 nnoremap <leader>ne :action NewElement<CR>
+
