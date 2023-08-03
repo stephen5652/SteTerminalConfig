@@ -1,0 +1,165 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+"" -- Suggested options --
+
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+""" Map leader to space ---------------------
+let mapleader=" "
+" 防止按leader键乱移动
+nnoremap <SPACE> <nop>
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set easymotion
+set textobj-entire
+set ReplaceWithRegister
+set NERDTree
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+set showmode
+set so=5
+" 取消高亮
+" 设置寻找高亮
+set hlsearch
+set incsearch
+
+" 下一行和上一行的格式相同
+set autoindent
+set cindent
+" 设置窗口分屏方向
+set splitright
+set splitbelow
+set ignorecase
+set keep-english-in-normal-and-restore-in-insert  "普通模式强制以英文模式
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+set relativenumber
+set nu
+
+""" Idea specific settings ------------------
+set ideajoin
+set idearefactormode=keep
+
+""" Mappings --------------------------------
+" 取消高亮
+nnoremap <leader>nh :nohlsearch<Cr>
+""" <Leader>hc{char} to move to {char} ------
+map  <Leader>hc <Plug>(easymotion-bd-f)
+""" Move to line -------
+map <Leader>hl <Plug>(easymotion-bd-jk)
+" Move to word
+map  <Leader>hw <Plug>(easymotion-bd-w)
+" find file in project"
+nnoremap <leader>ff mm`m:action GotoFile<CR>
+"save file"
+nnoremap <Leader>ss :w<CR>
+
+" 最近查看文件间相互跳转
+nnoremap <leader>fr mm`m:action RecentFiles<CR>
+" 查找用法
+nnoremap <leader>fu :action FindUsages<CR>
+
+"跳转到声明
+nnoremap gd mm`m:action GotoDeclaration<CR>
+" 打开General菜单
+nnoremap go :action Generate<CR>
+"跳转到实现类
+nnoremap gi mm`m:action GotoImplementation<CR>
+" 查找类
+nnoremap gc mm`m:action GotoClass<CR>
+" 跳转SuperMethod
+nnoremap gs mm`m:action GotoSuperMethod<CR>
+nnoremap ga :action GotoAction<CR>
+" idea智能提示
+nnoremap gh :action ShowIntentionActions<CR>
+" 显示错误描述
+nnoremap gl :action ShowErrorDescription<CR>
+
+" about debug
+nnoremap <leader>ds :action Debug<CR>
+nnoremap <leader>dx :action Stop<CR>
+nnoremap <leader>dt :action ToggleLineBreakpoint<CR>
+nnoremap <Leader>dl :action ViewBreakpoints<CR>
+nnoremap <Leader>dc :action ChooseDebugConfiguration<CR>
+" Resume (跳到下个断点运行)
+nnoremap <leader>dn :action Resume<CR>
+" debug强制运行到光标处
+nnoremap <leader>dC :action ForceRunToCursor<CR>
+" StepOut (SHIFT+F8)
+nnoremap <leader>du :action StepOut<CR>
+nnoremap <leader>dU :action ActivateDebugToolWindow<CR>
+
+
+map <leader>a <Action>(Annotate)
+
+""" about git ----
+map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+
+map <S-Space> <Action>(GotoNextError)
+
+"about code action"
+map <leader>cs <Action>(FileStructurePopup)
+" 格式化代码
+nnoremap <leader>cf :action ReformatCode<CR>
+map gbb :action Back<CR>
+map gff :action Forward<CR>
+
+"注释代码"
+map gcc :action CommentByLineComment<CR>
+
+
+map <leader>z <Action>(ToggleDistractionFreeMode)
+
+
+" ===
+" === NERDTree
+" ===
+""""Usage""""
+" o <key> open menu in NERDTree
+" O <key> Recursively open the selected directory
+" i <key> Open selected file in a split window (horizontal)
+" gi <key> Same as i, but leave the cursor on the NERDTree
+" s <key> Open selected file in a new vsplit
+" gs <key> Same as s, but leave the cursor on the NERDTree
+" m <key> open menu in NERDTree
+" A <key> Zoom (maximize/minimize) the NERDTree window"
+" K <key> Jump up inside directories at the current tree depth
+" J <key> Jump down inside directories at the current tree depth
+" x <key> Close the current nodes parent (not close flie)
+" X <key> Recursively close all children of the current node (not close flie)
+""""End""""
+" toggle NERDTree
+nnoremap <leader>ee :NERDTreeToggle<CR>
+nnoremap <leader>ef <Action>(SelectInProjectView)
+
+" vim窗口操作
+nnoremap <leader>jj <C-W>j
+nnoremap <leader>kk <C-W>k
+nnoremap <leader>hh <C-W>h
+nnoremap <leader>ll <C-W>l
+nnoremap <leader>wc <C-W>c
+nnoremap <leader>wv :vsplit<CR>
+nnoremap <leader>wb :split<CR>
+nnoremap <leader>wo <C-w><c-o>
+
+" tab 移动
+nnoremap <S-h> gT
+nnoremap <S-l> gt
+
+"关闭到只剩当前tab栏
+nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
+"关闭当前tab"
+nnoremap <leader>bc :q<cr>
+
+" 新建文件 (嘻嘻,啥都可以直接用快捷键建立,一个字爽)
+nnoremap <leader>ne :action NewElement<CR>

@@ -269,8 +269,8 @@ lspconfig.vuels.setup({
 require("lspconfig").custom_elements_ls.setup({
 
   filetypes = {
-    "javascript",
-    "javascriptreact",
+    -- "javascript",
+    -- "javascriptreact",
     "javascript.jsx",
     "typescript",
     "typescriptreact",
