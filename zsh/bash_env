@@ -1,2 +1,4 @@
 alias vi=nvim
 
+alias proxy-off='unset http_proxy;unset https_proxy'
+

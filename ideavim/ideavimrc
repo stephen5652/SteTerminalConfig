@@ -70,8 +70,8 @@ let g:WhichKeyDesc_windows_wo = "<leader>wo Close other window"
 let g:WhichKeyDesc_windows_wc = "<leader>wc Close current window"
 let g:WhichKeyDesc_windows_wh = "<leader>wh Close activity menu window"
 
-nnoremap <leader>wv :vsplit<CR>
-nnoremap <leader>wb :split<CR>
+nnoremap <leader>wb :vsplit<CR>
+nnoremap <leader>wv :split<CR>
 nnoremap <leader>wo <C-w><c-o>
 nnoremap <leader>wc <C-W>c
 nnoremap <leader>wh :action HideActiveWindow<CR>
@@ -85,10 +85,6 @@ nnoremap <leader>tb :action BackgroundTasks<CR>
 
 
 "屏蔽which-key显示下面的快捷键"
-let g:WhichKeyDesc_jj = "<leader>jj"
-let g:WhichKeyDesc_kk = "<leader>kk"
-let g:WhichKeyDesc_hh = "<leader>hh"
-let g:WhichKeyDesc_ll = "<leader>ll"
 
 "选择焦点窗口"
 nnoremap <leader>jj <C-W>j
@@ -103,8 +99,9 @@ nnoremap <S-l> gt
 let g:WhichKeyDesc_d = "<leader>d debug actions"
 
 let g:WhichKeyDesc_debugs_ds = "<leader>ds Debug run"
+let g:WhichKeyDesc_debugs_db = "<leader>db Build"
 let g:WhichKeyDesc_debugs_dx = "<leader>dx Debug Stop"
-let g:WhichKeyDesc_debugs_dc = "<leader>dc ChooseDebugConfiguration"
+let g:WhichKeyDesc_debugs_dc = "<leader>dC ChooseDebugConfiguration"
 let g:WhichKeyDesc_debugs_de = "<leader>de StepOver"
 
 
@@ -116,6 +113,7 @@ let g:WhichKeyDesc_b = "<leader>b breakpoints & buffer actions"
 let g:WhichKeyDesc_c = "<leader>c code actions"
 
 nnoremap <leader>ds :action Debug<CR>
+nnoremap <leader>db :action Build<CR>
 nnoremap <leader>dx :action Stop<CR>
 nnoremap <Leader>dC :action ChooseDebugConfiguration<CR>
 
@@ -145,11 +143,11 @@ nnoremap <leader>nh :nohlsearch<Cr>
 
 "easymotion actions"
 """ move to char ------
-map  <Leader>hc <Plug>(easymotion-bd-f)
+map  <Leader>fc <Plug>(easymotion-bd-f)
 """ Move to line -------
-map <Leader>hl <Plug>(easymotion-bd-jk)
+map <Leader>fl <Plug>(easymotion-bd-jk)
 " Move to word
-map  <Leader>hw <Plug>(easymotion-bd-w)
+map  <Leader>fw <Plug>(easymotion-bd-w)
 
 "surround"
 
@@ -157,9 +155,13 @@ map  <Leader>hw <Plug>(easymotion-bd-w)
 " find file in project"
 nnoremap <leader>ff mm`m:action GotoFile<CR>
 nnoremap <leader>fs mm`m:action Find<CR>
-nnoremap <leader>fS mm`m:action FindInPath<CR>
+nnoremap <leader>fa mm`m:action FindInPath<CR>
 nnoremap <leader>fr mm`m:action Replace<CR>
 nnoremap <leader>fR mm`m:action ReplaceInPath<CR>
+" 最近查看文件间相互跳转
+nnoremap <leader>fr mm`m:action RecentFiles<CR>
+" 查找用法
+nnoremap <leader>fu :action FindUsages<CR>
 
 "save file"
 nnoremap <Leader>ss :w<CR>
@@ -167,10 +169,6 @@ nnoremap <Leader>ss :w<CR>
 nnoremap <Leader>sf :action ReformatCode<CR> :w<CR>
 nnoremap <Leader>sd :action ReloadFromDisk<CR> :w<CR>
 
-" 最近查看文件间相互跳转
-nnoremap <leader>fr mm`m:action RecentFiles<CR>
-" 查找用法
-nnoremap <leader>fu :action FindUsages<CR>
 
 "跳转到声明
 nnoremap gd mm`m:action GotoDeclaration<CR>
