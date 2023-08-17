@@ -12,6 +12,9 @@ let mapleader=" "
 " 防止按leader键乱移动
 nnoremap <SPACE> <nop>
 
+"共享剪切板
+set clipboard+=unnamed
+
 """ Plugins  --------------------------------
 set surround
 set multiple-cursors
@@ -143,7 +146,7 @@ nnoremap <leader>nh :nohlsearch<Cr>
 
 "easymotion actions"
 """ move to char ------
-map  <Leader>fc <Plug>(easymotion-bd-f)
+map  <Leader>gg <Plug>(easymotion-bd-f)
 """ Move to line -------
 map <Leader>fl <Plug>(easymotion-bd-jk)
 " Move to word
@@ -159,9 +162,9 @@ nnoremap <leader>fa mm`m:action FindInPath<CR>
 nnoremap <leader>fr mm`m:action Replace<CR>
 nnoremap <leader>fR mm`m:action ReplaceInPath<CR>
 " 最近查看文件间相互跳转
-nnoremap <leader>fr mm`m:action RecentFiles<CR>
+nnoremap <leader>fb mm`m:action RecentFiles<CR>
 " 查找用法
-nnoremap <leader>fu :action FindUsages<CR>
+nnoremap <leader>fv :action FindUsages<CR>
 
 "save file"
 nnoremap <Leader>ss :w<CR>

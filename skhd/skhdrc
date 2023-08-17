@@ -40,8 +40,8 @@ shift + alt - l : yabai -m window --swap east
 
 
 # ------ space Moving -----------------------------
-shift + alt - p : yabai -m window --space prev;
-shift + alt - n : yabai -m window --space next;
+shift + alt - v : yabai -m window --space prev;
+shift + alt - b : yabai -m window --space next;
 
 shift + alt - 1 : yabai -m window --space 1;
 shift + alt - 2 : yabai -m window --space 2;

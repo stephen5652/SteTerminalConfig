@@ -229,10 +229,13 @@ local mappings = {
     },
     f = {
       name = "Find",
-      f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
-      r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false }, -- additional options for creating the keymap
+      f = { "<cmd>HopChar2<cr>", "search HopChar2", noremap = false },
+      l = { "<cmd>HopLine<cr>", "search charactor in line", noremap = false },
+      w = { "<cmd>HopWord<cr>", "search words", noremap = false },
+      g = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
+      F = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false }, -- additional options for creating the keymap
       s = { "<cmd>lua _G.live_grep_the_file()<cr>", "Find string in all opened buffers" },
-      S = { "<cmd>Telescope live_grep<cr>", "Find string in workspace" },
+      a = { "<cmd>Telescope live_grep<cr>", "Find string in workspace" },
       -- C = { "<cmd>Telescope grep_string<cr>", "Find cursor charactor in workspace" },
       -- c = { "<cmd>lua _G.grep_string_the_file()<cr>", "Find cursor charactor in cur file" },
       b = { "<cmd>Telescope buffers<cr>", "Show opened buffers" },
@@ -247,9 +250,6 @@ local mappings = {
     },
     h = {
       name = "Hop functions",
-      l = { "<cmd>HopLine<cr>", "search charactor in line", noremap = false },
-      w = { "<cmd>HopWord<cr>", "search words", noremap = false },
-      c = { "<cmd>HopChar2<cr>", "search HopChar2", noremap = false },
       a = { "<cmd>HopAnywhere<cr>", "search charactor HopAnywhere", noremap = false },
     },
     g = {
