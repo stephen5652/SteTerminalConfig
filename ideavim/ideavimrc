@@ -24,6 +24,7 @@ set easymotion
 set textobj-entire
 set ReplaceWithRegister
 set NERDTree
+set quickscope
 
 """ Plugin settings -------------------------
 let g:argtextobj_pairs="[:],(:),<:>"
@@ -200,7 +201,7 @@ nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
 "查看所有断点
 nnoremap <Leader>bv :action ViewBreakpoints<CR>
 " 取消所有的断点 break point cancel
-nnoremap <leader>bC :action Debugger.RemoveAllBreakpointsInFile<CR>
+nnoremap <leader>bd :action Debugger.RemoveAllBreakpointsInFile<CR>
 
 " debug强制运行到光标处
 nnoremap <leader>dC :action ForceRunToCursor<CR>
