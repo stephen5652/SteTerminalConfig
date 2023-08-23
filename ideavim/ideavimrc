@@ -187,7 +187,7 @@ nnoremap gi mm`m:action GotoImplementation<CR>
 nnoremap gc mm`m:action GotoClass<CR>
 " 跳转SuperMethod
 nnoremap gs mm`m:action GotoSuperMethod<CR>
-nnoremap ga :action GotoAction<CR>
+"nnoremap ga :action GotoAction<CR>"
 " idea智能提示
 nnoremap gh :action ShowIntentionActions<CR>
 " 显示错误描述
