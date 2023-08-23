@@ -2,7 +2,7 @@ source ${HOME}/ste_bash_env
 
 source ${HOME}/ste_java_env
 
-. /opt/homebrew/Cellar/asdf/0.12.0/libexec/asdf.sh
+. /usr/local/Cellar/asdf/0.12.0/libexec/asdf.sh
 
 #flutter HOME
 
