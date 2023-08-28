@@ -1,0 +1,1 @@
+open -a /Applications/Xcode.app $1
