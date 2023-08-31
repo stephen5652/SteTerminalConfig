@@ -247,6 +247,7 @@ nnoremap <leader>ef :action SelectInProjectView<CR>
 
 "--------------------------------------------- breakpoints actions ---------------------------------------------"
 let g:WhichKeyDesc_b = "<leader>b breakpoints & buffer actions"
+let g:WhichKeyDesc_bc = "<leader>bc close current buffer"
 
 "buffer only"
 nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
