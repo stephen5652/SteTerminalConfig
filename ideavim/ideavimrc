@@ -115,6 +115,7 @@ nnoremap <leader>ds :action Debug<CR>
 nnoremap <leader>db :action Build<CR>
 nnoremap <leader>dx :action Stop<CR>
 nnoremap <Leader>dC :action ChooseDebugConfiguration<CR>
+nnoremap <leader>dx :action Stop<CR>
 
 " debug神器
 " StepOver (F8) 单步调试
@@ -263,6 +264,8 @@ nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
 nnoremap <Leader>bv :action ViewBreakpoints<CR>
 " 取消所有的断点 break point cancel
 nnoremap <leader>bd :action Debugger.RemoveAllBreakpointsInFile<CR>
+" 断点启用/关闭 
+nnoremap <leader>bw :action XDebugger.MuteBreakpoints<CR>
 
 
 " 新建文件 (嘻嘻,啥都可以直接用快捷键建立,一个字爽)
