@@ -108,11 +108,6 @@ let g:WhichKeyDesc_debugs_dx = "<leader>dx Debug Stop"
 let g:WhichKeyDesc_debugs_dc = "<leader>dC ChooseDebugConfiguration"
 let g:WhichKeyDesc_debugs_de = "<leader>de StepOver"
 
-
-"--------------------------------------------- breakpoints actions ---------------------------------------------"
-let g:WhichKeyDesc_b = "<leader>b breakpoints & buffer actions"
-
-
 "--------------------------------------------- code actions ---------------------------------------------"
 let g:WhichKeyDesc_c = "<leader>c code actions"
 
@@ -194,15 +189,6 @@ nnoremap gh :action ShowIntentionActions<CR>
 nnoremap ge :action ShowErrorDescription<CR>
 nnoremap gr :action GotoRelated<CR>
 
-
-"break point 断点"
-"打断点
-nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
-"查看所有断点
-nnoremap <Leader>bv :action ViewBreakpoints<CR>
-" 取消所有的断点 break point cancel
-nnoremap <leader>bd :action Debugger.RemoveAllBreakpointsInFile<CR>
-
 " debug强制运行到光标处
 nnoremap <leader>dC :action ForceRunToCursor<CR>
 " StepOut (SHIFT+F8)
@@ -221,9 +207,6 @@ nnoremap <leader>co :action GotoSymbol<CR>
 " 格式化代码
 nnoremap <leader>cf :action ReformatCode<CR>
 
-"book mark function"
-nnoremap <leader>bm :action ToggleBookmark<CR>
-
 map gbb :action Back<CR>
 map gff :action Forward<CR>
 
@@ -232,6 +215,8 @@ map gcc :action CommentByLineComment<CR>
 
 map <leader>zz :action ToggleDistractionFreeMode<CR>
 map <leader>aa :action TogglePresentationMode<CR>
+map <leader>ai :action VimFindActionIdAction<CR>
+map <leader>ag :action GotoAction<CR>
 
 nnoremap <leader>tt :action ActivateTerminalToolWindow<CR>
 nnoremap <leader>tn :action Terminal.OpenInTerminal<CR>
@@ -259,11 +244,26 @@ nnoremap <leader>ee :NERDTreeToggle<CR>
 nnoremap <leader>ef :action SelectInProjectView<CR>
 
 
+"--------------------------------------------- breakpoints actions ---------------------------------------------"
+let g:WhichKeyDesc_b = "<leader>b breakpoints & buffer actions"
 
 "buffer only"
 nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
 "关闭当前tab"
 nnoremap <leader>bc :q<cr>
+
+"book mark function"
+nnoremap <leader>bm :action ToggleBookmark<CR>
+nnoremap <leader>bl :action ActivateBookmarksToolWindow<CR>
+
+"break point 断点"
+"打断点
+nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
+"查看所有断点
+nnoremap <Leader>bv :action ViewBreakpoints<CR>
+" 取消所有的断点 break point cancel
+nnoremap <leader>bd :action Debugger.RemoveAllBreakpointsInFile<CR>
+
 
 " 新建文件 (嘻嘻,啥都可以直接用快捷键建立,一个字爽)
 nnoremap <leader>ne :action NewElement<CR>
