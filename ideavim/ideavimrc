@@ -207,6 +207,7 @@ nnoremap <leader>cs :action FileStructurePopup<CR>
 nnoremap <leader>co :action GotoSymbol<CR>
 " 格式化代码
 nnoremap <leader>cf :action ReformatCode<CR>
+vnoremap <leader>cf :action ReformatCode<CR>
 
 map gbb :action Back<CR>
 map gff :action Forward<CR>
