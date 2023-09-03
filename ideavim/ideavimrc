@@ -64,6 +64,17 @@ set notimeout
 " set timeoutlen=500
 " close the popup and don't process formerly typed keys
 let g:WhichKey_ProcessUnknownMappings = "false"
+
+
+"--------------------------------------------- code actions ---------------------------------------------"
+"about code action"
+let g:WhichKeyDesc_c = "<leader>c code actions"
+nnoremap <leader>cs :action FileStructurePopup<CR>
+nnoremap <leader>co :action GotoSymbol<CR>
+" 格式化代码
+nnoremap <leader>cf :action ReformatCode<CR>
+vnoremap <leader>cf :action ReformatCode<CR>
+
 "--------------------------------------------- window management ---------------------------------------------"
 " vim窗口操作
 let g:WhichKeyDesc_w = "<leader>w window actions"
@@ -100,16 +111,14 @@ nnoremap <S-h> gT
 nnoremap <S-l> gt
 
 "--------------------------------------------- debug actions ---------------------------------------------"
-let g:WhichKeyDesc_d = "<leader>d debug actions"
+let g:WhichKeyDesc_d = "<leader>d Debug control actions"
 
-let g:WhichKeyDesc_debugs_ds = "<leader>ds Debug run"
-let g:WhichKeyDesc_debugs_db = "<leader>db Build"
-let g:WhichKeyDesc_debugs_dx = "<leader>dx Debug Stop"
-let g:WhichKeyDesc_debugs_dc = "<leader>dC ChooseDebugConfiguration"
-let g:WhichKeyDesc_debugs_de = "<leader>de StepOver"
+let g:WhichKeyDesc_ds = "<leader>ds Debug run"
+let g:WhichKeyDesc_db = "<leader>db Build"
+let g:WhichKeyDesc_dx = "<leader>dx Debug Stop"
+let g:WhichKeyDesc_dc = "<leader>dC ChooseDebugConfiguration"
+let g:WhichKeyDesc_de = "<leader>de StepOver"
 
-"--------------------------------------------- code actions ---------------------------------------------"
-let g:WhichKeyDesc_c = "<leader>c code actions"
 
 nnoremap <leader>ds :action Debug<CR>
 nnoremap <leader>db :action Build<CR>
@@ -202,12 +211,6 @@ map <leader>ga :action Annotate<CR>
 
 map <S-Space> :action GotoNextError<CR>
 
-"about code action"
-nnoremap <leader>cs :action FileStructurePopup<CR>
-nnoremap <leader>co :action GotoSymbol<CR>
-" 格式化代码
-nnoremap <leader>cf :action ReformatCode<CR>
-vnoremap <leader>cf :action ReformatCode<CR>
 
 map gbb :action Back<CR>
 map gff :action Forward<CR>
