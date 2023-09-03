@@ -139,8 +139,7 @@ nnoremap <leader>dI :action ForceStepInto
 nnoremap <leader>du :action StepOut<CR>
 " debug强制运行到光标处
 nnoremap <leader>dc :action ForceRunToCursor<CR>
-
-
+nnoremap <leader>dr :action Flutter.Toolbar.ReloadAction<CR>
 
 "--------------------------------------------- code actions ---------------------------------------------"
 
