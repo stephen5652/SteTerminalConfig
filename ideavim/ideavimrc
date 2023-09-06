@@ -140,6 +140,7 @@ nnoremap <leader>du :action StepOut<CR>
 " debug强制运行到光标处
 nnoremap <leader>dc :action ForceRunToCursor<CR>
 nnoremap <leader>dr :action Flutter.Toolbar.ReloadAction<CR>
+nnoremap <leader>dt :action ActivateMessagesToolWindow<CR>
 
 "--------------------------------------------- code actions ---------------------------------------------"
 
