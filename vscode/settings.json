@@ -1,0 +1,366 @@
+{
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "dart.debugExternalPackageLibraries": false,
+  "dart.debugSdkLibraries": false,
+  "files.autoSave": "afterDelay",
+  "git.openRepositoryInParentFolders": "never",
+  "workbench.colorTheme": "d96c6599-ebf8-4359-ae26-19f79b69e919",
+  "workbench.settings.applyToAllProfiles": [
+    "doki.background.path"
+  ],
+  "doki.sticker.css": "z-index:90;background-position:100% 90%",
+  "workbench.sideBar.location": "right",
+  "settingsSync.ignoredSettings": [
+    "-vim.neovimConfigPath"
+  ],
+  "vim.leader": "<space>",
+  "vim.easymotion": true,
+  "vim.history": 200,
+  "whichkey.sortOrder": "custom",
+  "whichkey.useFullWidthCharacters": true,
+  "window.zoomLevel": 1,
+  "editor.codeActionsOnSave": {},
+  "aceJump.scroll.mode": "none",
+  "RainbowBrackets.timeOut": 1000,
+  "editor.minimap.enabled": false,
+  "gitlens.views.pageItemLimit": 0,
+  "gitlens.views.commits.pullRequests.showForCommits": false,
+  "gitlens.blame.separateLines": false,
+  "git.autofetch": true,
+  // 启用系统粘贴板作为vim寄存器
+  "vim.useSystemClipboard": true,
+  // 下面定义的按键将交由vscode进行处理，而不是vscode-vim插件
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "whichkey.bindingOverrides": [],
+  "editor.lineNumbers": "relative",
+  "scrolloff.scrolloff": 5,
+  // 普通模式下的非递归按键绑定
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // vim whichkeyk
+    {
+      "before": [
+        "<leader>"
+      ],
+      "commands": [
+        "whichkey.show"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "f",
+        "f",
+      ],
+      "commands": [
+        "workbench.action.navigateForward"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "b",
+        "b",
+      ],
+      "commands": [
+        "workbench.action.navigateBack"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "d",
+      ],
+      "commands": [
+        "editor.action.revealDefinition"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "D",
+      ],
+      "commands": [
+        "editor.action.peekDefinition"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "i",
+      ],
+      "commands": [
+        "editor.action.goToImplementation"
+      ]
+    },
+    {
+      "before": [
+        "S-h",
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
+    },
+    {
+      "before": [
+        "S-l",
+      ],
+      "commands": [
+        "workbench.action.nextEditor",
+      ]
+    },
+    {
+      "before": [
+        "C-h",
+        "C-h",
+      ],
+      "commands": [
+        "workbench.action.focusLeftGroupWithoutWrap"
+      ]
+    },
+    {
+      "before": [
+        "C-l",
+        "C-l",
+      ],
+      "commands": [
+        "workbench.action.focusRightGroupWithoutWrap"
+      ]
+    },
+    {
+      "before": [
+        "C-j",
+        "C-j",
+      ],
+      "commands": [
+        "workbench.action.focusBelowGroupWithoutWrap"
+      ]
+    },
+    {
+      "before": [
+        "C-k",
+        "C-k",
+      ],
+      "commands": [
+        "workbench.action.focusAboveGroupWithoutWrap"
+      ]
+    },
+  ],
+  // 插入模式下的非递归按键绑定
+  "vim.insertModeKeyBindings": [],
+  // 命令模式下的非递归按键绑定
+  "vim.commandLineModeKeyBindingsNonRecursive": [],
+  // 可视模式下的非递归按键绑定
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "c",
+        "f",
+      ],
+      "commands": [
+        "editor.action.formatSelection"
+      ]
+    },
+  ],
+  "whichkey.transient": {},
+  "whichkey.bindings": [
+    //
+    {
+      "key": "b",
+      "name": "bookmarks & breakpoints & buffers",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "b",
+          "name": "add / delete breakpoint",
+          "command": "editor.debug.action.toggleBreakpoint"
+        },
+        {
+          "key": "c",
+          "name": "close current editor",
+          "command": "workbench.action.closeActiveEditor"
+        },
+        {
+          "key": "e",
+          "name": "enable all breakpoints",
+          "command": "workbench.debug.viewlet.action.enableAllBreakpoints"
+        },
+        {
+          "key": "m",
+          "name": "add / delete bookmark",
+          "command": "bookmarks.toggle"
+        },
+        {
+          "key": "l",
+          "name": "list bookmarks",
+          "command": "workbench.view.extension.bookmarks"
+        },
+        {
+          "key": "o",
+          "name": "colose other editors",
+          "command": "workbench.action.closeOtherEditors"
+        },
+        {
+          "key": "v",
+          "name": "list breakpoints",
+          "command": "workbench.debug.action.focusBreakpointsView"
+        },
+        {
+          "key": "w",
+          "name": "disable all breakpoints",
+          "command": "workbench.debug.viewlet.action.disableAllBreakpoints"
+        },
+        {
+          "key": "y",
+          "name": "copy current file path",
+          "command": "copyFilePath"
+        },
+      ],
+    },
+    {
+      "key": "c",
+      "name": "code actions",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "f",
+          "name": "format document",
+          "command": "editor.action.formatDocument"
+        },
+        {
+          "key": "s",
+          "name": "got to symbol",
+          "command": "workbench.action.gotoSymbol"
+        },
+      ],
+    },
+    {
+      "key": "d",
+      "name": "debug actions",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "e",
+          "name": "debug step forward",
+          "command": "workbench.action.debug.stepOver"
+        },
+        {
+          "key": "f",
+          "name": "debug continue",
+          "command": "workbench.action.debug.continue"
+        },
+        {
+          "key": "r",
+          "name": "dart hot reload",
+          "command": "dart.hotReload"
+        },
+        {
+          "key": "s",
+          "name": "debug start",
+          "command": "workbench.action.debug.start"
+        },
+        {
+          "key": "t",
+          "name": "show debug console",
+          "command": "workbench.debug.action.toggleRepl"
+        },
+        {
+          "key": "x",
+          "name": "debug stop",
+          "command": "workbench.action.debug.stop"
+        },
+      ],
+    },
+    {
+      "key": "e",
+      "name": "file explorer",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "e",
+          "name": "show file explorer",
+          "command": "workbench.files.action.focusFilesExplorer"
+        },
+        {
+          "key": "f",
+          "name": "show opened file in file explorer",
+          "command": "workbench.files.action.showActiveFileInExplorer"
+        },
+      ],
+    },
+    {
+      "key": "f",
+      "name": "find actions",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "a",
+          "name": "find word in files",
+          "command": "workbench.action.findInFiles"
+        },
+        {
+          "key": "f",
+          "name": "find file in workspace",
+          "command": "workbench.action.quickOpen"
+        },
+      ],
+    },
+    {
+      "key": "g",
+      "name": "goto",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "a",
+          "name": "line annotator",
+          "command": "gitlens.toggleFileBlame"
+        },
+        {
+          "key": "g",
+          "name": "go to word, aceJump action",
+          "command": "extension.aceJump.multiChar"
+        },
+      ],
+    },
+    {
+      "key": "w",
+      "name": "windows namager",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "b",
+          "name": "splipt window balance",
+          "command": "workbench.action.splitEditorDown"
+        },
+        {
+          "key": "v",
+          "name": "splipt window balance",
+          "command": "workbench.action.splitEditor"
+        },
+        {
+          "key": "o",
+          "name": "colose other panel",
+          "command": "workbench.action.editorLayoutSingle"
+        },
+      ],
+    }
+  ],
+  "vim.hlsearch": true,
+  "debug.confirmOnExit": "always",
+  "search.showLineNumbers": true,
+  "search.smartCase": true,
+}

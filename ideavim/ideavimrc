@@ -225,7 +225,8 @@ map <leader>ag :action GotoAction<CR>
 
 nnoremap <leader>tt :action ActivateTerminalToolWindow<CR>
 nnoremap <leader>tn :action Terminal.OpenInTerminal<CR>
-
+" todo 工具栏 
+nnoremap <leader>td :action ActivateTODOToolWindow<CR>
 
 " ===
 " === NERDTree
@@ -271,7 +272,6 @@ nnoremap <Leader>bv :action ViewBreakpoints<CR>
 nnoremap <leader>bd :action Debugger.RemoveAllBreakpointsInFile<CR>
 " 断点启用/关闭 
 nnoremap <leader>bw :action XDebugger.MuteBreakpoints<CR>
-
 
 " 新建文件 (嘻嘻,啥都可以直接用快捷键建立,一个字爽)
 nnoremap <leader>ne :action NewElement<CR>
