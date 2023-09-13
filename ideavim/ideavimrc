@@ -141,6 +141,7 @@ nnoremap <leader>du :action StepOut<CR>
 nnoremap <leader>dc :action ForceRunToCursor<CR>
 nnoremap <leader>dr :action Flutter.Toolbar.ReloadAction<CR>
 nnoremap <leader>dt :action ActivateMessagesToolWindow<CR>
+nnoremap <leader>dg :action ActivateDebugToolWindow<CR>
 
 "--------------------------------------------- code actions ---------------------------------------------"
 
