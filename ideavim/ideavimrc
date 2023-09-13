@@ -207,7 +207,7 @@ nnoremap <leader>du :action StepOut<CR>
 nnoremap <leader>dU :action ActivateDebugToolWindow<CR>
 
 """ about git ----
-map <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+"" map <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
 map <leader>ga :action Annotate<CR>
 
 map <S-Space> :action GotoNextError<CR>

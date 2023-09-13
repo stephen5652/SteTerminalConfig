@@ -229,10 +229,9 @@ local mappings = {
     },
     f = {
       name = "Find",
-      f = { "<cmd>HopChar2<cr>", "search HopChar2", noremap = false },
       l = { "<cmd>HopLine<cr>", "search charactor in line", noremap = false },
       w = { "<cmd>HopWord<cr>", "search words", noremap = false },
-      g = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
+      f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
       F = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false }, -- additional options for creating the keymap
       s = { "<cmd>lua _G.live_grep_the_file()<cr>", "Find string in all opened buffers" },
       a = { "<cmd>Telescope live_grep<cr>", "Find string in workspace" },
@@ -254,9 +253,10 @@ local mappings = {
     },
     g = {
       name = "Git action",
+      g = { "<cmd>HopChar2<cr>", "search HopChar2", noremap = false },
       b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Show current line blame" },
       d = { "<cmd>LazyGitFilterCurrentFile<cr>", "Show current file git history" },
-      g = { "<cmd>LazyGitCurrentFile<cr>", "Toggle lazygit view" },
+      t = { "<cmd>LazyGitCurrentFile<cr>", "Toggle lazygit view" },
       h = {
         name = "Hunk actions",
         n = { "<cmd>Gitsigns next_hunk<CR>", "Next hunk" },
