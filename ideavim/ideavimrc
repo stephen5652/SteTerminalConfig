@@ -175,6 +175,8 @@ nnoremap <leader>fR mm`m:action ReplaceInPath<CR>
 nnoremap <leader>fb mm`m:action RecentFiles<CR>
 " 查找用法
 nnoremap <leader>fv :action FindUsages<CR>
+" 复制文件路径 
+nnoremap <leader>fg :action CopyPaths<CR>
 
 "save file"
 nnoremap <Leader>ss :w<CR>
