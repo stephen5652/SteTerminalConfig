@@ -7,90 +7,10 @@ CURRENT_DIR=$(
 
 source ${CURRENT_DIR}/para.sh
 
-url_20=https://download.oracle.com/java/20/latest/jdk-20_macos-aarch64_bin.tar.gz
-
-case $(uname -m) in
-x86_64)
-	url_20=https://download.oracle.com/java/20/latest/jdk-20_macos-x64_bin.tar.gz
-	;;
-aarch64 | arm64)
-	url_20=https://download.oracle.com/java/20/latest/jdk-20_macos-aarch64_bin.tar.gz
-	;;
-*)
-	echo -e "\nCPU type unknown, work failed"
-	exit 1
-	;;
-esac
-
-java_name_20=jdk_20
-
-url_17=https://download.oracle.com/java/17/latest/jdk-17_macos-x64_bin.tar.gz
-case $(uname -m) in
-x86_64)
-	url_17=https://download.oracle.com/java/17/latest/jdk-17_macos-x64_bin.tar.gz
-	;;
-aarch64 | arm64)
-	url_17=https://download.oracle.com/java/17/latest/jdk-17_macos-aarch64_bin.tar.gz
-	;;
-*)
-	echo -e "\nCPU type unknown, work failed"
-	exit 1
-	;;
-esac
-
-java_name_17=jdk_17
-
 install_java() {
 	echo -e "\nStart install java"
-
-	# file_local=${home_dir}/Downloads/jdk_20.tar.gz
-	java_name=$1
-	url_jdk=$2
-	java_local_dir=$home_dir/Downloads/jdk_downloads
-	if [[ ! -d $java_local_dir ]]; then
-		mkdir -p ${java_local_dir}
-	fi
-
-	file_local=${java_local_dir}/${java_name}.tar.gz
-	dest=$home_dir/$java_name
-	echo -e "local:$file_local"
-	echo -e "dest:$dest"
-	echo -e "url:$url_jdk"
-
-	if [[ ! -f $file_local ]]; then
-		echo -e "\nStart loading jdk:"
-		wget $url_jdk -O $file_local
-	fi
-
-	tmp=${java_local_dir}/${java_name}_temp/
-	if [[ -d $tmp ]]; then
-		rm -rf $tmp
-	fi
-
-	mkdir -p $tmp
-
-	tar -zxf $file_local -C $tmp
-	echo -e "\ncmd: find $tmp -maxdepth 1 -name \"jdk*\" -print | head -n 1"
-
-	jdk_dir=$(
-		find $tmp/* -maxdepth 1 -name "jdk*" -print | head -n 1
-	)
-
-	echo -e "\nJdk dir:$jdk_dir"
-	if [[ -d $jdk_dir ]]; then
-
-		if [[ -d $dest ]]; then
-			rm -rf $dest
-		fi
-
-		cp -r $jdk_dir $dest
-	else
-		echo -e "\nFailed, since Jdk dir not found:$jdk_dir"
-	fi
-
-	if [[ -d ${tmp} ]]; then
-		rm -rf ${tmp}
-	fi
+	asdf install java openjdk-17
+	asdf global java openjdk-17
 }
 
 env_name=ste_java_env
@@ -141,7 +61,7 @@ install_java_debug() {
 
 main_java() {
 	echo -e "home:${home_dir}"
-	install_java $java_name_17 $url_17
+	install_java
 	source_java_env
 
 	source $home_dir/.bash_profile

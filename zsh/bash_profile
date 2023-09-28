@@ -5,6 +5,7 @@ source ${HOME}/ste_java_env
 source /usr/local/Cellar/asdf/0.12.0/libexec/asdf.sh
 
 export PATH="$(asdf where flutter)/bin":"$PATH"
+export JAVA_HOME="$(asdf where java)"
 
 #flutter HOME
 
@@ -19,6 +20,3 @@ export all_proxy=socks5://127.0.0.1:7890
 
 # ste terminal bins
 export PATH=${HOME}/SteTerminalConfig/bin:$PATH:
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm

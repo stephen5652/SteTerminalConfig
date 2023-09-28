@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
   -- set keybinds
   keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, referenceslspco
   keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-  keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
+  keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts) -- see definition and make edits in window
   keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
   keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
   keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
@@ -298,7 +298,10 @@ lspconfig.yamlls.setup({
   on_attach = on_attach,
 })
 
-lspconfig.dartls.setup({})
+lspconfig.dartls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
 
 local M = {}
 M.on_attach = on_attach

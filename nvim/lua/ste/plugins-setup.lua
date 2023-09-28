@@ -13,7 +13,7 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
-vim.cmd([[ 
+vim.cmd([[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
@@ -261,6 +261,14 @@ return packer.startup(function(use)
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
+    },
+  })
+
+  -- image preview
+  use({
+    "samodostal/image.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
     },
   })
 

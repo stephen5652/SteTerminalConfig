@@ -67,12 +67,16 @@ let g:WhichKey_ProcessUnknownMappings = "false"
 
 
 "--------------------------------------------- code actions ---------------------------------------------"
-"about code action"
-let g:WhichKeyDesc_c = "<leader>c code actions"
+"about code action
+
+let g:WhichKeyDesc_code_c = "<leader>c code & actions"
+
+let g:WhichKeyDesc_code_cc = "<leader>cc Open Ai"
 nnoremap <leader>cs :action FileStructurePopup<CR>
 nnoremap <leader>co :action GotoSymbol<CR>
 " 格式化代码
 nnoremap <leader>cf :action ReformatCode<CR>
+nnoremap <leader>cc :action Bito.OpenBitoPanel<CR>
 vnoremap <leader>cf :action ReformatCode<CR>
 
 "--------------------------------------------- window management ---------------------------------------------"
@@ -90,7 +94,6 @@ nnoremap <leader>wv :split<CR>
 nnoremap <leader>wo <C-w><c-o>
 nnoremap <leader>wc <C-W>c
 nnoremap <leader>wh :action HideActiveWindow<CR>
-
 
 "--------------------------------------------- tasks management ---------------------------------------------"
 "tasks
@@ -156,7 +159,7 @@ nnoremap <leader>nh :nohlsearch<Cr>
 
 "easymotion actions"
 """ move to char ------
-map  <Leader>gg <Plug>(easymotion-bd-f)
+map <Leader>vv <Plug>(easymotion-bd-f)
 """ Move to line -------
 map <Leader>fl <Plug>(easymotion-bd-jk)
 " Move to word
@@ -183,7 +186,8 @@ nnoremap <Leader>ss :w<CR>
 "formatter and save file"
 nnoremap <Leader>sf :action ReformatCode<CR> :w<CR>
 nnoremap <Leader>sd :action ReloadFromDisk<CR> :w<CR>
-
+"弹出菜单
+noremap <Leader>sm :action ShowPopupMenu<CR>
 
 "跳转到声明
 nnoremap gd mm`m:action GotoDeclaration<CR>
@@ -199,20 +203,27 @@ nnoremap gs mm`m:action GotoSuperMethod<CR>
 " idea智能提示
 nnoremap gh :action ShowIntentionActions<CR>
 " 显示错误描述
+map <S-Space> :action GotoNextError<CR>
+nnoremap gn :action GotoNextError<CR>
 nnoremap ge :action ShowErrorDescription<CR>
 nnoremap gr :action GotoRelated<CR>
+"优化导入
+noremap <Leader>oi :action OptimizeImports<CR>
 
 " debug强制运行到光标处
 nnoremap <leader>dC :action ForceRunToCursor<CR>
 " StepOut (SHIFT+F8)
 nnoremap <leader>du :action StepOut<CR>
-nnoremap <leader>dU :action ActivateDebugToolWindow<CR>
 
 """ about git ----
+let g:WhichKeyDesc_ggh = "<leader>ggh Git history for file / selected code"
+nnoremap <leader>ggh :action Vcs.ShowTabbedFileHistory<CR>
+vnoremap <leader>ggh :action Vcs.ShowHistoryForBlock<CR>
+
+""" about goto actions ----
 "" map <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
 map <leader>ga :action Annotate<CR>
 
-map <S-Space> :action GotoNextError<CR>
 
 
 map gbb :action Back<CR>

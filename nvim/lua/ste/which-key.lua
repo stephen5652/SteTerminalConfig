@@ -290,6 +290,8 @@ local mappings = {
     s = {
       name = "service",
       l = { "<cmd>LiveServer<cr>", "Open / Close live server" },
+      s = { "<cmd>w<CR>", "Save current file" },
+      f = { "<cmd>lua vim.lsp.buf.format()<cr> <cmd>w<cr>", "Format and Save current file" },
     },
     t = {
       name = "Terminal",

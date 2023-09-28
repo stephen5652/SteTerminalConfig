@@ -7,7 +7,8 @@ end
 local VIM_PLUGINS_PACKAGE_PATH = vim.fn.stdpath("data")
 -- Installation location of jdtls by nvim-lsp-installer
 local home = os.getenv("HOME")
-local java_home = home .. "/jdk_17/Contents/Home"
+local java_home = os.getenv("JAVA_HOME")
+-- local java_home = home .. "/jdk_17/Contents/Home"
 local JDTLS_LOCATION = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 local JAVA_DEBUG_TOOLS_DIR = vim.fn.stdpath("data") .. "/jdtls"
 

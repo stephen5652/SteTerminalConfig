@@ -14,6 +14,7 @@ require("ste.plugins.formatter.null-ls")
 require("ste.plugins.autopairs")
 require("ste.plugins.treesitter")
 require("ste.plugins.gitsigns")
+require("ste.plugins.image")
 require("ste.core.keymaps")
 
 -- dap
