@@ -1,0 +1,26 @@
+{
+  "applications": [
+    {
+      "bundleID": "org.mozilla.firefox",
+      "key": "b",
+      "name": "Firefox"
+    },
+    {
+      "bundleID": "com.microsoft.VSCode",
+      "key": "c",
+      "name": "VSCode"
+    }
+  ],
+  "domains": [
+    {
+      "key": "g",
+      "name": "GitHub",
+      "url": "github.com"
+    },
+    {
+      "key": "y",
+      "name": "YouTube",
+      "url": "youtube.com"
+    }
+  ]
+}
