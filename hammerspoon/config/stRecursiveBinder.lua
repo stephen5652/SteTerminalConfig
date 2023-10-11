@@ -23,7 +23,7 @@ local keyMap = {
 	},
 }
 
-hs.hotkey.bind({ "option" }, "space", spoon.RecursiveBinder.recursiveBind(keyMap))
+hs.hotkey.bind({ "cmd", "option", "ctrl" }, "a", spoon.RecursiveBinder.recursiveBind(keyMap))
 
 spoon.RecursiveBinder.helperFormat = {
 	atScreenEdge = 2, -- Bottom edge (default value)

@@ -1,4 +1,8 @@
-hswhints_keys = hswhints_keys or { "alt", "tab" }
+hs.hotkey.alertDuration = 0
+hs.hints.showTitleThresh = 0
+hs.window.animationDuration = 0
+
+hswhints_keys = hswhints_keys or { { "cmd", "option", "ctrl" }, "tab" }
 if string.len(hswhints_keys[2]) > 0 then
 	spoon.ModalMgr.supervisor:bind(hswhints_keys[1], hswhints_keys[2], "Show Window Hints", function()
 		spoon.ModalMgr:deactivateAll()
@@ -19,7 +23,7 @@ if not hsapp_list then
 	hsapp_list = {
 		{ key = "f", name = "Finder" },
 		{ key = "s", name = "Safari" },
-		{ key = "t", name = "Terminal" },
+		{ key = "t", name = "iTerm" },
 		{ key = "v", id = "com.apple.ActivityMonitor" },
 		{ key = "y", id = "com.apple.systempreferences" },
 	}
