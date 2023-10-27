@@ -1,0 +1,16 @@
+
+#<type>(<scope>): <subject>
+#
+#<body>
+#
+#<footer>
+#
+# Type (select one):
+# feat: New feature (feature)
+# fix: Bug fix
+# docs: Documentation
+# style: Code style/formatting (non-functional changes)
+# refactor: Code refactoring (neither adding features nor fixing bugs)
+# test: Adding or updating tests
+# chore: Build process or tool-related changes
+
