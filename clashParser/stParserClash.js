@@ -1,7 +1,7 @@
 module.exports.parse = async (
   raw,
   { axios, yaml, notify, console },
-  { name, url, interval, selected }
+  { name, url, interval, selected },
 ) => {
   const parseResult = yaml.parse(raw);
   const keywords = ["美国", "us", "gpt"];
@@ -9,7 +9,8 @@ module.exports.parse = async (
   parseResult.proxies.forEach((proxy) => {
     const nodeName = proxy.name.toLowerCase();
     for (const keyword of keywords) {
-      if (nodeName.includes(keyword) && nodeName.includes("pro-")) {
+      // if (nodeName.includes(keyword) && nodeName.includes("pro-")) {
+      if (nodeName.includes(keyword)) {
         gptNodes.push(proxy);
         break;
       }
