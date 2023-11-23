@@ -1,0 +1,18 @@
+[http]
+	postBuffer = 24288000
+	sslVerify = false
+[user]
+	name = stephenchen 
+	email = stephenchen@yeahka.com
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[core]
+[credential]
+	helper = store
+[merge]
+    ff = no
+[commit]
+  template =  /Users/chris/SteTerminalConfig/git_config/commit_template
