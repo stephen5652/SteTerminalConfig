@@ -2,24 +2,17 @@
 . $(brew --prefix asdf)/libexec/asdf.sh
 
 # 获取到SteTerminalConfig 绝对路径
-FILE_REAL_PATH=$(readlink -f .)
+FILE_REAL_PATH=$(cd $(dirname $(readlink -f $0))/..; pwd)
+# echo $FILE_REAL_PATH
 
 source $FILE_REAL_PATH/zsh/bash_env
-
 source $FILE_REAL_PATH/java/java_env
-
-# export PATH="$(asdf where flutter)/bin":"$PATH"
+export PATH=$FILE_REAL_PATH/bin:$PATH:
 
 export JAVA_HOME="$(asdf where java)"
-
 #flutter HOME
 export FLUTTER_HOME="$(asdf where flutter)"
-#export FLUTTER=${FUTTER_HOME}/bin
-
-#export PATH=$FLUTTER_HOME/bin:$PATH:
 
 export https_proxy=http://127.0.0.1:7890
 export http_proxy=http://127.0.0.1:7890
 export all_proxy=socks5://127.0.0.1:7890
-
-export PATH=${HOME}/SteTerminalConfig/bin:$PATH:
