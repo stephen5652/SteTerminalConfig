@@ -1,15 +1,19 @@
-source ${HOME}/ste_bash_env
+# set -x
+. $(brew --prefix asdf)/libexec/asdf.sh
 
-source ${HOME}/ste_java_env
+# 获取到SteTerminalConfig 绝对路径
+FILE_REAL_PATH=$(readlink -f .)
 
-source /usr/local/Cellar/asdf/0.12.0/libexec/asdf.sh
+source $FILE_REAL_PATH/zsh/bash_env
 
-export PATH="$(asdf where flutter)/bin":"$PATH"
+source $FILE_REAL_PATH/java/java_env
+
+# export PATH="$(asdf where flutter)/bin":"$PATH"
+
 export JAVA_HOME="$(asdf where java)"
 
 #flutter HOME
-
-#export FLUTTER_HOME=${HOME}/flutter
+export FLUTTER_HOME="$(asdf where flutter)"
 #export FLUTTER=${FUTTER_HOME}/bin
 
 #export PATH=$FLUTTER_HOME/bin:$PATH:

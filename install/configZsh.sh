@@ -52,23 +52,7 @@ config_p10k() {
 	safe_link ${source} ${dest}
 }
 
-ln_bash_env() {
-	bash_env_ln=${home_dir}/ste_bash_env
-	bash_env_path=${CURRENT_DIR}/../zsh/bash_env
-	safe_link ${bash_env_path} ${bash_env_ln}
-
-	env_str="source \${HOME}/ste_bash_env"
-	if [[ -z $(cat ${bash_profile_path} | grep "${env_str}") ]]; then
-		echo -e "should add source str: ${env_str}"
-
-		echo -e "\\n${env_str}" >>${bash_profile_path}
-	else
-		echo -e "\n had sourced java_env: ${env_str}"
-	fi
-}
-
 main_config() {
-	ln_bash_env
 	config_zsh
 	config_p10k
 
