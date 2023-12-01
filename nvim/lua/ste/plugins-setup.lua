@@ -186,7 +186,11 @@ return packer.startup(function(use)
   })
 
   -- indent show
-  use("lukas-reineke/indent-blankline.nvim")
+  use({
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+  })
 
   use({
     "ellisonleao/glow.nvim",
