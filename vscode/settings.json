@@ -7,7 +7,7 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false
+    "editor.wordBasedSuggestions": "off"
   },
   "dart.debugExternalPackageLibraries": false,
   "dart.debugSdkLibraries": false,
@@ -23,7 +23,6 @@
   "vim.history": 200,
   "whichkey.sortOrder": "custom",
   "whichkey.useFullWidthCharacters": true,
-  "window.zoomLevel": 1,
   "editor.codeActionsOnSave": {},
   "aceJump.scroll.mode": "none",
   "RainbowBrackets.timeOut": 1000,
@@ -304,7 +303,11 @@
   "debug.confirmOnExit": "always",
   "search.showLineNumbers": true,
   "search.smartCase": true,
-  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "markdown-preview-enhanced.previewTheme": "github-light.css",
   "markdown-preview-enhanced.codeBlockTheme": "solarized-dark.css",
-  "RainbowBrackets.depreciation-notice": false
+  "RainbowBrackets.depreciation-notice": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "window.zoomLevel": 2
 }
