@@ -1,3 +1,4 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
 # set -x
 . $(brew --prefix asdf)/libexec/asdf.sh
 
@@ -16,3 +17,4 @@ export FLUTTER_HOME="$(asdf where flutter)"
 export https_proxy=http://127.0.0.1:7890
 export http_proxy=http://127.0.0.1:7890
 export all_proxy=socks5://127.0.0.1:7890
+
