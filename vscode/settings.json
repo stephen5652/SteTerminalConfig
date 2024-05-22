@@ -310,4 +310,83 @@
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
   "window.zoomLevel": 2
+
+    // LaTeX
+    // 不在保存的时候自动编译
+    "latex-workshop.latex.autoBuild.run": "never",
+    // 编译工具
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+  // 编译命令
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex",// 不含参考目录 bibtex
+            "tools": [
+              "pdflatex"
+            ]
+          },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex*2", // 含参考目录 bibtex
+            "tools": [
+              "pdflatex",
+              "bibtex",
+              "pdflatex",
+              "pdflatex"
+            ]
+          },
+    ],
+
+    "latex-workshop.latex.clean.fileTypes": [  //设定清理文件的类型  
+        "*.aux",  
+        "*.bbl",  
+        "*.blg",  
+        "*.idx",  
+        "*.ind",  
+        "*.lof",  
+        "*.lot",  
+        "*.out",  
+        "*.toc",  
+        "*.acn",  
+        "*.acr",  
+        "*.alg",  
+        "*.glg",  
+        "*.glo",  
+        "*.gls",  
+        "*.ist",  
+        "*.fls",  
+        "*.log",  
+        "*.fdb_latexmk",  
+        "*.nav",  
+        "*.snm",  
+        "*.synctex.gz"  
+    ],
+
 }
