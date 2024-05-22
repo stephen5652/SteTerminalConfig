@@ -400,19 +400,63 @@
   "window.zoomLevel": 2,
   // LaTeX
   // 不在保存的时候自动编译
-  "latex-workshop.latex.autoBuild.run": "never",
-  // 编译工具
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  //LaTex配置
+  "editor.language.brackets": [],
+  "[latex]": {
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
+  },
   "latex-workshop.latex.tools": [
     {
-      "name": "xelatex",
-      "command": "xelatex",
+      "name": "latexmk",
+      "command": "latexmk",
       "args": [
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
-        "-pdf",
-        "%DOCFILE%"
-      ]
+        "-xelatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "xelatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-xelatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "latexmk_rconly",
+      "command": "latexmk",
+      "args": [
+        "%DOC%"
+      ],
+      "env": {}
     },
     {
       "name": "pdflatex",
@@ -421,60 +465,75 @@
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
-        "%DOCFILE%"
-      ]
+        "%DOC%"
+      ],
+      "env": {}
     },
     {
       "name": "bibtex",
       "command": "bibtex",
       "args": [
         "%DOCFILE%"
-      ]
+      ],
+      "env": {}
+    },
+    {
+      "name": "rnw2tex",
+      "command": "Rscript",
+      "args": [
+        "-e",
+        "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+      ],
+      "env": {}
+    },
+    {
+      "name": "jnw2tex",
+      "command": "julia",
+      "args": [
+        "-e",
+        "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
+      ],
+      "env": {}
+    },
+    {
+      "name": "jnw2texminted",
+      "command": "julia",
+      "args": [
+        "-e",
+        "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
+      ],
+      "env": {}
+    },
+    {
+      "name": "pnw2tex",
+      "command": "pweave",
+      "args": [
+        "-f",
+        "tex",
+        "%DOC_EXT%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "pnw2texminted",
+      "command": "pweave",
+      "args": [
+        "-f",
+        "texminted",
+        "%DOC_EXT%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "tectonic",
+      "command": "tectonic",
+      "args": [
+        "--synctex",
+        "--keep-logs",
+        "%DOC%.tex"
+      ],
+      "env": {}
     }
   ],
-  // 编译命令
-  "latex-workshop.latex.recipes": [
-    {
-      "name": "pdflatex", // 不含参考目录 bibtex
-      "tools": [
-        "pdflatex"
-      ]
-    },
-    {
-      "name": "pdflatex -> bibtex -> pdflatex*2", // 含参考目录 bibtex
-      "tools": [
-        "pdflatex",
-        "bibtex",
-        "pdflatex",
-        "pdflatex"
-      ]
-    },
-  ],
-  "latex-workshop.latex.clean.fileTypes": [ //设定清理文件的类型  
-    "*.aux",
-    "*.bbl",
-    "*.blg",
-    "*.idx",
-    "*.ind",
-    "*.lof",
-    "*.lot",
-    "*.out",
-    "*.toc",
-    "*.acn",
-    "*.acr",
-    "*.alg",
-    "*.glg",
-    "*.glo",
-    "*.gls",
-    "*.ist",
-    "*.fls",
-    "*.log",
-    "*.fdb_latexmk",
-    "*.nav",
-    "*.snm",
-    "*.synctex.gz"
-  ],
-  "[latex]": {
-    "editor.defaultFormatter": "James-Yu.latex-workshop"
-  },
+  "files.autoGuessEncoding": true,
 }
