@@ -108,7 +108,7 @@ return packer.startup(function(use)
   -- dap
   use("mfussenegger/nvim-dap")
   use("theHamsta/nvim-dap-virtual-text")
-  use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+  use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
 
   -- formatting & linting
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
