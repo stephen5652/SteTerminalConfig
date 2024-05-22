@@ -13,6 +13,8 @@ export PATH=$FILE_REAL_PATH/bin:$PATH:
 export JAVA_HOME="$(asdf where java)"
 #flutter HOME
 export FLUTTER_HOME="$(asdf where flutter)"
+export PATH=~/depot_tools:$PATH
+export PATH=/Library/TeX/texbin:$PATH
 
 export https_proxy=http://127.0.0.1:7890
 export http_proxy=http://127.0.0.1:7890
