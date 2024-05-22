@@ -457,4 +457,7 @@
     "*.snm",
     "*.synctex.gz"
   ],
+  "[latex]": {
+    "editor.defaultFormatter": "nickfode.latex-formatter"
+  },
 }
