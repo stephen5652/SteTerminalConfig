@@ -408,7 +408,8 @@
       "comments": "on",
       "strings": "on",
       "other": "on"
-    }
+    },
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
   "latex-workshop.latex.tools": [
     {
