@@ -1,4 +1,4 @@
-# Place a copy of this config to ~/.aerospace.toml
+
 # After that, you can edit ~/.aerospace.toml to your liking
 
 # It's not necessary to copy all keys to your config.
@@ -95,10 +95,11 @@ alt-l = 'focus right'
 
 
 #[mode.service.binding]
-alt-shift-t = 'mode service'
+# alt-shift-t = 'mode service'
 alt-shift-e = "balance-sizes"
 alt-shift-g = "fullscreen"
 alt-shift-m = "macos-native-minimize"
+# alt-shift-f = "macos-native-fullscreen"
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
 alt-shift-j = 'move down'
@@ -124,7 +125,7 @@ alt-5 = 'workspace 5'
 # alt-c = 'workspace C'
 # alt-d = 'workspace D'
 # alt-e = 'workspace E'
-# alt-f = 'workspace F'
+alt-f = 'workspace F'
 # alt-g = 'workspace G'
 # alt-i = 'workspace I'
 # alt-m = 'workspace M'
@@ -134,9 +135,9 @@ alt-5 = 'workspace 5'
 # alt-q = 'workspace Q'
 # alt-r = 'workspace R'
 # alt-s = 'workspace S'
-# alt-t = 'workspace T'
+alt-t = 'workspace T'
 # alt-u = 'workspace U'
-# alt-v = 'workspace V'
+alt-v = 'workspace V'
 # alt-w = 'workspace W'
 # alt-x = 'workspace X'
 # alt-y = 'workspace Y'
@@ -157,7 +158,7 @@ alt-shift-5 = 'move-node-to-workspace 5'
 # alt-shift-c = 'move-node-to-workspace C'
 # alt-shift-d = 'move-node-to-workspace D'
 # alt-shift-e = 'move-node-to-workspace E'
-# alt-shift-f = 'move-node-to-workspace F'
+alt-shift-f = 'move-node-to-workspace F'
 # alt-shift-g = 'move-node-to-workspace G'
 # alt-shift-i = 'move-node-to-workspace I'
 # alt-shift-m = 'move-node-to-workspace M'
@@ -167,9 +168,9 @@ alt-shift-5 = 'move-node-to-workspace 5'
 # alt-shift-q = 'move-node-to-workspace Q'
 # alt-shift-r = 'move-node-to-workspace R'
 # alt-shift-s = 'move-node-to-workspace S'
-# alt-shift-t = 'move-node-to-workspace T'
+alt-shift-t = 'move-node-to-workspace T'
 # alt-shift-u = 'move-node-to-workspace U'
-# alt-shift-v = 'move-node-to-workspace V'
+alt-shift-v = 'move-node-to-workspace V'
 # alt-shift-w = 'move-node-to-workspace W'
 # alt-shift-x = 'move-node-to-workspace X'
 # alt-shift-y = 'move-node-to-workspace Y'
@@ -181,7 +182,7 @@ alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
+alt-shift-comma = 'mode service'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes

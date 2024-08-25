@@ -19,7 +19,7 @@ config_vs_code() {
 
   echo "cmd: ln -s \"${CURRENT_DIR}/aerospace.toml\" \"${DEST_LN}\""
 
-	ln -s "${CURRENT_DIR}/settings.json" "${DEST_LN}" 
+	ln -s "${CURRENT_DIR}/aerospace.toml" "${DEST_LN}" 
 }
 
 main() {
