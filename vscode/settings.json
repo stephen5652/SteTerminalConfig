@@ -537,4 +537,8 @@
     }
   ],
   "files.autoGuessEncoding": true,
+  "php.validate.executablePath": "/opt/homebrew/bin/php",
+  "php.validate.enable": true,
+  "intelephense.compatibility.preferPsalmPhpstanPrefixedAnnotations": true,
+  "php.suggest.basic": true,
 }
