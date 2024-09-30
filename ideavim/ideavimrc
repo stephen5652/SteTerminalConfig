@@ -110,8 +110,8 @@ nnoremap <leader>kk <C-W>k
 nnoremap <leader>hh <C-W>h
 nnoremap <leader>ll <C-W>l
 " tab 选择
-nnoremap <S-h> gT
-nnoremap <S-l> gt
+nnoremap <C-j> gT
+nnoremap <C-k> gt
 
 "--------------------------------------------- debug actions ---------------------------------------------"
 let g:WhichKeyDesc_d = "<leader>d Debug control actions"

@@ -541,4 +541,6 @@
   "php.validate.enable": true,
   "intelephense.compatibility.preferPsalmPhpstanPrefixedAnnotations": true,
   "php.suggest.basic": true,
+  "cmake.showOptionsMovedNotification": false,
+  "dart.openDevTools": "flutter",
 }
