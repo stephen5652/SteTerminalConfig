@@ -1,5 +1,5 @@
 # Nvim configuration
-
+gd: 98419117906e3961b718af5ca3286bc7
 ## 吐槽
 
 这个是 neovim 的个性化配置,可同时在 window, ubuntu, macos 使用这套配置。
