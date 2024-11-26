@@ -25,8 +25,7 @@ set textobj-entire
 set ReplaceWithRegister
 set NERDTree
 set quickscope
-
-""" Plugin settings -------------------------
+""" Plugin settings ------------------------- 
 let g:argtextobj_pairs="[:],(:),<:>"
 
 set showmode
@@ -36,6 +35,10 @@ set so=5
 set hlsearch
 set incsearch
 
+let keep_input_source_in_normal="com.apple.keylayout.ABC"
+set keep-english-in-normal " 开启输入法自动切换功能
+set keep-english-in-normal-and-restore-in-insert " 回到insert模式时恢复输入法
+
 " 下一行和上一行的格式相同
 set autoindent
 set cindent
@@ -43,7 +46,7 @@ set cindent
 set splitright
 set splitbelow
 set ignorecase
-set keep-english-in-normal-and-restore-in-insert  "普通模式强制以英文模式
+
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=5
@@ -110,8 +113,8 @@ nnoremap <leader>kk <C-W>k
 nnoremap <leader>hh <C-W>h
 nnoremap <leader>ll <C-W>l
 " tab 选择
-nnoremap <S-h> gT
-nnoremap <S-l> gt
+nnoremap <C-j> gt
+nnoremap <C-k> gT
 
 "--------------------------------------------- debug actions ---------------------------------------------"
 let g:WhichKeyDesc_d = "<leader>d Debug control actions"

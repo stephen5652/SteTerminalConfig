@@ -38,11 +38,28 @@ module.exports.parse = async (
     proxyGroups.push(gptNodeGroup);
   } else {
     proxyGroups.forEach((group) => {
+
+      if (group.type === "select") {
+        console.log("Updating 'GPT nodes' group...");
+        group.type = "url-test";
+        group.url = "http://www.gstatic.com/generate_204";
+        group.interval = "300";
+      }
+
       if (group.name === "ST-GPT-NODES") {
         group.proxies = gptNodeGroup.proxies;
       }
     });
   }
+
+  proxyGroups.forEach((group) => {
+    if (group.type === "select") {
+      console.log("Updating 'select nodes' group...");
+      group.type = "url-test";
+      group.url = "http://www.gstatic.com/generate_204";
+      group.interval = "300";
+    }
+  })
 
   if (
     gptNodeGroup.proxies.length > 0 &&
