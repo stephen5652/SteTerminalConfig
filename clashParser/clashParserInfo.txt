@@ -1,9 +1,9 @@
 parsers: # array
-- url: https://browser.networkwebmail.com/link/S5FdXN0j5ToT0E6P?clash=1
+- url:  your subscribe
   yaml:
         prepend-rules:
             - DOMAIN,gitlab.xxx.com,DIRECT #rules 最前面追加一个规则
             - DOMAIN,xxx.com,DIRECT
             - DOMAIN-SUFFIX,githubusercontent.com,🔰国外流量
             - DOMAIN,blog.csdn.net,DIRECT
-  file: "/Users/stephen/SteTerminalConfig/clashParser/stParserClash.js"
+  file: "xxxxxx[absolute path]/SteTerminalConfig/clashParser/stParserClash.js"
