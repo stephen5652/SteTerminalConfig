@@ -7,7 +7,7 @@
 
 可以通过设定环境变量，来忽略某些app。已用到的忽略的app：
 
-Google Chrome, 企业微信, WeChat, KeyCastr, iStat Menus, iTerm2, Clash for Windows, AltTab
+Google Chrome, 企业微信, WeChat, KeyCastr, iStat Menus, iTerm2, Clash for Windows, AltTab, AeroSpace
 
 ## Youdao Translate
 
