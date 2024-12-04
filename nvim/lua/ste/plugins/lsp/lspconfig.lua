@@ -90,11 +90,11 @@ for type, icon in pairs(signs) do
 end
 
 -- configure tsserver
-lspconfig.tsserver.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-})
+-- lspconfig.tsserver.setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+-- })
 
 -- configure html server
 lspconfig["html"].setup({
