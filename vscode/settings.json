@@ -15,7 +15,7 @@
   "dart.debugSdkLibraries": false,
   "files.autoSave": "afterDelay",
   "git.openRepositoryInParentFolders": "never",
-  "workbench.colorTheme": "d96c6599-ebf8-4359-ae26-19f79b69e919",
+  "workbench.colorTheme": "One Dark Modern",
   "workbench.settings.applyToAllProfiles": [
     "doki.background.path"
   ],
@@ -543,4 +543,7 @@
   "php.suggest.basic": true,
   "cmake.showOptionsMovedNotification": false,
   "dart.openDevTools": "flutter",
+  "workbench.editorAssociations": {
+    "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
+  },
 }

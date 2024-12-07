@@ -1,9 +1,13 @@
-parsers: # array
-- url:  your subscribe
-  yaml:
-        prepend-rules:
-            - DOMAIN,gitlab.xxx.com,DIRECT #rules 最前面追加一个规则
-            - DOMAIN,xxx.com,DIRECT
-            - DOMAIN-SUFFIX,githubusercontent.com,🔰国外流量
-            - DOMAIN,blog.csdn.net,DIRECT
-  file: "xxxxxx[absolute path]/SteTerminalConfig/clashParser/stParserClash.js"
+parsers:
+  # 订阅链接配置
+  - url: your_subscribe_url   # 替换为你的订阅地址
+    yaml:
+      prepend-rules:
+        # 自定义规则（按优先级排序）
+        - DOMAIN,gitlab.xxx.com,DIRECT          # 内部 gitlab 直连
+        - DOMAIN,xxx.com,DIRECT                 # 自定义域名直连
+        - DOMAIN-SUFFIX,githubusercontent.com,🔰国外流量  # GitHub 相关域名走代理
+        - DOMAIN,blog.csdn.net,DIRECT          # CSDN 博客直连
+    
+    # Parser 脚本路径（使用绝对路径）
+    file: "/absolute/path/to/SteTerminalConfig/clashParser/stParserClash.js"

@@ -1,7 +1,8 @@
 // Clash Nyanpasu JavaScript Template
 // Documentation on https://nyanpasu.elaina.moe/
 
-export default function main(profile) {
+export default function main(profile) { //复制到 clash nyanpasu 的时候打开这一行，注释下一行
+// module.exports = function main(profile) { //本地调试的时候注释上一行，打开这一行 终端执行 node index.js  ./xxxx.yml
   const proxy_keyword = "Pro-美国";
 
   // 筛选出包含 "Pro-美国" 的代理
@@ -27,7 +28,7 @@ export default function main(profile) {
     proxies: gptNodes.map((proxy) => proxy.name),
   };
 
-// 删除原来的 "🎬ChatGPT" 代理组
+  // 删除原来的 "🎬ChatGPT" 代理组
   profile['proxy-groups'] = profile['proxy-groups'].filter(
     (group) => group.name !== "🎬ChatGPT"
   );
