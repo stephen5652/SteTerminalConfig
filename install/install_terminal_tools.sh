@@ -11,6 +11,7 @@ source $CURRENT_DIR/para.sh
 install_terminal_tools() {
 
 	brew install thefuck --verbose
+  brew install fzf --verbose
 
 }
 

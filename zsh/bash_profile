@@ -1,3 +1,5 @@
+eval "$(fzf --bash)"
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 # set -x
 . $(brew --prefix asdf)/libexec/asdf.sh
