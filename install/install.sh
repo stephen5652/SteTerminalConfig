@@ -10,3 +10,4 @@ source $CURRENT_DIR/installJava.sh
 source $CURRENT_DIR/installZsh.sh
 source $CURRENT_DIR/home_brew_tools.sh
 source ${CURRENT_DIR}/installRuby.sh
+source ${CURRENT_DIR}/install_terminal_tools.sh
