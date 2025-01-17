@@ -446,6 +446,7 @@ set tree-view = date:default author:full id:yes,color \
 
 set tree-view-date = custom
 set tree-view-date-format = "%Y-%m-%d %H:%M:%S"
+set main-view-date-local = true
 
 # Mappings for colors read from git configuration.
 # Set to "no" to disable.
