@@ -170,7 +170,7 @@ map  <Leader>fw <Plug>(easymotion-bd-w)
 
 "surround"
 
-
+let g:WhichKeyDesc_f = "<leader>f find action"
 " find file in project"
 nnoremap <leader>ff mm`m:action GotoFile<CR>
 nnoremap <leader>fs mm`m:action Find<CR>
@@ -231,8 +231,7 @@ map <leader>ga :action Annotate<CR>
 
 map gbb :action Back<CR>
 map gff :action Forward<CR>
-
-"注释代码"
+ "注释代码"
 map gcc :action CommentByLineComment<CR>
 
 map <leader>zz :action ToggleDistractionFreeMode<CR>
@@ -263,6 +262,9 @@ nnoremap <leader>td :action ActivateTODOToolWindow<CR>
 " X <key> Recursively close all children of the current node (not close flie)
 """"End""""
 " toggle NERDTree
+
+let g:WhichKeyDesc_e = "<leader>e explore actions"
+
 nnoremap <leader>ee :NERDTreeToggle<CR>
 nnoremap <leader>ef :action SelectInProjectView<CR>
 
