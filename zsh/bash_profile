@@ -1,8 +1,12 @@
+export TERM=screen-256color
+
 eval "$(fzf --bash)"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 # set -x
-. $(brew --prefix asdf)/libexec/asdf.sh
+# . $(brew --prefix asdf)/libexec/asdf.sh
 
 # 获取到SteTerminalConfig 绝对路径
 FILE_REAL_PATH=$(cd $(dirname $(readlink -f $0))/..; pwd)
@@ -18,7 +22,9 @@ export FLUTTER_HOME="$(asdf where flutter)"
 export PATH=~/depot_tools:$PATH
 export PATH=/Library/TeX/texbin:$PATH
 
-export https_proxy=http://127.0.0.1:7890
-export http_proxy=http://127.0.0.1:7890
-export all_proxy=socks5://127.0.0.1:7890
+# export https_proxy=http://127.0.0.1:7890
+# export http_proxy=http://127.0.0.1:7890
+# export all_proxy=socks5://127.0.0.1:7890
 
+
+source ${HOME}/ste_java_env

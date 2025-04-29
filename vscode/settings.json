@@ -2,9 +2,7 @@
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.rulers": [
-      80
-    ],
+    "editor.rulers": [80],
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
@@ -15,15 +13,11 @@
   "dart.debugSdkLibraries": false,
   "files.autoSave": "afterDelay",
   "git.openRepositoryInParentFolders": "never",
-  "workbench.colorTheme": "One Dark Modern",
-  "workbench.settings.applyToAllProfiles": [
-    "doki.background.path"
-  ],
+  "workbench.colorTheme": "d96c6599-ebf8-4359-ae26-19f79b69e919",
+  "workbench.settings.applyToAllProfiles": ["doki.background.path"],
   "doki.sticker.css": "z-index:90;background-position:100% 90%",
   "workbench.sideBar.location": "right",
-  "settingsSync.ignoredSettings": [
-    "-vim.neovimConfigPath"
-  ],
+  "settingsSync.ignoredSettings": ["-vim.neovimConfigPath"],
   "vim.leader": "<space>",
   "vim.easymotion": true,
   "vim.history": 200,
@@ -51,111 +45,52 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     // vim whichkeyk
     {
-      "before": [
-        "<leader>"
-      ],
-      "commands": [
-        "whichkey.show"
-      ]
+      "before": ["<leader>"],
+      "commands": ["whichkey.show"]
     },
     {
-      "before": [
-        "g",
-        "f",
-        "f"
-      ],
-      "commands": [
-        "workbench.action.navigateForward"
-      ]
+      "before": ["g", "f", "f"],
+      "commands": ["workbench.action.navigateForward"]
     },
     {
-      "before": [
-        "g",
-        "b",
-        "b"
-      ],
-      "commands": [
-        "workbench.action.navigateBack"
-      ]
+      "before": ["g", "b", "b"],
+      "commands": ["workbench.action.navigateBack"]
     },
     {
-      "before": [
-        "g",
-        "d"
-      ],
-      "commands": [
-        "editor.action.revealDefinition"
-      ]
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"]
     },
     {
-      "before": [
-        "g",
-        "D"
-      ],
-      "commands": [
-        "editor.action.peekDefinition"
-      ]
+      "before": ["g", "D"],
+      "commands": ["editor.action.peekDefinition"]
     },
     {
-      "before": [
-        "g",
-        "i"
-      ],
-      "commands": [
-        "editor.action.goToImplementation"
-      ]
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
     },
     {
-      "before": [
-        "S-h"
-      ],
-      "commands": [
-        "workbench.action.previousEditor"
-      ]
+      "before": ["S-h"],
+      "commands": ["workbench.action.previousEditor"]
     },
     {
-      "before": [
-        "S-l"
-      ],
-      "commands": [
-        "workbench.action.nextEditor"
-      ]
+      "before": ["S-l"],
+      "commands": ["workbench.action.nextEditor"]
     },
     {
-      "before": [
-        "C-h",
-        "C-h"
-      ],
-      "commands": [
-        "workbench.action.focusLeftGroupWithoutWrap"
-      ]
+      "before": ["C-h", "C-h"],
+      "commands": ["workbench.action.focusLeftGroupWithoutWrap"]
     },
     {
-      "before": [
-        "C-l",
-        "C-l"
-      ],
-      "commands": [
-        "workbench.action.focusRightGroupWithoutWrap"
-      ]
+      "before": ["C-l", "C-l"],
+      "commands": ["workbench.action.focusRightGroupWithoutWrap"]
     },
     {
-      "before": [
-        "C-j",
-        "C-j"
-      ],
-      "commands": [
-        "workbench.action.focusBelowGroupWithoutWrap"
-      ]
+      "before": ["C-j", "C-j"],
+      "commands": ["workbench.action.focusBelowGroupWithoutWrap"]
     },
     {
-      "before": [
-        "C-k",
-        "C-k"
-      ],
-      "commands": [
-        "workbench.action.focusAboveGroupWithoutWrap"
-      ]
+      "before": ["C-k", "C-k"],
+      "commands": ["workbench.action.focusAboveGroupWithoutWrap"]
     }
   ],
   // 插入模式下的非递归按键绑定
@@ -165,14 +100,8 @@
   // 可视模式下的非递归按键绑定
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<leader>",
-        "c",
-        "f"
-      ],
-      "commands": [
-        "editor.action.formatSelection"
-      ]
+      "before": ["<leader>", "c", "f"],
+      "commands": ["editor.action.formatSelection"]
     }
   ],
   "whichkey.transient": {},
@@ -454,9 +383,7 @@
     {
       "name": "latexmk_rconly",
       "command": "latexmk",
-      "args": [
-        "%DOC%"
-      ],
+      "args": ["%DOC%"],
       "env": {}
     },
     {
@@ -473,9 +400,7 @@
     {
       "name": "bibtex",
       "command": "bibtex",
-      "args": [
-        "%DOCFILE%"
-      ],
+      "args": ["%DOCFILE%"],
       "env": {}
     },
     {
@@ -490,10 +415,7 @@
     {
       "name": "jnw2tex",
       "command": "julia",
-      "args": [
-        "-e",
-        "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
-      ],
+      "args": ["-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"],
       "env": {}
     },
     {
@@ -508,31 +430,19 @@
     {
       "name": "pnw2tex",
       "command": "pweave",
-      "args": [
-        "-f",
-        "tex",
-        "%DOC_EXT%"
-      ],
+      "args": ["-f", "tex", "%DOC_EXT%"],
       "env": {}
     },
     {
       "name": "pnw2texminted",
       "command": "pweave",
-      "args": [
-        "-f",
-        "texminted",
-        "%DOC_EXT%"
-      ],
+      "args": ["-f", "texminted", "%DOC_EXT%"],
       "env": {}
     },
     {
       "name": "tectonic",
       "command": "tectonic",
-      "args": [
-        "--synctex",
-        "--keep-logs",
-        "%DOC%.tex"
-      ],
+      "args": ["--synctex", "--keep-logs", "%DOC%.tex"],
       "env": {}
     }
   ],
@@ -546,4 +456,9 @@
   "workbench.editorAssociations": {
     "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
   },
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/opt/homebrew/bin/im-select",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/opt/homebrew/bin/im-select {im}",
+  "markdown-preview-enhanced.enablePreviewZenMode": true
 }
