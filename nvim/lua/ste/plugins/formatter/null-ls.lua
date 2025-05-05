@@ -8,9 +8,9 @@ mason_null_ls.setup({
   -- list of formatters & linters for mason to install
   ensure_installed = {
     "prettier", -- ts/js formatter
-    "stylua", -- lua formatter
+    "stylua",   -- lua formatter
     "eslint_d", -- ts/js linter
-    "shfmt", -- shell formatter
+    "shfmt",    -- shell formatter
     "rubocop",
     "autopep8",
     "clang_format",
@@ -31,7 +31,7 @@ if not setup then
 end
 
 -- for conciseness
-local formatting = null_ls.builtins.formatting -- to setup formatters
+local formatting = null_ls.builtins.formatting   -- to setup formatters
 local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 
 -- to setup format on save
@@ -48,10 +48,9 @@ null_ls.setup({
       extra_filetypes = { "objc" }, -- enable  Objective-C
 
       disabled_filetypes = { "java" },
-    }), -- clang-format is formatter for C/C++/Java/JavaScript/JSON/Objective-C/Protobuf/C# code
-    formatting.autopep8, -- formats Python code to conform to the PEP 8 style guide
+    }),                  -- clang-format is formatter for C/C++/Java/JavaScript/JSON/Objective-C/Protobuf/C# code
     formatting.prettier, -- js/ts formatter
-    formatting.stylua, -- lua formatter
+    formatting.stylua,   -- lua formatter
     -- formatting.xmlformat,
     -- formatting.tidy.with({
     --   args = { "-xml", "-indent" },
@@ -61,13 +60,13 @@ null_ls.setup({
     }),
     formatting.yamlfmt,
     diagnostics.tidy,
-    diagnostics.eslint_d.with({
-      -- js/ts linter
-      -- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
-      condition = function(utils)
-        return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
-      end,
-    }),
+    -- diagnostics.eslint_d.with({
+    --   -- js/ts linter
+    --   -- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
+    --   condition = function(utils)
+    --     return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
+    --   end,
+    -- }),
     -- diagnostics.swiftlint,
     formatting.swiftlint,
     formatting.shfmt, -- bash formatter

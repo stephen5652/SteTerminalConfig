@@ -39,10 +39,11 @@ return packer.startup(function(use)
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
-  use("szw/vim-maximizer") -- maximizes and restores current window
+  use("szw/vim-maximizer")              -- maximizes and restores current window
+  use("szw/vim-maximizer")              -- maximizes and restores current window
 
   -- essential plugins
-  use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
+  use("tpope/vim-surround")               -- add, delete, change surroundings (it's awesome)
   use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
 
   -- commenting with gc
@@ -74,26 +75,25 @@ return packer.startup(function(use)
     -- Uncomment next line if you want to follow only stable versions
     -- tag = "*"
   })
-  use("hrsh7th/nvim-cmp") -- completion plugin
-  use("hrsh7th/cmp-buffer") -- source for text in buffer
-  use("hrsh7th/cmp-path") -- source for file system paths
+  use("hrsh7th/nvim-cmp")    -- completion plugin
+  use("hrsh7th/cmp-buffer")  -- source for text in buffer
+  use("hrsh7th/cmp-path")    -- source for file system paths
   use("hrsh7th/cmp-cmdline") -- source for cmd line
 
   -- snippets
-  use("L3MON4D3/LuaSnip") -- snippet engine
-  use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+  use("L3MON4D3/LuaSnip")             -- snippet engine
+  use("saadparwaiz1/cmp_luasnip")     -- for autocompletion
   use("rafamadriz/friendly-snippets") -- useful snippets
   use("hrsh7th/cmp-vsnip")
 
   -- managing & installing lsp servers, linters & formatters
-  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+  use("williamboman/mason.nvim")           -- in charge of managing lsp servers, linters & formatters
   use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
-  use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
   use("jay-babu/mason-nvim-dap.nvim")
 
   -- configuring lsp servers
   use("neovim/nvim-lspconfig") -- easily configure language servers
-  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+  use("hrsh7th/cmp-nvim-lsp")  -- for autocompletion
   use({
     "glepnir/lspsaga.nvim",
     branch = "main",
@@ -101,9 +101,9 @@ return packer.startup(function(use)
       { "nvim-tree/nvim-web-devicons" },
       { "nvim-treesitter/nvim-treesitter" },
     },
-  }) -- enhanced lsp uis
+  })                                        -- enhanced lsp uis
   use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
-  use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+  use("onsails/lspkind.nvim")               -- vs-code like icons for autocompletion
 
   -- dap
   use("mfussenegger/nvim-dap")
@@ -111,8 +111,22 @@ return packer.startup(function(use)
   use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
 
   -- formatting & linting
-  use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+  use({
+    "nvimtools/none-ls.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local null_ls = require("null-ls")
 
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.prettier.with({
+            filetypes = { "markdown" },
+          }),
+        },
+      })
+    end,
+  })
+  use("jayp0521/mason-null-ls.nvim") -- configure formatters & linters
   -- treesitter configuration, used for code hight lighting
   use({
     "nvim-treesitter/nvim-treesitter",

@@ -1,4 +1,5 @@
 -- import lspconfig plugin safely
+
 local lspconfig_status, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status then
   return
@@ -25,25 +26,18 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = false, buffer = bufnr }
 
   -- set keybinds
-  keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, referenceslspco
-  keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-  keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts) -- see definition and make edits in window
-  keymap.set("n", "gbb", "<c-o>", opts) -- see definition and make edits in window
-  keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
-  keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
-  keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
+  keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)                     -- show definition, referenceslspco
+  keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)          -- got to declaration
+  keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)                -- see definition and make edits in window
+  keymap.set("n", "gbb", "<c-o>", opts)                                          -- see definition and make edits in window
+  keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)       -- go to implementation
+  keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)                 -- smart rename
+  keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)   -- show  diagnostics for line
   keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
-  keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
-  keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-  keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+  keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)           -- jump to previous diagnostic in buffer
+  keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)           -- jump to next diagnostic in buffer
+  keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)                       -- show documentation for what is under cursor
   -- keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
-
-  -- -- typescript specific keymaps (e.g. rename file and update imports)
-  -- if client.name == "tsserver" then
-  --   keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
-  --   keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
-  --   keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
-  -- end
 
   -- if client.name == "jdtls" then
   --   require("ste.plugins.lsp.ste_jdtls_config").ste_jdtls_setup()
@@ -88,13 +82,6 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
-
--- configure tsserver
--- lspconfig.tsserver.setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
---   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
--- })
 
 -- configure html server
 lspconfig["html"].setup({
@@ -220,7 +207,7 @@ lspconfig.sqlls.setup({
   on_attach = on_attach,
 })
 
---volar
+--veture
 lspconfig.vuels.setup({
   cmd = {
     "vls",
@@ -238,28 +225,6 @@ lspconfig.vuels.setup({
       stylusSupremacy = {},
       typescript = {
         format = {},
-      },
-      vetur = {
-        completion = {
-          autoImport = false,
-          tagCasing = "kebab",
-          useScaffoldSnippets = true,
-        },
-        format = {
-          defaultFormatter = {
-            js = "none",
-            ts = "none",
-          },
-          defaultFormatterOptions = {},
-          scriptInitialIndent = false,
-          styleInitialIndent = false,
-        },
-        useWorkspaceDependencies = true,
-        validation = {
-          script = true,
-          style = true,
-          template = true,
-        },
       },
     },
   },
