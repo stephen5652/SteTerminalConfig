@@ -1,464 +1,591 @@
 {
-  "[dart]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.rulers": [80],
-    "editor.selectionHighlight": false,
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
-    "editor.suggestSelection": "first",
-    "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": "off"
-  },
-  "dart.debugExternalPackageLibraries": false,
-  "dart.debugSdkLibraries": false,
-  "files.autoSave": "afterDelay",
-  "git.openRepositoryInParentFolders": "never",
-  "workbench.colorTheme": "d96c6599-ebf8-4359-ae26-19f79b69e919",
-  "workbench.settings.applyToAllProfiles": ["doki.background.path"],
-  "doki.sticker.css": "z-index:90;background-position:100% 90%",
-  "workbench.sideBar.location": "right",
-  "settingsSync.ignoredSettings": ["-vim.neovimConfigPath"],
-  "vim.leader": "<space>",
-  "vim.easymotion": true,
-  "vim.history": 200,
-  "whichkey.sortOrder": "custom",
-  "whichkey.useFullWidthCharacters": true,
-  "editor.codeActionsOnSave": {},
-  "aceJump.scroll.mode": "none",
-  "RainbowBrackets.timeOut": 1000,
-  "editor.minimap.enabled": false,
-  "gitlens.views.pageItemLimit": 0,
-  "gitlens.views.commits.pullRequests.showForCommits": false,
-  "gitlens.blame.separateLines": false,
-  "git.autofetch": true,
-  // 启用系统粘贴板作为vim寄存器
-  "vim.useSystemClipboard": true,
-  // 下面定义的按键将交由vscode进行处理，而不是vscode-vim插件
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
-  },
-  "whichkey.bindingOverrides": [],
-  "editor.lineNumbers": "relative",
-  "scrolloff.scrolloff": 5,
-  // 普通模式下的非递归按键绑定
-  "vim.normalModeKeyBindingsNonRecursive": [
-    // vim whichkeyk
-    {
-      "before": ["<leader>"],
-      "commands": ["whichkey.show"]
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off"
     },
-    {
-      "before": ["g", "f", "f"],
-      "commands": ["workbench.action.navigateForward"]
+    "dart.debugExternalPackageLibraries": false,
+    "dart.debugSdkLibraries": false,
+    "git.openRepositoryInParentFolders": "never",
+    "workbench.colorTheme": "d96c6599-ebf8-4359-ae26-19f79b69e919",
+    "workbench.settings.applyToAllProfiles": [
+
+        "doki.background.path"
+    ],
+    "doki.sticker.css": "z-index:90;background-position:100% 90%",
+    "workbench.sideBar.location": "right",
+    "settingsSync.ignoredSettings": [
+        "-vim.neovimConfigPath"
+    ],
+    "vim.leader": "<space>",
+    "vim.easymotion": true,
+    "vim.history": 200,
+    "whichkey.sortOrder": "custom",
+    "whichkey.useFullWidthCharacters": true,
+    "editor.codeActionsOnSave": {},
+    "aceJump.scroll.mode": "none",
+    "RainbowBrackets.timeOut": 1000,
+    "editor.minimap.enabled": false,
+    "gitlens.views.pageItemLimit": 0,
+    "gitlens.views.commits.pullRequests.showForCommits": false,
+    "gitlens.blame.separateLines": false,
+    "git.autofetch": true,
+    "vim.useSystemClipboard": true,
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
     },
-    {
-      "before": ["g", "b", "b"],
-      "commands": ["workbench.action.navigateBack"]
-    },
-    {
-      "before": ["g", "d"],
-      "commands": ["editor.action.revealDefinition"]
-    },
-    {
-      "before": ["g", "D"],
-      "commands": ["editor.action.peekDefinition"]
-    },
-    {
-      "before": ["g", "i"],
-      "commands": ["editor.action.goToImplementation"]
-    },
-    {
-      "before": ["S-h"],
-      "commands": ["workbench.action.previousEditor"]
-    },
-    {
-      "before": ["S-l"],
-      "commands": ["workbench.action.nextEditor"]
-    },
-    {
-      "before": ["C-h", "C-h"],
-      "commands": ["workbench.action.focusLeftGroupWithoutWrap"]
-    },
-    {
-      "before": ["C-l", "C-l"],
-      "commands": ["workbench.action.focusRightGroupWithoutWrap"]
-    },
-    {
-      "before": ["C-j", "C-j"],
-      "commands": ["workbench.action.focusBelowGroupWithoutWrap"]
-    },
-    {
-      "before": ["C-k", "C-k"],
-      "commands": ["workbench.action.focusAboveGroupWithoutWrap"]
-    }
-  ],
-  // 插入模式下的非递归按键绑定
-  "vim.insertModeKeyBindings": [],
-  // 命令模式下的非递归按键绑定
-  "vim.commandLineModeKeyBindingsNonRecursive": [],
-  // 可视模式下的非递归按键绑定
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", "c", "f"],
-      "commands": ["editor.action.formatSelection"]
-    }
-  ],
-  "whichkey.transient": {},
-  "whichkey.bindings": [
-    //
-    {
-      "key": "b",
-      "name": "bookmarks & breakpoints & buffers",
-      "type": "bindings",
-      "bindings": [
+    "whichkey.bindingOverrides": [],
+    "editor.lineNumbers": "relative",
+    "scrolloff.scrolloff": 5,
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
-          "key": "b",
-          "name": "add / delete breakpoint",
-          "command": "editor.debug.action.toggleBreakpoint"
+            "before": [
+                "<leader>"
+            ],
+            "commands": [
+                "whichkey.show"
+            ]
         },
         {
-          "key": "c",
-          "name": "close current editor",
-          "command": "workbench.action.closeActiveEditor"
+            "before": [
+                "g",
+                "f",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.navigateForward"
+            ]
         },
         {
-          "key": "e",
-          "name": "enable all breakpoints",
-          "command": "workbench.debug.viewlet.action.enableAllBreakpoints"
+            "before": [
+                "g",
+                "b",
+                "b"
+            ],
+            "commands": [
+                "workbench.action.navigateBack"
+            ]
         },
         {
-          "key": "m",
-          "name": "add / delete bookmark",
-          "command": "bookmarks.toggle"
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
         },
         {
-          "key": "l",
-          "name": "list bookmarks",
-          "command": "workbench.view.extension.bookmarks"
+            "before": [
+                "g",
+                "D"
+            ],
+            "commands": [
+                "editor.action.peekDefinition"
+            ]
         },
         {
-          "key": "o",
-          "name": "colose other editors",
-          "command": "workbench.action.closeOtherEditors"
+            "before": [
+                "g",
+                "i"
+            ],
+            "commands": [
+                "editor.action.goToImplementation"
+            ]
         },
         {
-          "key": "v",
-          "name": "list breakpoints",
-          "command": "workbench.debug.action.focusBreakpointsView"
+            "before": [
+                "S-h"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
         },
         {
-          "key": "w",
-          "name": "disable all breakpoints",
-          "command": "workbench.debug.viewlet.action.disableAllBreakpoints"
+            "before": [
+                "S-l"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
         },
         {
-          "key": "y",
-          "name": "copy current file path",
-          "command": "copyFilePath"
+            "before": [
+                "C-h",
+                "C-h"
+            ],
+            "commands": [
+                "workbench.action.focusLeftGroupWithoutWrap"
+            ]
+        },
+        {
+            "before": [
+                "C-l",
+                "C-l"
+            ],
+            "commands": [
+                "workbench.action.focusRightGroupWithoutWrap"
+            ]
+        },
+        {
+            "before": [
+                "C-j",
+                "C-j"
+            ],
+            "commands": [
+                "workbench.action.focusBelowGroupWithoutWrap"
+            ]
+        },
+        {
+            "before": [
+                "C-k",
+                "C-k"
+            ],
+            "commands": [
+                "workbench.action.focusAboveGroupWithoutWrap"
+            ]
         }
-      ]
-    },
-    {
-      "key": "c",
-      "name": "code actions",
-      "type": "bindings",
-      "bindings": [
+    ],
+    "vim.insertModeKeyBindings": [],
+    "vim.commandLineModeKeyBindingsNonRecursive": [],
+    "vim.visualModeKeyBindingsNonRecursive": [
         {
-          "key": "f",
-          "name": "format document",
-          "command": "editor.action.formatDocument"
-        },
-        {
-          "key": "s",
-          "name": "got to symbol",
-          "command": "workbench.action.gotoSymbol"
+            "before": [
+                "<leader>",
+                "c",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatSelection"
+            ]
         }
-      ]
-    },
-    {
-      "key": "d",
-      "name": "debug actions",
-      "type": "bindings",
-      "bindings": [
+    ],
+    "whichkey.transient": {},
+    "whichkey.bindings": [
         {
-          "key": "e",
-          "name": "debug step forward",
-          "command": "workbench.action.debug.stepOver"
+            "key": "b",
+            "name": "bookmarks & breakpoints & buffers",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "b",
+                    "name": "add / delete breakpoint",
+                    "command": "editor.debug.action.toggleBreakpoint"
+                },
+                {
+                    "key": "c",
+                    "name": "close current editor",
+                    "command": "workbench.action.closeActiveEditor"
+                },
+                {
+                    "key": "e",
+                    "name": "enable all breakpoints",
+                    "command": "workbench.debug.viewlet.action.enableAllBreakpoints"
+                },
+                {
+                    "key": "m",
+                    "name": "add / delete bookmark",
+                    "command": "bookmarks.toggle"
+                },
+                {
+                    "key": "l",
+                    "name": "list bookmarks",
+                    "command": "workbench.view.extension.bookmarks"
+                },
+                {
+                    "key": "o",
+                    "name": "colose other editors",
+                    "command": "workbench.action.closeOtherEditors"
+                },
+                {
+                    "key": "v",
+                    "name": "list breakpoints",
+                    "command": "workbench.debug.action.focusBreakpointsView"
+                },
+                {
+                    "key": "w",
+                    "name": "disable all breakpoints",
+                    "command": "workbench.debug.viewlet.action.disableAllBreakpoints"
+                },
+                {
+                    "key": "y",
+                    "name": "copy current file path",
+                    "command": "copyFilePath"
+                }
+            ]
         },
         {
-          "key": "f",
-          "name": "debug continue",
-          "command": "workbench.action.debug.continue"
+            "key": "c",
+            "name": "code actions",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "f",
+                    "name": "format document",
+                    "command": "editor.action.formatDocument"
+                },
+                {
+                    "key": "s",
+                    "name": "got to symbol",
+                    "command": "workbench.action.gotoSymbol"
+                }
+            ]
         },
         {
-          "key": "r",
-          "name": "dart hot reload",
-          "command": "dart.hotReload"
+            "key": "d",
+            "name": "debug actions",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "e",
+                    "name": "debug step forward",
+                    "command": "workbench.action.debug.stepOver"
+                },
+                {
+                    "key": "f",
+                    "name": "debug continue",
+                    "command": "workbench.action.debug.continue"
+                },
+                {
+                    "key": "r",
+                    "name": "dart hot reload",
+                    "command": "dart.hotReload"
+                },
+                {
+                    "key": "s",
+                    "name": "debug start",
+                    "command": "workbench.action.debug.restart"
+                },
+                {
+                    "key": "t",
+                    "name": "show debug console",
+                    "command": "workbench.debug.action.toggleRepl"
+                },
+                {
+                    "key": "x",
+                    "name": "debug stop",
+                    "command": "workbench.action.debug.stop"
+                }
+            ]
         },
         {
-          "key": "s",
-          "name": "debug start",
-          "command": "workbench.action.debug.start"
+            "key": "e",
+            "name": "file explorer",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "e",
+                    "name": "show file explorer",
+                    "command": "workbench.files.action.focusFilesExplorer"
+                },
+                {
+                    "key": "f",
+                    "name": "show opened file in file explorer",
+                    "command": "workbench.files.action.showActiveFileInExplorer"
+                }
+            ]
         },
         {
-          "key": "t",
-          "name": "show debug console",
-          "command": "workbench.debug.action.toggleRepl"
+            "key": "f",
+            "name": "find actions",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "a",
+                    "name": "find word in files",
+                    "command": "workbench.action.findInFiles"
+                },
+                {
+                    "key": "f",
+                    "name": "find file in workspace",
+                    "command": "workbench.action.quickOpen"
+                }
+            ]
         },
         {
-          "key": "x",
-          "name": "debug stop",
-          "command": "workbench.action.debug.stop"
+            "key": "g",
+            "name": "goto",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "a",
+                    "name": "line annotator",
+                    "command": "gitlens.toggleFileBlame"
+                },
+                {
+                    "key": "g",
+                    "name": "go to word, aceJump action",
+                    "command": "extension.aceJump.multiChar"
+                }
+            ]
+        },
+        {
+            "key": "t",
+            "name": "latex actions",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "b",
+                    "name": "build latxt",
+                    "command": "latex-workshop.build"
+                },
+                {
+                    "key": "v",
+                    "name": "show latex preview",
+                    "command": "latex-workshop.view"
+                }
+            ]
+        },
+        {
+            "key": "s",
+            "name": "save or load file",
+            "type": "bindins",
+            "bindings": [
+                {
+                    "key": "s",
+                    "name": "save file",
+                    "command": "workbench.action.files.save"
+                }
+            ]
+        },
+        {
+            "key": "w",
+            "name": "windows namager",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "b",
+                    "name": "splipt window balance",
+                    "command": "workbench.action.splitEditorDown"
+                },
+                {
+                    "key": "v",
+                    "name": "splipt window balance",
+                    "command": "workbench.action.splitEditor"
+                },
+                {
+                    "key": "o",
+                    "name": "colose other panel",
+                    "command": "workbench.action.editorLayoutSingle"
+                }
+            ]
         }
-      ]
+    ],
+    "vim.hlsearch": true,
+    "debug.confirmOnExit": "always",
+    "search.showLineNumbers": true,
+    "search.smartCase": true,
+    "markdown-preview-enhanced.previewTheme": "github-light.css",
+    "markdown-preview-enhanced.codeBlockTheme": "solarized-dark.css",
+    "RainbowBrackets.depreciation-notice": false,
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
     },
-    {
-      "key": "e",
-      "name": "file explorer",
-      "type": "bindings",
-      "bindings": [
+    "window.zoomLevel": 2,
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "editor.language.brackets": [],
+    "[latex]": {
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+        },
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "latex-workshop.latex.tools": [
         {
-          "key": "e",
-          "name": "show file explorer",
-          "command": "workbench.files.action.focusFilesExplorer"
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-xelatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
         },
         {
-          "key": "f",
-          "name": "show opened file in file explorer",
-          "command": "workbench.files.action.showActiveFileInExplorer"
-        }
-      ]
-    },
-    {
-      "key": "f",
-      "name": "find actions",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "a",
-          "name": "find word in files",
-          "command": "workbench.action.findInFiles"
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
         },
         {
-          "key": "f",
-          "name": "find file in workspace",
-          "command": "workbench.action.quickOpen"
-        }
-      ]
-    },
-    {
-      "key": "g",
-      "name": "goto",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "a",
-          "name": "line annotator",
-          "command": "gitlens.toggleFileBlame"
+            "name": "xelatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-xelatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
         },
         {
-          "key": "g",
-          "name": "go to word, aceJump action",
-          "command": "extension.aceJump.multiChar"
-        }
-      ]
-    },
-    {
-      "key": "t",
-      "name": "latex actions",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "b",
-          "name": "build latxt",
-          "command": "latex-workshop.build"
+            "name": "latexmk_rconly",
+            "command": "latexmk",
+            "args": [
+                "%DOC%"
+            ],
+            "env": {}
         },
         {
-          "key": "v",
-          "name": "show latex preview",
-          "command": "latex-workshop.view"
-        }
-      ]
-    },
-    {
-      "key": "s",
-      "name": "save or load file",
-      "type": "bindins",
-      "bindings": [
-        {
-          "key": "s",
-          "name": "save file",
-          "command": "workbench.action.files.save"
-        }
-      ]
-    },
-    {
-      "key": "w",
-      "name": "windows namager",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "b",
-          "name": "splipt window balance",
-          "command": "workbench.action.splitEditorDown"
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
         },
         {
-          "key": "v",
-          "name": "splipt window balance",
-          "command": "workbench.action.splitEditor"
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
         },
         {
-          "key": "o",
-          "name": "colose other panel",
-          "command": "workbench.action.editorLayoutSingle"
+            "name": "rnw2tex",
+            "command": "Rscript",
+            "args": [
+                "-e",
+                "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+            ],
+            "env": {}
+        },
+        {
+            "name": "jnw2tex",
+            "command": "julia",
+            "args": [
+                "-e",
+                "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
+            ],
+            "env": {}
+        },
+        {
+            "name": "jnw2texminted",
+            "command": "julia",
+            "args": [
+                "-e",
+                "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pnw2tex",
+            "command": "pweave",
+            "args": [
+                "-f",
+                "tex",
+                "%DOC_EXT%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pnw2texminted",
+            "command": "pweave",
+            "args": [
+                "-f",
+                "texminted",
+                "%DOC_EXT%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "tectonic",
+            "command": "tectonic",
+            "args": [
+                "--synctex",
+                "--keep-logs",
+                "%DOC%.tex"
+            ],
+            "env": {}
         }
-      ]
-    }
-  ],
-  "vim.hlsearch": true,
-  "debug.confirmOnExit": "always",
-  "search.showLineNumbers": true,
-  "search.smartCase": true,
-  "markdown-preview-enhanced.previewTheme": "github-light.css",
-  "markdown-preview-enhanced.codeBlockTheme": "solarized-dark.css",
-  "RainbowBrackets.depreciation-notice": false,
-  "[markdown]": {
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-  },
-  "window.zoomLevel": 2,
-  // LaTeX
-  // 不在保存的时候自动编译
-  "latex-workshop.latex.autoBuild.run": "onSave",
-  //LaTex配置
-  "editor.language.brackets": [],
-  "[latex]": {
-    "editor.quickSuggestions": {
-      "comments": "on",
-      "strings": "on",
-      "other": "on"
+    ],
+    "files.autoGuessEncoding": true,
+    "php.validate.executablePath": "/opt/homebrew/bin/php",
+    "php.validate.enable": true,
+    "intelephense.compatibility.preferPsalmPhpstanPrefixedAnnotations": true,
+    "php.suggest.basic": true,
+    "cmake.showOptionsMovedNotification": false,
+    "dart.openDevTools": "flutter",
+    "workbench.editorAssociations": {
+        "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
     },
-    "editor.defaultFormatter": "James-Yu.latex-workshop"
-  },
-  "latex-workshop.latex.tools": [
-    {
-      "name": "latexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-xelatex",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
+    "vim.autoSwitchInputMethod.enable": true,
+    "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
+    "vim.autoSwitchInputMethod.obtainIMCmd": "/opt/homebrew/bin/im-select",
+    "vim.autoSwitchInputMethod.switchIMCmd": "/opt/homebrew/bin/im-select {im}",
+    "markdown-preview-enhanced.enablePreviewZenMode": true,
+    "editor.formatOnSaveMode": "modificationsIfAvailable",
+    "files.trimTrailingWhitespaceInRegexAndStrings": false,
+    "vetur.format.defaultFormatter.css": "none",
+    "vue.format.template.initialIndent": false,
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
     },
-    {
-      "name": "lualatexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-lualatex",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
+    "editor.formatOnPaste": true,
+    "files.autoSave": "afterDelay",
+    "vetur.format.enable": false,
+
+    "vue.server.hybridMode": "typeScriptPluginOnly",
+    "vetur.grammar.customBlocks": {
+        "docs": "md",
+        "i18n": "json",
+        "preview-props": "json"
     },
-    {
-      "name": "xelatexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-xelatex",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
+    "editor.autoIndent": "brackets",
+    "editor.detectIndentation": false,
+    "editor.guides.highlightActiveIndentation": false,
+    "editor.guides.indentation": false,
+    "editor.wrappingIndent": "none",
+    "editor.stickyScroll.defaultModel": "indentationModel",
+    "typescript.format.indentSwitchCase": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    {
-      "name": "latexmk_rconly",
-      "command": "latexmk",
-      "args": ["%DOC%"],
-      "env": {}
+    "vue-helper.framework": "element-ui",
+    "editor.accessibilitySupport": "off",
+    "workbench.editor.doubleClickTabToToggleEditorGroupSizes": "maximize",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
-    {
-      "name": "pdflatex",
-      "command": "pdflatex",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "%DOC%"
-      ],
-      "env": {}
+    "workbench.preferredDarkColorTheme": "2f2dff01-7e0e-4ebc-ab1e-34be2486c66f",
+    "workbench.preferredHighContrastColorTheme": "3b11c8f4-d030-4a7e-a46f-b22d3e430a1d",
+    "diffEditor.maxComputationTime": 0,
+    "dart.devToolsLocation": {
+    
+        "default": "beside",
+        "inspector": "sidebar"
     },
-    {
-      "name": "bibtex",
-      "command": "bibtex",
-      "args": ["%DOCFILE%"],
-      "env": {}
-    },
-    {
-      "name": "rnw2tex",
-      "command": "Rscript",
-      "args": [
-        "-e",
-        "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
-      ],
-      "env": {}
-    },
-    {
-      "name": "jnw2tex",
-      "command": "julia",
-      "args": ["-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"],
-      "env": {}
-    },
-    {
-      "name": "jnw2texminted",
-      "command": "julia",
-      "args": [
-        "-e",
-        "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
-      ],
-      "env": {}
-    },
-    {
-      "name": "pnw2tex",
-      "command": "pweave",
-      "args": ["-f", "tex", "%DOC_EXT%"],
-      "env": {}
-    },
-    {
-      "name": "pnw2texminted",
-      "command": "pweave",
-      "args": ["-f", "texminted", "%DOC_EXT%"],
-      "env": {}
-    },
-    {
-      "name": "tectonic",
-      "command": "tectonic",
-      "args": ["--synctex", "--keep-logs", "%DOC%.tex"],
-      "env": {}
-    }
-  ],
-  "files.autoGuessEncoding": true,
-  "php.validate.executablePath": "/opt/homebrew/bin/php",
-  "php.validate.enable": true,
-  "intelephense.compatibility.preferPsalmPhpstanPrefixedAnnotations": true,
-  "php.suggest.basic": true,
-  "cmake.showOptionsMovedNotification": false,
-  "dart.openDevTools": "flutter",
-  "workbench.editorAssociations": {
-    "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
-  },
-  "vim.autoSwitchInputMethod.enable": true,
-  "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
-  "vim.autoSwitchInputMethod.obtainIMCmd": "/opt/homebrew/bin/im-select",
-  "vim.autoSwitchInputMethod.switchIMCmd": "/opt/homebrew/bin/im-select {im}",
-  "markdown-preview-enhanced.enablePreviewZenMode": true
+    "diffEditor.wordWrap": "on",
+    "editor.wordWrapColumn": 300,
+    "vim.textwidth": 300,
+    "html.format.wrapLineLength": 300,
+    "dart.lineLength": 300,
+    "dart.showDebuggerNumbersAsHex": true,
+    "dart.flutterSdkPath": "/Users/stephen/.asdf/installs/flutter/3.24.5-stable",
 }

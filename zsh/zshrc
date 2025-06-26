@@ -113,3 +113,4 @@ source $ZSH/oh-my-zsh.sh
 source ${HOME}/.bash_profile
 
 source <(fzf --zsh)
+export PATH="$PATH":"$HOME/.pub-cache/bin"

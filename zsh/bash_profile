@@ -1,12 +1,33 @@
 export TERM=screen-256color
 
+export PATH="/opt/homebrew/opt/bison/bin:$PATH"
+export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
+
+export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
+
+export CFLAGS="-I/opt/homebrew/opt/pcre2/include"
+export LDFLAGS="-L/opt/homebrew/opt/pcre2/lib"
+
+export PATH="/opt/homebrew/opt/jpeg/bin:$PATH"
+
+export PKG_CONFIG_PATH="/opt/homebrew/Cellar/openssl@3/3.5.0/lib/pkgconfig:$PATH"
+export PATH="$HOME/.asdf/installs/python/3.13.0/bin:$PATH"
+
+export LDFLAGS="-L/opt/homebrew/opt/jpeg/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/jpeg/include"
+
+export PKG_CONFIG_PATH="/opt/homebrew/opt/jpeg/lib/pkgconfig"
+
 eval "$(fzf --bash)"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
+export PATH=$PATH:$(npm config get prefix)/bin
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 # set -x
-# . $(brew --prefix asdf)/libexec/asdf.sh
+. $(brew --prefix asdf)/libexec/asdf.sh
 
 # 获取到SteTerminalConfig 绝对路径
 FILE_REAL_PATH=$(cd $(dirname $(readlink -f $0))/..; pwd)
@@ -16,15 +37,24 @@ source $FILE_REAL_PATH/zsh/bash_env
 source $FILE_REAL_PATH/java/java_env
 export PATH=$FILE_REAL_PATH/bin:$PATH:
 
-export JAVA_HOME="$(asdf where java)"
 #flutter HOME
 export FLUTTER_HOME="$(asdf where flutter)"
 export PATH=~/depot_tools:$PATH
 export PATH=/Library/TeX/texbin:$PATH
+
+#java home
+export JAVA_HOME="$(asdf where java)"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 # export https_proxy=http://127.0.0.1:7890
 # export http_proxy=http://127.0.0.1:7890
 # export all_proxy=socks5://127.0.0.1:7890
 
 
-source ${HOME}/ste_java_env
+export PATH="/opt/homebrew/opt/php@7.3/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@7.3/sbin:$PATH"
+
+
+#export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+#export PATH="$JAVA_HOME/bin:$PATH"
+export PATH="$PATH":"$HOME/.pub-cache/bin"

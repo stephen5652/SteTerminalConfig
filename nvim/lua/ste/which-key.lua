@@ -67,7 +67,7 @@ local setup = {
   show_help = true, -- show a help message in the command line for using WhichKey
   show_keys = true, -- show the currently pressed key and its label as a message in the command line
   -- triggers = "auto", -- automatically setup triggers
-  triggers = {"<leader>"} -- or specifiy a list manually
+  triggers = { "<leader>" }, -- or specifiy a list manually
   -- list of triggers, where WhichKey should not wait for timeoutlen and show immediately
   -- triggers_nowait = {
   --   -- marks
@@ -812,6 +812,27 @@ which_key.add({
     },
     mode = { "n", "v" }, -- NORMAL and VISUAL mode
   },
+})
+
+which_key.register({
+  c = {
+    f = {
+      function()
+        local start_pos = vim.api.nvim_buf_get_mark(0, "<")
+        local end_pos = vim.api.nvim_buf_get_mark(0, ">")
+        vim.lsp.buf.format({
+          range = {
+            ["start"] = { start_pos[1], start_pos[2] },
+            ["end"] = { end_pos[1], end_pos[2] },
+          },
+        })
+      end,
+      "Format selection",
+    },
+  },
+}, {
+  mode = "v",
+  prefix = "<leader>",
 })
 
 which_key.setup(setup)
